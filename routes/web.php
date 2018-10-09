@@ -28,7 +28,7 @@ Route::get('/tag/{slug}', 'Web\PageController@tag')->name('tag');
 #Specialty
 Route::get('/specialties', 'Web\PageController@specialties')->name('specialties');
 Route::get('/specialty/{slug}', 'Web\PageController@specialty')->name('specialty');
-// Route::get('/specialtyArea/{slug}', 'Web\PageController@specialtyArea')->name('specialtyArea');
+Route::get('/specialty-area/{slug}', 'Web\PageController@specialtyArea')->name('specialty-area');
 
 Route::resource('tags', 		'Admin\TagController');
 Route::resource('categories', 	'Admin\CategoryController');

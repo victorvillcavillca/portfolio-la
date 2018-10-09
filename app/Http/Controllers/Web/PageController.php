@@ -50,8 +50,32 @@ class PageController extends Controller
     public function specialties(){
     	$specialties = Specialty::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(9);
 
-    	return view('web.specialties', compact('specialties'));
+        $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
+
+        // return $specialty_areas;
+        // var_dump($specialty_areas); die();
+
+    	return view('web.specialties', compact('specialties','specialty_areas'));
     }
+
+    public function specialtyArea($slug){
+        $specialtyArea = SpecialtyArea::where('slug', $slug)->pluck('id')->first();
+
+        $specialties = Specialty::where('specialty_area_id', $specialtyArea)->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(9);
+
+        $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
+
+        return view('web.specialties', compact('specialties','specialty_areas'));
+    }
+
+    // public function category($slug){
+    //     $category = Category::where('slug', $slug)->pluck('id')->first();
+
+    //     $posts = Post::where('category_id', $category)
+    //         ->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(3);
+
+    //     return view('web.posts', compact('posts'));
+    // }
 
     /**
      * Display the specified specialty.

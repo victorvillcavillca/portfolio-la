@@ -30,6 +30,16 @@ Route::get('/specialties', 'Web\PageController@specialties')->name('specialties'
 Route::get('/specialty/{slug}', 'Web\PageController@specialty')->name('specialty');
 Route::get('/specialty-area/{slug}', 'Web\PageController@specialtyArea')->name('specialty-area');
 
-Route::resource('tags', 		'Admin\TagController');
-Route::resource('categories', 	'Admin\CategoryController');
-Route::resource('posts', 		'Admin\PostController');
+
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    # Home
+    // Route::get('/', 'Admin\HomeController@index')->name('admin');
+    Route::view('/', 'admin.home');
+    Route::view('home', 'admin.home');
+
+    Route::resource('tags', 		'Admin\TagController');
+	Route::resource('categories', 	'Admin\CategoryController');
+	Route::resource('posts', 		'Admin\PostController');
+    // Route::resource('home', 'Admin\HomeController'); 
+});

@@ -17,6 +17,8 @@
     <!-- Your custom styles (optional) -->
     <!-- <link href="css/style.min.css" rel="stylesheet"> -->
     <link href="{{ asset('vendor/mdb/css/style.css') }}" rel="stylesheet">
+
+    @yield('styles')
 </head>
 
 <body class="grey lighten-3">
@@ -34,6 +36,23 @@
 
     </header>
     <!--Main Navigation-->
+
+
+     {{--    @if(count($errors))            
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="alert alert-success">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif --}}
 
     <!--Main layout-->
     <main class="pt-5 mx-lg-7">
@@ -55,6 +74,8 @@
     <script type="text/javascript" src="{{ asset('vendor/mdb/js/bootstrap.min.js') }}"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{ asset('vendor/mdb/js/mdb.min.js') }}"></script>
+    
+    @yield('scripts')
 
     <!-- Initializations -->
     <script type="text/javascript">
@@ -231,7 +252,6 @@
         // Initialize maps
         google.maps.event.addDomListener(window, 'load', regular_map);
     </script>
-
 </body>
 
 </html>

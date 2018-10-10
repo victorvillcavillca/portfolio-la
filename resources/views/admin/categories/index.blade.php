@@ -4,30 +4,12 @@
 {{-- <div class="container"> --}}
 <div class="container-fluid mt-5">
     
+    <!-- Alerts -->    
+    @include('admin.partials.alerts')
+    <!-- /.Alerts -->
+
     <!-- Heading -->
-    <div class="card mb-4 wow fadeIn">
-
-        <!--Card content-->
-        <div class="card-body d-sm-flex justify-content-between">
-
-            <h4 class="mb-2 mb-sm-0 pt-1">
-                <a href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">Dashboard</a>
-                <span>/</span>
-                <span>Categories</span>
-            </h4>
-
-            <form class="d-flex justify-content-center">
-                <!-- Default input -->
-                <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
-                <button class="btn btn-primary btn-sm my-0 p" type="submit">
-                    <i class="fa fa-search"></i>
-                </button>
-
-            </form>
-
-        </div>
-
-    </div>
+    @include('admin.categories.partials.heading')
     <!-- Heading -->
     
     <!--Grid row-->
@@ -45,7 +27,7 @@
                     {{-- <canvas id="myChart"></canvas> --}}
                     
                     <!-- Table  -->
-                    <table class="table table-hover">
+    {{--                 <table class="table table-hover">
                     <!-- Table head -->
                     <thead class="blue lighten-4">
                         <tr>
@@ -79,7 +61,7 @@
                         </tr>
                     </tbody>
                     <!-- Table body -->
-                    </table>
+                    </table> --}}
                     <!-- Table  -->
                     <a href="{{ route('categories.create') }}" class="pull-right btn btn-sm btn-primary">
                         Crear
@@ -103,12 +85,12 @@
                                 <td width="10px">
                                     <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning btn-sm">Editar</a>
                                 </td>
-                                <td width="15px">
-                                    {!! Form::open(['route' => ['categories.destroy', $category->id], 'method' => 'DELETE']) !!}
-                                        <button class="btn btn-danger btn-sm">
-                                            Eliminar
-                                        </button>                           
-                                    {!! Form::close() !!}
+                                <td width="10px">
+                                    {{-- <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-danger btn-sm">Eliminar</a>
+ --}}
+                                    {{ Form::open(['route' => ['categories.destroy', $category->id], 'method' => 'DELETE']) }}
+                                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                                    {{ Form::close() }}
                                 </td>
                             </tr>
                             @endforeach
@@ -127,7 +109,7 @@
     </div>
     <!--Grid row-->
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -174,6 +156,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 @endsection

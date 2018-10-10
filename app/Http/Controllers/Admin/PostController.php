@@ -66,7 +66,7 @@ class PostController extends Controller
 
         //IMAGE 
         if($request->file('image')){
-            $path = Storage::disk('public')->put('image',  $request->file('image'));
+            $path = Storage::disk('public')->put('image/upload/posts',  $request->file('image'));
             $post->fill(['file' => asset($path)])->save();
         }
 
@@ -122,7 +122,7 @@ class PostController extends Controller
 
         //IMAGE 
         if($request->file('image')){
-            $path = Storage::disk('public')->put('image',  $request->file('image'));
+            $path = Storage::disk('public')->put('image/upload/posts',  $request->file('image'));
             $post->fill(['file' => asset($path)])->save();
         }
 
@@ -140,8 +140,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id)->delete();
+        $post = Post::find($id);
         $this->authorize('pass', $post);
+        $post->delete();
 
         return back()->with('info', 'Eliminado correctamente');
     }

@@ -1,23 +1,52 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Crear entrada
+
+<div class="container-fluid mt-5">
+    
+    <!-- Alerts -->    
+    @include('admin.partials.alerts')
+    <!-- /.Alerts -->
+
+    <!-- Heading -->
+    @include('admin.posts.partials.heading')
+    <!-- Heading -->
+
+    <!--Grid row-->
+    <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+            
+            <!--Card-->
+            <div class="card">
+               
+                <div class="card-header">
+                    Crear Entrada
                 </div>
 
-                <div class="panel-body">
+                <!-- errors -->
+                @if ($errors->any())
+                  @include('admin.partials.errors')
+                @endif
+                <!-- /.errors -->
+
+                <!--Card content-->
+                <div class="card-body">
                     {!! Form::open(['route' => 'posts.store', 'files' => true]) !!}
                         
                         @include('admin.posts.partials.form')
 
                     {!! Form::close() !!}
                 </div>
+
             </div>
+            <!--/.Card-->
+
         </div>
+        <!--Grid column-->
+
     </div>
 </div>
+
 @endsection

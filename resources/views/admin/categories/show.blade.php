@@ -1,13 +1,8 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container-fluid mt-5">
-    {{-- @if ($message = session('info'))
-        <div class="alert alert-success" role="alert">
-          {{ $message }}
-        </div>
-    @endif --}}
 
+<div class="container-fluid mt-5">
     <!-- Heading -->
     @include('admin.categories.partials.heading')
     <!-- Heading -->

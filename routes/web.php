@@ -31,6 +31,12 @@ Route::get('/specialty/{slug}', 'Web\PageController@specialty')->name('specialty
 Route::get('/specialty-area/{slug}', 'Web\PageController@specialtyArea')->name('specialty-area');
 
 
+Route::prefix('admin')->group(function () {
+    // Route::view('/', 'auth.admin-login');
+    Route::view('/login', 'auth.admin-login');
+    Route::post('login', 'Auth\AdminLoginController@login')->name('admin.login');
+    Route::get('logout','Auth\AdminLoginController@logout')->name('admin.logout');
+});
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     # Home

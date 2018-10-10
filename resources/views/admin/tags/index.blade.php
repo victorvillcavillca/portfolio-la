@@ -1,20 +1,33 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Lista de Etiquetas 
+<div class="container-fluid mt-5">
+    
+    <!-- Alerts -->    
+    @include('admin.partials.alerts')
+    <!-- /.Alerts -->
+
+    <!-- Heading -->
+    @include('admin.tags.partials.heading')
+    <!-- Heading -->
+    
+    <!--Grid row-->
+    <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+
+            <!--Card-->
+            <div class="card">
+
+                <!--Card content-->
+                <div class="card-body">
+                    
                     <a href="{{ route('tags.create') }}" class="pull-right btn btn-sm btn-primary">
                         Crear
                     </a>
-                </div>
-
-                <div class="panel-body">
-
-                    <table class="table table-striped table-hover">
+                    <!-- Table  -->
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th width="10px">ID</th>
@@ -43,12 +56,19 @@
                             </tr>
                             @endforeach
                         </tbody>   
-                    </table>     	
+                    </table>        
 
-                    {{ $tags->render() }}
+                    {{ $tags->links() }}
                 </div>
+
             </div>
+            <!--/.Card-->
+
         </div>
+        <!--Grid column-->
+
     </div>
+    <!--Grid row-->
+
 </div>
 @endsection

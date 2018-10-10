@@ -29,7 +29,7 @@
                         Crear
                     </a>
                     <!-- Table  -->
-                    <table class="table table-striped table-hover">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th width="10px">ID</th>
@@ -73,5 +73,4 @@
     <!--Grid row-->
 
 </div>
-
 @endsection

@@ -36,7 +36,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     # Home
     // Route::get('/', 'Admin\HomeController@index')->name('admin');
     Route::view('/', 'admin.home');
-    Route::view('home', 'admin.home');
+    Route::view('home', 'admin.home')->name('admin');
 
     Route::resource('tags', 		'Admin\TagController');
 	Route::resource('categories', 	'Admin\CategoryController');

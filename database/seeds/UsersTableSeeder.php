@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Caffeinated\Shinobi\Models\Role;
 
 class UsersTableSeeder extends Seeder
 {
@@ -17,6 +18,18 @@ class UsersTableSeeder extends Seeder
         	'name' => 'Victor Villca Villca',
         	'email'=> 'victor.villca.v@gmail.com',
         	'password' => bcrypt('123456')
+        ]);
+
+        App\User::create([
+            'name'      => 'Joel Villca',
+            'email'     => 'joel.villca@gmail.com',
+            'password'  => bcrypt('123456'),
+        ]);
+
+        Role::create([
+            'name'      => 'Admin',
+            'slug'      => 'slug',
+            'special'   => 'all-access'
         ]);
     }
 }

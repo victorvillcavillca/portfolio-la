@@ -18,6 +18,12 @@
             <i class="fa fa-money mr-3"></i>Categories</a>
         <a href="{{ route('tags.index') }}" class="list-group-item list-group-item-action waves-effect">
             <i class="fa fa-map mr-3"></i>Etiquetas</a>
+        <a href="{{ route('products.index') }}" class="list-group-item list-group-item-action waves-effect">
+            <i class="fa fa-map mr-3"></i>@lang('menu.products')</a>
+        <a href="{{ route('roles.index') }}" class="list-group-item list-group-item-action waves-effect">
+            <i class="fa fa-map mr-3"></i>@lang('menu.roles')</a>
+        <a href="{{ route('users.index') }}" class="list-group-item list-group-item-action waves-effect">
+            <i class="fa fa-map mr-3"></i>@lang('menu.users')</a>
     </div>
 
 </div>

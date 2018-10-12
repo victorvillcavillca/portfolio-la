@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
     // return redirect()->route('blog');
 });
+Route::view('gradient', 'gradient');
 
 Auth::routes();
 

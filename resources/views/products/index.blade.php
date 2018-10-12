@@ -1,22 +1,35 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Productos
-                    @can('products.create')
-                    <a href="{{ route('products.create') }}" 
-                    class="btn btn-sm btn-primary pull-right">
+<div class="container-fluid mt-5">
+    
+    <!-- Alerts -->    
+    @include('admin.partials.alerts')
+    <!-- /.Alerts -->
+
+    <!-- Heading -->
+    @include('admin.products.partials.heading')
+    <!-- Heading -->
+    
+    <!--Grid row-->
+    <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+
+            <!--Card-->
+            <div class="card">
+
+                <!--Card content-->
+                <div class="card-body">
+
+                    {{-- <canvas id="myChart"></canvas> --}}
+                    
+                    <a href="{{ route('products.create') }}" class="pull-right btn btn-sm btn-primary">
                         Crear
                     </a>
-                    @endcan
-                </div>
-
-                <div class="panel-body">
-                    <table class="table table-striped table-hover">
+                    <!-- Table  -->
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th width="10px">ID</th>
@@ -59,10 +72,18 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $products->render() }}
+                    {{ $products->links() }}
+
                 </div>
+
             </div>
+            <!--/.Card-->
+
         </div>
+        <!--Grid column-->
+
     </div>
+    <!--Grid row-->
+
 </div>
 @endsection

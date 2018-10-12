@@ -1,18 +1,34 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Usuario</div>
+<div class="container-fluid mt-5">
+    <!-- Heading -->
+    @include('admin.categories.partials.heading')
+    <!-- Heading -->
 
-                <div class="panel-body">                                        
+    <!--Grid row-->
+    <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+
+            <!--Card-->
+            <div class="card">
+                <div class="card-header">
+                    Ver Usuario
+                </div>
+                <!--Card content-->
+                <div class="card-body">
                     <p><strong>Nombre</strong>     {{ $user->name }}</p>
                     <p><strong>Email</strong>      {{ $user->email }}</p>
                 </div>
+
             </div>
+            <!--/.Card-->
+
         </div>
+        <!--Grid column-->
+
     </div>
 </div>
 @endsection

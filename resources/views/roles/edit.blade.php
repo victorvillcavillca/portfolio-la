@@ -1,13 +1,36 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Roles</div>
+<div class="container-fluid mt-5">
+    
+    <!-- Alerts -->    
+    @include('admin.partials.alerts')
+    <!-- /.Alerts -->
 
-                <div class="panel-body">                    
+    <!-- Heading -->
+    @include('admin.products.partials.heading')
+    <!-- Heading -->
+
+    <!--Grid row-->
+    <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+
+            <!--Card-->
+            <div class="card">
+                <div class="card-header">
+                    Editar Role
+                </div>
+
+                <!-- errors -->
+                @if ($errors->any())
+                  @include('admin.partials.errors')
+                @endif
+                <!-- /.errors -->
+                
+                <!--Card content-->
+                <div class="card-body">
                     {!! Form::model($role, ['route' => ['roles.update', $role->id],
                     'method' => 'PUT']) !!}
 
@@ -15,8 +38,13 @@
                         
                     {!! Form::close() !!}
                 </div>
+
             </div>
+            <!--/.Card-->
+
         </div>
+        <!--Grid column-->
+
     </div>
 </div>
 @endsection

@@ -1,28 +1,33 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Roles
-                    @can('roles.create')
-                    <a href="{{ route('roles.create') }}" 
-                    class="btn btn-sm btn-primary pull-right">
+<div class="container-fluid mt-5">
+    
+    <!-- Alerts -->    
+    @include('admin.partials.alerts')
+    <!-- /.Alerts -->
+
+    <!-- Heading -->
+    @include('admin.roles.partials.heading')
+    <!-- Heading -->
+    
+    <!--Grid row-->
+    <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+
+            <!--Card-->
+            <div class="card">
+
+                <!--Card content-->
+                <div class="card-body">
+                    
+                    <a href="{{ route('roles.create') }}" class="pull-right btn btn-sm btn-primary">
                         Crear
                     </a>
-                    @endcan
-                </div>
-
-                <div class="panel-body">
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                        <p>{{ $message }}</p>
-                        </div>
-                    @endif
-                    
-                    <table class="table table-striped table-hover">
+                    <!-- Table  -->
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th width="10px">ID</th>
@@ -65,10 +70,18 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $roles->render() }}
+                    {{ $roles->links() }}
+
                 </div>
+
             </div>
+            <!--/.Card-->
+
         </div>
+        <!--Grid column-->
+
     </div>
+    <!--Grid row-->
+
 </div>
 @endsection

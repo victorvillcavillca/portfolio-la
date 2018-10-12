@@ -1,15 +1,32 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Usuarios
-                </div>
+<div class="container-fluid mt-5">
+    
+    <!-- Alerts -->    
+    @include('admin.partials.alerts')
+    <!-- /.Alerts -->
 
-                <div class="panel-body">
+    <!-- Heading -->
+    @include('admin.users.partials.heading')
+    <!-- Heading -->
+    
+    <!--Grid row-->
+    <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+
+            <!--Card-->
+            <div class="card">
+
+                <!--Card content-->
+                <div class="card-body">
+                    
+                    {{-- <a href="{{ route('users.create') }}" class="pull-right btn btn-sm btn-primary">
+                        Crear
+                    </a> --}}
+                    <!-- Table  -->
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
@@ -53,10 +70,18 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $users->render() }}
+                    {{ $users->links() }}
+
                 </div>
+
             </div>
+            <!--/.Card-->
+
         </div>
+        <!--Grid column-->
+
     </div>
+    <!--Grid row-->
+
 </div>
 @endsection

@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate();
+        $products = Product::orderBy('id', 'DESC')->paginate();
 
         return view('products.index', compact('products'));
     }
@@ -40,7 +40,7 @@ class ProductController extends Controller
         $product = Product::create($request->all());
 
         return redirect()->route('products.edit', $product->id)
-            ->with('info', 'Rol guardado con éxito');
+            ->with('info', 'Producto guardado con éxito');
     }
 
     /**
@@ -78,10 +78,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::update($request->all());
+        $product = Product::find($id);
+        $product->update($request->all());
 
         return redirect()->route('products.edit', $product->id)
-            ->with('info', 'Rol guardado con éxito');
+            ->with('info', 'Producto actualizado con éxito');
     }
 
     /**

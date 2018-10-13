@@ -45,9 +45,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::view('/', 'admin.home');
     Route::view('home', 'admin.home')->name('admin');
 
-    Route::resource('tags', 		'Admin\TagController');
-	Route::resource('categories', 	'Admin\CategoryController');
-	Route::resource('posts', 		'Admin\PostController');
+    Route::resource('tags', 	   'Admin\TagController');
+	Route::resource('categories',  'Admin\CategoryController');
+    Route::resource('posts',       'Admin\PostController');
+
+    Route::get('specialty-areas/data', 'Admin\SpecialtyAreaController@data');
+	Route::resource('specialty-areas', 'Admin\SpecialtyAreaController');
     // Route::resource('home', 'Admin\HomeController'); 
     
     //Roles

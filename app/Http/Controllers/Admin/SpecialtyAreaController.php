@@ -51,7 +51,7 @@ class SpecialtyAreaController extends Controller
      */
     public function show(SpecialtyArea $specialty_area)
     {
-        return view('admin,specialty-areas.show', compact('specialty_area'));
+        return view('admin.specialty-areas.show', compact('specialty_area'));
     }
 
     /**

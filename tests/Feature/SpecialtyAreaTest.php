@@ -24,7 +24,7 @@ class SpecialtyAreaTest extends TestCase
     {
         $this->get('/admin/specialty-areas')
             ->assertStatus(200);
-            // ->assertSee('Lista de Area de Especialidades');
+            // ->assertSee('Área de Especialidades');
     }
 
     /** @test */

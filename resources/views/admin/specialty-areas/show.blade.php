@@ -20,9 +20,9 @@
                 </div>
                 <!--Card content-->
                 <div class="card-body">
-                    <p><strong>Nombre</strong> {{ $category->name }}</p>
-                    <p><strong>Slug</strong> {{ $category->slug }}</p>
-                    <p><strong>Descripción</strong> {{ $category->body }}</p>
+                    <p><strong>Nombre</strong> {{ $specialty_area->name }}</p>
+                    <p><strong>Slug</strong> {{ $specialty_area->slug }}</p>
+                    <p><strong>Descripción</strong> {{ $specialty_area->description }}</p>
                 </div>
 
             </div>

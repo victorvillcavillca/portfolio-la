@@ -31,6 +31,9 @@
                     <a href="{{ route('specialty-areas.index') }}" class="nav-link waves-effect"><i class="fa fa-map mr-3"></i>@lang('menu.specialty_areas')<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('specialties.index') }}" class="nav-link waves-effect"><i class="fa fa-map mr-3"></i>@lang('menu.specialties')<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link waves-effect" href="https://mdbootstrap.com/material-design-for-bootstrap/"
                         target="_blank">About MDB</a>
                 </li>

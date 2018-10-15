@@ -20,7 +20,7 @@
                         <img src="{{ $specialty->file }}" class="img-fluid" alt="{{ $specialty->name }}">
                     @endif
                     
-                    {{ $specialty->description }}
+                    {{ $specialty->description }} 
                     <hr>
                     {!! $specialty->body !!}
                     <hr>

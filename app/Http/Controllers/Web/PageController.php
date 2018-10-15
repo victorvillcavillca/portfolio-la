@@ -48,7 +48,7 @@ class PageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function specialties(){
-    	$specialties = Specialty::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(9);
+    	$specialties = Specialty::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(8);
 
         $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
 

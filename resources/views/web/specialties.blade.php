@@ -34,7 +34,7 @@
             <h1>Lista de Especialidades</h1>
             <div class="row">
                 @foreach($specialties as $specialty)
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="card">
                           @if($specialty->file)
                           <img src="{{ $specialty->file }}" class="card-img-top img-fluid" alt="{{ $specialty->name }}">
@@ -42,7 +42,10 @@
                           <div class="card-body">
                             <h5 class="card-title">{{ $specialty->name }}</h5>
                             <p class="card-text">{{ $specialty->description }}</p>
-                            <a href="{{ asset('doc/default.pdf') }}" class="btn btn-primary" target="_blank"><i class="fa fa-download"></i> Descargar</a>
+
+                            {{-- <a href="{{ URL::to('admin/excel/bathincomes?start_date='.$start_date.'&end_date='.$end_date.'') }}" class="btn btn-primary"><i class='fa fa-download'></i> {!! trans('site/menu.download') !!}</a> --}}
+
+                            <a href="{{ $specialty->filename }}" class="btn btn-primary" target="_blank"><i class="fa fa-download"></i> Descargar</a>
                           </div>
                         </div>
                     </div>
@@ -58,7 +61,7 @@
                     @if($specialty->file)
                         <img src="{{ $specialty->file }}" class="img-fluid" alt="Responsive image">
                     @endif
-                    
+
                     {{ $specialty->description }}
                     <a href="{{ route('specialty', $specialty->slug) }}" class="card-link">Leer más</a>
                 </div>

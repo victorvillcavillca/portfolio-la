@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.blog')
 
 @section('content')
 <div class="container">
@@ -9,7 +9,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    Catergoría 
+                    Catergoría
                     {{-- <a href="{{ route('specialtyArea', $specialty->specialtyArea->slug) }}">
                         {{ $specialty->specialtyArea->name }}
                     </a> --}}
@@ -19,8 +19,8 @@
                     @if($specialty->file)
                         <img src="{{ $specialty->file }}" class="img-fluid" alt="{{ $specialty->name }}">
                     @endif
-                    
-                    {{ $specialty->description }} 
+
+                    {{ $specialty->description }}
                     <hr>
                     {!! $specialty->body !!}
                     <hr>

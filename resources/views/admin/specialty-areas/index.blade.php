@@ -1,25 +1,12 @@
 @extends('layouts.dashboard')
+
 @section('styles')
-
-
   <!-- DataTables -->
-  {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"> --}}
-  {{-- <link rel="stylesheet" href="{{ asset('vendor/toastr.min.css') }}"> --}}
-  {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"> --}}
-  {{-- <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"> --}}
-    {{-- <link rel="stylesheet" href="{{ asset('vendor/mdb/css/addons/datatables.min.css') }}"> --}}
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css"> --}}
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
-
-
-
-
-
-
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 @endsection
+
 @section('content')
 <div class="container-fluid mt-5">
 
@@ -51,11 +38,6 @@
                 <!--Card content-->
                 <div class="card-body">
 
-                    {{-- <canvas id="myChart"></canvas> --}}
-
-
-                    <!-- Table  -->
-                    {{-- <table id="myTable" class="table table-hover" style="width: 100%"> --}}
                     <div class="table-responsive">
                       <table id="myTable" class="table table-striped table-bordered table-sm dt-responsive" cellspacing="`0" width="100%">
                           <thead>
@@ -112,14 +94,6 @@
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
   <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" ></script>
   <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js" ></script>
-
-{{--   https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js
-https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js
-https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js
-https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js --}}
-
-
-
 
   <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>

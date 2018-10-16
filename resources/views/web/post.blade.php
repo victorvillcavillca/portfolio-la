@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.blog')
 
 @section('content')
 <div class="container">
@@ -9,7 +9,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    Catergoría 
+                    Catergoría
                     <a href="{{ route('category', $post->category->slug) }}">
                         {{ $post->category->name }}
                     </a>
@@ -19,7 +19,7 @@
                     @if($post->file)
                         <img src="{{ $post->file }}" class="img-fluid" alt="{{ $post->name }}">
                     @endif
-                    
+
                     {{ $post->excerpt }}
                     <hr>
                     {!! $post->body !!}

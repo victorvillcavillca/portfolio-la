@@ -18,22 +18,22 @@
 
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link waves-effect" href="#">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ request()->is('admin/specialty-areas') || request()->is('admin/specialty-areas/*')? 'active' : ''  }}">
                     {{-- <a class="nav-link waves-effect" href="#">Home
                         <span class="sr-only">(current)</span>
                     </a> --}}
 
                     <a href="{{ route('specialty-areas.index') }}" class="nav-link waves-effect"><i class="fa fa-map mr-3"></i>@lang('menu.specialty_areas')<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ request()->is('admin/specialties') || request()->is('admin/specialties/*')? 'active' : ''  }}">
                     <a href="{{ route('specialties.index') }}" class="nav-link waves-effect"><i class="fa fa-map mr-3"></i>@lang('menu.specialties')<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link waves-effect" href="https://mdbootstrap.com/material-design-for-bootstrap/"
                         target="_blank">About MDB</a>
                 </li>
@@ -44,7 +44,7 @@
                 <li class="nav-item">
                     <a class="nav-link waves-effect" href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank">Free
                         tutorials</a>
-                </li>
+                </li> --}}
             </ul>
 
             <!-- Right -->

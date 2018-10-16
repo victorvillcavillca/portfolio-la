@@ -55,7 +55,9 @@
 
                     <!-- Table  -->
                     {{-- <table id="myTable" class="table table-hover" style="width: 100%"> --}}
-                    <table id="myTable" class="table table-hover dt-responsive" style="width: 100%;">
+                    <div class="table-responsive">
+                    {{-- <table id="myTable" class="table table-hover dt-responsive" style="width: 100%;"> --}}
+                    <table id="myTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                     {{-- <table id="myTable" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%"> --}}
                         <thead>
                         <tr>
@@ -67,7 +69,7 @@
                         </tr>
                         </thead>
                     </table>
-
+                    </div>
                 </div>
 
             </div>
@@ -81,7 +83,7 @@
 
 </div>
 
-<!--Modal: Login / Register Form Demo-->
+<!--Modal: Delete Confirmation-->
 <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -102,7 +104,7 @@
         </div>
     </div>
 </div>
-<!--Modal: Login / Register Form Demo-->
+<!--Modal: Delete Confirmation-->
 @endsection
 
 @section('scripts')
@@ -176,8 +178,8 @@
       });
 
       $( "#delete" ).click(function() {
-        let service_id = specialty_id;
-        var url = 'specialties/' + service_id;
+        // let service_id = specialty_id;
+        var url = 'specialties/' + specialty_id;
         axios.delete(url).then(response => { //eliminamos
           $('#modalDelete').modal('hide');
           table.ajax.reload();

@@ -13,38 +13,17 @@
             <div class="col-md-8 mb-4">
               <!--Section: Cards-->
               <section class="text-center">
-                  <h1>Especialidades del Club Conquistadores</h1>
+                  @if(isset($area_name))
+                  <h1>{{ $area_name }}</h1>
+                  @endif
+                  <h2>Especialidades del Club Conquistadores</h2>
                   <hr>
                   <!--Grid row-->
                   <div class="row mb-4 wow fadeIn">
                     @foreach($specialties as $specialty)
-                        <!--Grid column-->
-
-                        <div class="col-lg-4 col-md-12 mb-4">
-
-                            <!--Card-->
-                            <div class="card">
-
-                                <!--Card image-->
-                                <div class="text-center">
-                                  @if($specialty->file)
-                                    <img src="{{ $specialty->file }}" class="img-fluid" alt="{{ $specialty->name }}">
-                                  @endif
-                                </div>
-
-                                <!--Card content-->
-                                <div class="card-body">
-                                    <!--Title-->
-                                    <h4 class="card-title">{{ $specialty->name }}</h4>
-                                    <!--Text-->
-                                    <p class="card-text">{{ $specialty->description }}</p>
-                                    <a href="{{ $specialty->filename }}" class="btn btn-primary" target="_blank"><i class="fa fa-download"></i> Descargar</a>
-                                </div>
-
-                            </div>
-                            <!--/.Card-->
-                        </div>
-                        <!--Grid column-->
+                      <!--Grid column-->
+                      @include('web.partials.card-specialty', $specialty)
+                      <!--Grid column-->
                     @endforeach
 
                   </div>
@@ -73,7 +52,6 @@
                     <div id="card-body">
                       <div class="list-group">
                         @foreach($specialty_areas as $specialty_area)
-                        {{-- @php echo request()->is('admin/specialty-areas'); die(); @endphp --}}
                         <a href="{{ route('specialty-area', $specialty_area->slug) }}" class="list-group-item list-group-item-action {{ request()->slug == $specialty_area->slug ? 'active' : ''  }}">{{ $specialty_area->name }}</a>
                         @endforeach
                       </div>

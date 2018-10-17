@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
     // return redirect()->route('blog');
 });
+
 Route::view('gradient', 'gradient');
 
 Auth::routes();
@@ -31,6 +32,10 @@ Route::get('/specialties', 'Web\PageController@specialties')->name('specialties'
 Route::get('/specialty/{slug}', 'Web\PageController@specialty')->name('specialty');
 Route::get('/specialty-area/{slug}', 'Web\PageController@specialtyArea')->name('specialty-area');
 
+#Resource
+Route::get('/resources', 'Web\PageController@resources')->name('resources');
+Route::get('/resource/{slug}', 'Web\PageController@resource')->name('resource');
+Route::get('/resource-category/{slug}', 'Web\PageController@resourceCategory')->name('resource-category');
 
 Route::prefix('admin')->group(function () {
     // Route::view('/', 'auth.admin-login');
@@ -54,8 +59,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     Route::get('specialties/data', 'Admin\SpecialtyController@data');
     Route::resource('specialties', 'Admin\SpecialtyController');
-    // Route::resource('home', 'Admin\HomeController'); 
-    
+    // Route::resource('home', 'Admin\HomeController');
+
     //Roles
     Route::post('roles/store', 'RoleController@store')->name('roles.store')
         ->middleware('permission:roles.create');

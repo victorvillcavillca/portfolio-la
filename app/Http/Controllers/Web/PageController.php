@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Web;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Category;
-use App\Tag;
+use App\Http\Controllers\Controller;
 use App\Post;
+use App\Resource;
+use App\ResourceCategory;
 use App\Specialty;
 use App\SpecialtyArea;
+use App\Tag;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -63,12 +65,13 @@ class PageController extends Controller
      */
     public function specialtyArea($slug){
         $specialtyArea = SpecialtyArea::where('slug', $slug)->pluck('id')->first();
+        $area_name = SpecialtyArea::where('slug', $slug)->first()->name;
 
         $specialties = Specialty::where('specialty_area_id', $specialtyArea)->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(6);
 
         $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
 
-        return view('web.specialties2', compact('specialties','specialty_areas'));
+        return view('web.specialties2', compact('specialties','specialty_areas','area_name'));
     }
 
     /**
@@ -82,4 +85,46 @@ class PageController extends Controller
 
         return view('web.specialty', compact('specialty'));
     }
+
+    /**
+     * Display a listing of the resources paginated.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function resources(){
+        $resources = Resource::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(6);
+
+        $resource_categories = ResourceCategory::orderBy('id', 'DESC')->get();
+
+        return view('web.resources', compact('resources','resource_categories'));
+    }
+
+    /**
+     * Display the specified resources by Category.
+     *
+     * @param  String  $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function resourceCategory($slug){
+        $resourceCategory = ResourceCategory::where('slug', $slug)->pluck('id')->first();
+        $category_name = ResourceCategory::where('slug', $slug)->first()->name;
+
+        $resources = Resource::where('resource_category_id', $resourceCategory)->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(6);
+
+        $resource_categories = ResourceCategory::orderBy('id', 'DESC')->get();
+
+        return view('web.resources', compact('resources','resource_categories','category_name'));
+    }
+
+    /**
+     * Display the specified specialty.
+     *
+     * @param  String  $slug
+     * @return \Illuminate\Http\Response
+     */
+    // public function specialty($slug){
+    //     $specialty = Specialty::where('slug', $slug)->first();
+
+    //     return view('web.specialty', compact('specialty'));
+    // }
 }

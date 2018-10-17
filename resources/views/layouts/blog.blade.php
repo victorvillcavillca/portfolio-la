@@ -21,8 +21,7 @@
 
     @yield('styles')
 </head>
-
-<body>
+<body class="grey lighten-3">
     <div id="app">
         <!--Main Navigation-->
         <header>

@@ -17,11 +17,11 @@
 
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item {{ request()->is('admin/specialty-areas') || request()->is('admin/specialty-areas/*')? 'active' : ''  }}">
+                {{-- <li class="nav-item {{ request()->is('admin/specialty-areas') || request()->is('admin/specialty-areas/*')? 'active' : ''  }}">
                     <a class="nav-link waves-effect" href="{{ url('/') }}">Home
                         <span class="sr-only">(current)</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item {{ (request()->is('blog') || request()->is('blog/*')) || (request()->is('post') || request()->is('post/*'))? 'active' : ''  }}">
                     <a class="nav-link waves-effect" href="{{ route('blog') }}" target="_blank">Blog</a>
                 </li>

@@ -10,11 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'Web\PageController@blog')->name('blog');
 
-Route::get('/', function () {
-    return view('welcome');
-    // return redirect()->route('blog');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+//     // return redirect()->route('blog');
+// });
 
 Route::view('gradient', 'gradient');
 

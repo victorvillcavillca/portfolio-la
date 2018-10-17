@@ -13,7 +13,7 @@ use App\SpecialtyArea;
 class PageController extends Controller
 {
     public function blog(){
-    	$posts = Post::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(3);
+    	$posts = Post::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(6);
 
     	return view('web.posts', compact('posts'));
     }
@@ -27,7 +27,7 @@ class PageController extends Controller
         return view('web.posts', compact('posts'));
     }
 
-    public function tag($slug){ 
+    public function tag($slug){
         $posts = Post::whereHas('tags', function($query) use ($slug) {
             $query->where('slug', $slug);
         })
@@ -44,7 +44,7 @@ class PageController extends Controller
 
     /**
      * Display a listing of the specialties paginated.
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function specialties(){
@@ -55,7 +55,7 @@ class PageController extends Controller
         // return $specialty_areas;
         // var_dump($specialty_areas); die();
 
-    	return view('web.specialties', compact('specialties','specialty_areas'));
+    	return view('web.specialties2', compact('specialties','specialty_areas'));
     }
 
     public function specialtyArea($slug){
@@ -65,7 +65,7 @@ class PageController extends Controller
 
         $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
 
-        return view('web.specialties', compact('specialties','specialty_areas'));
+        return view('web.specialties2', compact('specialties','specialty_areas'));
     }
 
     // public function category($slug){

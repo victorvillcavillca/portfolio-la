@@ -18,19 +18,22 @@
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link waves-effect" href="#">Home
+                    <a class="nav-link waves-effect" href="{{ url('/') }}">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">About MDB</a>
+                    <a class="nav-link waves-effect" href="{{ route('blog') }}" target="_blank">BLOG</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{{ route('specialties') }}" target="_blank">Especialidades</a>
+                </li>
+               {{--  <li class="nav-item">
                     <a class="nav-link waves-effect" href="https://mdbootstrap.com/getting-started/" target="_blank">Free download</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link waves-effect" href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank">Free tutorials</a>
-                </li>
+                </li> --}}
             </ul>
 
             <!-- Right -->

@@ -13,6 +13,7 @@
                     <div class="col-md-8 mb-4">
 
                         <!--Featured Image-->
+                        {{-- <div class="card mb-4 wow fadeIn"> --}}
                         <div class="card mb-4 wow fadeIn">
 
                             {{-- <img src="http://mdbootstrap.com/img/Photos/Slides/img%20(144).jpg" class="img-fluid" alt=""> --}}
@@ -41,7 +42,7 @@
 
                                 {{-- <p class="h5 my-4">That's a very long heading </p> --}}
 
-                                {{ $post->body }}
+                                {!! $post->body !!}
 
                                 <hr>
 

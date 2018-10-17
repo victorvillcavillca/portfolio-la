@@ -10,12 +10,12 @@
         <div class="card-body text-white text-center py-5 px-5 my-5">
             {{-- <img class="d-block w-100" src="https://filadelfiaiasd.interamerica.org/uploaded_assets/163479-conquistadores.gif?thumbnail=original&1448399922" alt="First slide"> --}}
 
-            <img src="https://filadelfiaiasd.interamerica.org/uploaded_assets/163479-conquistadores.gif?thumbnail=original&1448399922" class="img-fluid" alt="Conquistadores" style="width: 150px;">
+            <img src="{{ asset('image/logos/triangulo-conquis-24.png')}}" class="img-fluid" alt="Conquistadores" style="width: 150px;">
             <h1 class="mb-4">
-                <strong>Blog de los Conquistadores</strong>
+                <strong>Conquis Blog</strong>
             </h1>
             <h4 class="mb-4">
-                <strong>El mejor Blog del Club de Conquistadores</strong>
+                <strong>El Blog para el Club de Conquistadores</strong>
             </h4>
             <p class="mb-4">
                 <strong>Este Blog es para los líderes, conquistadores y personas simpatizantes del Club de Conquistadores, donde encontraras Publicaciones, Noticias, Artículos, Materiales, Videos, Informaciones actualizadas sobre el Club de Conquistadores y el Ministerio Joven de la Iglesia Adventista del Séptimo Día.</strong>
@@ -61,13 +61,11 @@
                 <div class="card">
 
                     <!--Card image-->
-                    <div class="view overlay">
+{{--                     <div class="view overlay"> --}}
+                    <div class="text-center">
                         @if($post->file)
                         <img src="{{ $post->file }}" class="img-fluid" alt="{{ $post->name }}">
                         @endif
-                        {{-- <div class="embed-responsive embed-responsive-16by9 rounded-top">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cXTThxoywNQ" allowfullscreen></iframe>
-                        </div> --}}
                     </div>
 
                     <!--Card content-->

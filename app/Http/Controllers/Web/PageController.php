@@ -48,34 +48,28 @@ class PageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function specialties(){
-    	$specialties = Specialty::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(8);
+    	$specialties = Specialty::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(6);
 
         $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
-
-        // return $specialty_areas;
-        // var_dump($specialty_areas); die();
 
     	return view('web.specialties2', compact('specialties','specialty_areas'));
     }
 
+    /**
+     * Display the specified specialties by Area.
+     *
+     * @param  String  $slug
+     * @return \Illuminate\Http\Response
+     */
     public function specialtyArea($slug){
         $specialtyArea = SpecialtyArea::where('slug', $slug)->pluck('id')->first();
 
-        $specialties = Specialty::where('specialty_area_id', $specialtyArea)->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(9);
+        $specialties = Specialty::where('specialty_area_id', $specialtyArea)->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(6);
 
         $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
 
         return view('web.specialties2', compact('specialties','specialty_areas'));
     }
-
-    // public function category($slug){
-    //     $category = Category::where('slug', $slug)->pluck('id')->first();
-
-    //     $posts = Post::where('category_id', $category)
-    //         ->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(3);
-
-    //     return view('web.posts', compact('posts'));
-    // }
 
     /**
      * Display the specified specialty.

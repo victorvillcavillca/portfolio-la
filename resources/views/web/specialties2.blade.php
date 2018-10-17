@@ -13,7 +13,8 @@
             <div class="col-md-8 mb-4">
               <!--Section: Cards-->
               <section class="text-center">
-
+                  <h1>Especialidades del Club Conquistadores</h1>
+                  <hr>
                   <!--Grid row-->
                   <div class="row mb-4 wow fadeIn">
                     @foreach($specialties as $specialty)
@@ -25,9 +26,9 @@
                             <div class="card">
 
                                 <!--Card image-->
-                                <div class="view overlay">
+                                <div class="text-center">
                                   @if($specialty->file)
-                                    <img src="{{ $specialty->file }}" class="card-img-top img-fluid" alt="{{ $specialty->name }}">
+                                    <img src="{{ $specialty->file }}" class="img-fluid" alt="{{ $specialty->name }}">
                                   @endif
                                 </div>
 
@@ -42,11 +43,9 @@
 
                             </div>
                             <!--/.Card-->
-
                         </div>
                         <!--Grid column-->
                     @endforeach
-
 
                   </div>
                   <!--Grid row-->
@@ -69,29 +68,15 @@
                 <!--Card-->
                 <div class="card mb-4 wow fadeIn">
 
-                    <div class="card-header">Related articles</div>
-
+                    <div class="card-header">Especialidades por Áreas</div>
                     <!--Card content-->
-                    <div class="card-body">
-
-                        <ul class="list-unstyled">
-                          @foreach($specialty_areas as $specialty_area)
-                            <li class="media">
-                                {{-- <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder7.jpg" alt="Generic placeholder image"> --}}
-                                <div class="media-body">
-                                    <a href="{{ route('specialty-area', $specialty_area->slug) }}" class="list-group-item list-group-item-action font-weight-bold">
-                                        {{ $specialty_area->name }}
-                                    </a>
-
-                                   {{--  <a href="{{ route('specialty-area', $specialty_area->slug) }}" class="list-group-item list-group-item-action active">
-                                    {{ $specialty_area->name }}
-                              </a> --}}
-                                    {{-- {{ $specialty_area->description }} --}}
-                                </div>
-                            </li>
-                          @endforeach
-
-                        </ul>
+                    <div id="card-body">
+                      <div class="list-group">
+                        @foreach($specialty_areas as $specialty_area)
+                        {{-- @php echo request()->is('admin/specialty-areas'); die(); @endphp --}}
+                        <a href="{{ route('specialty-area', $specialty_area->slug) }}" class="list-group-item list-group-item-action {{ request()->slug == $specialty_area->slug ? 'active' : ''  }}">{{ $specialty_area->name }}</a>
+                        @endforeach
+                      </div>
 
                     </div>
 
@@ -108,6 +93,4 @@
     <!--Section: Post-->
 
 </div>
-
-
 @endsection

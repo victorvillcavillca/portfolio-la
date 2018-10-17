@@ -15,11 +15,12 @@ class SpecialtiesTableSeeder extends Seeder
         	'user_id' 		=> 1,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Código Semáforo',
+	        'description'   => 'Especialidad de Código Semáforo (AP046-CÓDIGO SEMÁFORO) perteneciente al Área de Actividades Profesionales.',
 	        'order' 		=> 1,
 	        'slug' 			=> str_slug('Código Semáforo'),
-	        'file'          => 'codigo-semaforo.jpg',
-	        'filename' 		=> 'AP-046-Codigo-Semaforo.pdf',
-	        'imagename' 	=> 'codigo-semaforo.png',
+	        'file'          => '/image/upload/specialties/codigo-semaforo.jpg',
+	        'filename' 		=> '/doc/upload/specialties/AP-046-Codigo-Semaforo.pdf',
+	        'imagename' 	=> '/image/upload/specialties/codigo-semaforo.jpg',
 	        'status'        => 'PUBLISHED'
         ]);
 
@@ -27,11 +28,12 @@ class SpecialtiesTableSeeder extends Seeder
         	'user_id' 		=> 1,
 	        'specialty_area_id' => 7,
 	        'name' 			=> 'Perros',
+	        'description' 	=> 'Especialidad de Perros (EN034–PERROS) perteneciente al Área de Estudio de la Naturaleza.',
 	        'order' 		=> 2,
 	        'slug' 			=> str_slug('Perros'),
-	        'file'          => 'perros.jpg',
-	        'filename' 		=> 'EN-034-perros.pdf',
-	        'imagename' 	=> 'perros.png',
+	        'file'          => '/image/upload/specialties/perros.jpg',
+	        'filename' 		=> '/doc/upload/specialties/EN-034-perros.pdf',
+	        'imagename' 	=> '/image/upload/specialties/perros.jpg',
 	        'status'        => 'PUBLISHED'
         ]);
 

@@ -22,7 +22,9 @@
     @yield('styles')
 </head>
 <body class="grey lighten-3">
+    {{-- min-height: 100vh --}}
     <div id="app">
+
         <!--Main Navigation-->
         <header>
 
@@ -34,7 +36,7 @@
         <!--Main Navigation-->
 
         <!--Main layout-->
-        <main class="mt-5 pt-5">
+        <main class="mt-5 pt-5" style="min-height: 80vh;">
             @yield('content')
         </main>
         <!--Main layout-->

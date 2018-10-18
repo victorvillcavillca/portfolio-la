@@ -1,77 +1,78 @@
 @extends('layouts.blog')
 
 @section('content')
-
 <div class="container">
+  <!--Breadcrumbs-->
+  @php $name = 'specialties' @endphp
+  @include('web.partials.breadcrumbs',array('name' =>  $name))
+  <!--./Breadcrumbs-->
 
-    <div class="row justify-content-center">
-        <div class="col-md-3">
-            <div class="list-group">
-              @foreach($specialty_areas as $specialty_area)
-                <a href="{{ route('specialty-area', $specialty_area->slug) }}" class="list-group-item list-group-item-action">
-                        {{ $specialty_area->name }}
-                    </a>
+    <!--Section: Post-->
+    <section class="mt-4">
 
-                   {{--  <a href="{{ route('studies.index') }}" class="nav-link {{ request()->is('admin/studies') || request()->is('admin/studies/*')? 'active' : ''  }}">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Estudios</p>
-                </a> --}}
+        <!--Grid row-->
+        <div class="row">
 
-                    {{--  --}}
-                {{-- <a href="#" class="list-group-item list-group-item-action">{{ $specialty_area->name }}</a> --}}
-              @endforeach
-              {{-- <a href="#" class="list-group-item list-group-item-action active">
-                Cras justo odio
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-              <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-              <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-              <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a> --}}
+            <!--Grid column-->
+            <div class="col-md-8 mb-4">
+              <!--Section: Cards-->
+              <section class="text-center">
+                  @if(isset($area_name))
+                  <h1>{{ $area_name }}</h1>
+                  @endif
+                  <h2>Especialidades del Club Conquistadores</h2>
+                  <hr>
+                  <!--Grid row-->
+                  <div class="row mb-4 wow fadeIn">
+                    @foreach($specialties as $specialty)
+                      <!--Grid column-->
+                      @include('web.partials.card-specialty', $specialty)
+                      <!--Grid column-->
+                    @endforeach
+
+                  </div>
+                  <!--Grid row-->
+
+                  <!--Pagination-->
+                  <nav class="d-flex justify-content-center wow fadeIn">
+                      {{ $specialties->links() }}
+                  </nav>
+                  <!--Pagination-->
+
+              </section>
+              <!--Section: Cards-->
+
             </div>
-        </div>
+            <!--Grid column-->
 
-        <div class="col-md-9">
-            <h1>Lista de Especialidades</h1>
-            <div class="row">
-                @foreach($specialties as $specialty)
-                    <div class="col-md-3">
-                        <div class="card">
-                          @if($specialty->file)
-                          <img src="{{ $specialty->file }}" class="card-img-top img-fluid" alt="{{ $specialty->name }}">
-                          @endif
-                          <div class="card-body">
-                            <h5 class="card-title">{{ $specialty->name }}</h5>
-                            <p class="card-text">{{ $specialty->description }}</p>
+            <!--Grid column-->
+            <div class="col-md-4 mb-4">
 
-                            {{-- <a href="{{ URL::to('admin/excel/bathincomes?start_date='.$start_date.'&end_date='.$end_date.'') }}" class="btn btn-primary"><i class='fa fa-download'></i> {!! trans('site/menu.download') !!}</a> --}}
+                <!--Card-->
+                <div class="card mb-4 wow fadeIn">
 
-                            <a href="{{ $specialty->filename }}" class="btn btn-primary" target="_blank"><i class="fa fa-download"></i> Descargar</a>
-                          </div>
-                        </div>
+                    <div class="card-header">Especialidades por Áreas</div>
+                    <!--Card content-->
+                    <div id="card-body">
+                      <div class="list-group">
+                        @foreach($specialty_areas as $specialty_area)
+                        <a href="{{ route('specialty-area', $specialty_area->slug) }}" class="list-group-item list-group-item-action {{ request()->slug == $specialty_area->slug ? 'active' : ''  }}">{{ $specialty_area->name }}</a>
+                        @endforeach
+                      </div>
+
                     </div>
-                @endforeach
-            {{ $specialties->links() }}
-            </div>
 
-        	{{-- @foreach($specialties as $specialty)
-            <div class="card">
-                <div class="card-header">{{ $specialty->name }}</div>
-
-                <div class="card-body">
-                    @if($specialty->file)
-                        <img src="{{ $specialty->file }}" class="img-fluid" alt="Responsive image">
-                    @endif
-
-                    {{ $specialty->description }}
-                    <a href="{{ route('specialty', $specialty->slug) }}" class="card-link">Leer más</a>
                 </div>
+                <!--/.Card-->
 
             </div>
-            <hr>
-            @endforeach
+            <!--Grid column-->
 
-            {{ $specialties->links() }} --}}
         </div>
-    </div>
+        <!--Grid row-->
+
+    </section>
+    <!--Section: Post-->
+
 </div>
 @endsection

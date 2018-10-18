@@ -1,5 +1,6 @@
-<footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
+<footer class="page-footer text-center font-small blue wow fadeIn">
 
+{{-- <footer class="page-footer font-small blue pt-4"> --}}
         <!--Call to action-->
         {{-- <div class="pt-4">
             <a class="btn btn-outline-white" href="https://mdbootstrap.com/getting-started/" target="_blank" role="button">Download MDB

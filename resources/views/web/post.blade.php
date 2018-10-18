@@ -2,6 +2,10 @@
 
 @section('content')
 <div class="container">
+    <!--Breadcrumbs-->
+    @php $name = 'post' @endphp
+    @include('web.partials.breadcrumbs',array('name' =>  $name))
+    <!--./Breadcrumbs-->
 
             <!--Section: Post-->
             <section class="mt-4">

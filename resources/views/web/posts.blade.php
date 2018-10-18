@@ -1,7 +1,11 @@
 @extends('layouts.blog')
 @section('content')
-<div class="container">
 
+<div class="container">
+    <!--Breadcrumbs-->
+    @php $name = 'blog' @endphp
+    @include('web.partials.breadcrumbs',array('name' =>  $name))
+    <!--./Breadcrumbs-->
 
     <!--Section: Jumbotron-->
     <section class="card wow fadeIn" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">

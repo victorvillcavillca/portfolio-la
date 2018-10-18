@@ -1,9 +1,10 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark blue scrolling-navbar">
+    {{-- navbar navbar-expand-lg navbar-dark default-color ie-nav --}}
     <div class="container">
 
         <!-- Brand -->
         <a class="navbar-brand waves-effect" href="{{ url('/') }}">
-            <strong class="blue-text">{{ config('app.name', 'Laravel') }}</strong>
+            <strong class="white-text">{{ config('app.name', 'Laravel') }}</strong>
         </a>
 
         <!-- Collapse -->
@@ -17,6 +18,7 @@
 
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
+
                 {{-- <li class="nav-item {{ request()->is('admin/specialty-areas') || request()->is('admin/specialty-areas/*')? 'active' : ''  }}">
                     <a class="nav-link waves-effect" href="{{ url('/') }}">Home
                         <span class="sr-only">(current)</span>
@@ -69,7 +71,7 @@
                     </li>
                     <li class="nav-item">
                         @if (Route::has('register'))
-                            <a class="nav-link waves-effect" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link border border-light rounded waves-effect" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
                     </li>
                 @else

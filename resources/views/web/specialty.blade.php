@@ -2,6 +2,10 @@
 
 @section('content')
 <div class="container">
+    <!--Breadcrumbs-->
+    @include('web.partials.breadcrumbs')
+    <!--./Breadcrumbs-->
+
     <div class="row justify-content-center">
         <div class="col-md-8">
 

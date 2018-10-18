@@ -54,7 +54,7 @@ class PageController extends Controller
 
         $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
 
-    	return view('web.specialties2', compact('specialties','specialty_areas'));
+    	return view('web.specialties', compact('specialties','specialty_areas'));
     }
 
     /**
@@ -71,7 +71,7 @@ class PageController extends Controller
 
         $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
 
-        return view('web.specialties2', compact('specialties','specialty_areas','area_name'));
+        return view('web.specialties', compact('specialties','specialty_areas','area_name'));
     }
 
     /**
@@ -115,16 +115,4 @@ class PageController extends Controller
 
         return view('web.resources', compact('resources','resource_categories','category_name'));
     }
-
-    /**
-     * Display the specified specialty.
-     *
-     * @param  String  $slug
-     * @return \Illuminate\Http\Response
-     */
-    // public function specialty($slug){
-    //     $specialty = Specialty::where('slug', $slug)->first();
-
-    //     return view('web.specialty', compact('specialty'));
-    // }
 }

@@ -2,7 +2,7 @@
     <div class="container">
 
         <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="{{ url('/') }}" target="_blank">
+        <a class="navbar-brand waves-effect" href="{{ url('/') }}">
             <strong class="blue-text">{{ config('app.name', 'Laravel') }}</strong>
         </a>
 
@@ -23,19 +23,19 @@
                     </a>
                 </li> --}}
                 <li class="nav-item {{ (request()->is('blog') || request()->is('blog/*')) || (request()->is('post') || request()->is('post/*'))? 'active' : ''  }}">
-                    <a class="nav-link waves-effect" href="{{ route('blog') }}" target="_blank">Blog</a>
+                    <a class="nav-link waves-effect" href="{{ route('blog') }}">Blog</a>
                 </li>
                 <li class="nav-item {{ request()->is('specialties') || request()->is('specialty-area/*')? 'active' : ''  }}">
-                    <a class="nav-link waves-effect" href="{{ route('specialties') }}" target="_blank">Especialidades</a>
+                    <a class="nav-link waves-effect" href="{{ route('specialties') }}">Especialidades</a>
                 </li>
                 <li class="nav-item {{ request()->is('resources') || request()->is('resource-category/*')? 'active' : ''  }}">
-                    <a class="nav-link waves-effect" href="{{ route('resources') }}" target="_blank">Recursos</a>
+                    <a class="nav-link waves-effect" href="{{ route('resources') }}">Recursos</a>
                 </li>
                {{--  <li class="nav-item">
-                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/getting-started/" target="_blank">Free download</a>
+                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/getting-started/">Free download</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank">Free tutorials</a>
+                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/bootstrap-tutorial/">Free tutorials</a>
                 </li> --}}
             </ul>
 

@@ -123,7 +123,7 @@
                         <!--Card-->
                         <div class="card mb-4 wow fadeIn">
 
-                            <div class="card-header">Artículos Relacionados</div>
+                            <div class="card-header light-blue lighten-1 white-text text-uppercase font-weight-bold text-center py-2">Artículos Relacionados</div>
 
                             <!--Card content-->
                             <div class="card-body">
@@ -140,7 +140,7 @@
                                     @else
                                     <li class="media my-4">
                                     @endif
-                                        <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder7.jpg" alt="Generic placeholder image">
+                                        {{-- <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder7.jpg" alt="Generic placeholder image"> --}}
                                         <div class="media-body">
                                             <a href="{{ route('tag', $tag->slug) }}">
                                                 <h5 class="mt-0 mb-1 font-weight-bold">{{ $tag->name }}</h5>

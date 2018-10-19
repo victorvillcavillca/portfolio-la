@@ -51,8 +51,9 @@
                 <!--Card-->
                 <div class="card mb-4 wow fadeIn">
 
-                    <div class="card-header">Especialidades por Áreas</div>
+                    <div class="card-header light-blue lighten-1 white-text text-uppercase font-weight-bold text-center py-2">Especialidades por Áreas</div>
                     <!--Card content-->
+
                     <div id="card-body">
                       <div class="list-group">
                         @foreach($specialty_areas as $specialty_area)

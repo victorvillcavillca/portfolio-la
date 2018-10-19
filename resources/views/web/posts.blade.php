@@ -79,7 +79,9 @@
                         <!--Text-->
                         <p class="card-text">{{ $post->excerpt }}</p>
                         <p class="card-text">
-                            <strong><a href="{{ route('post', $post->slug) }}" class="card-link">Leer más</a></strong>
+{{--                             <strong><a href="{{ route('post', $post->slug) }}" class="card-link">Leer más</a></strong> --}}
+                        <a href="{{ route('post', $post->slug) }}" target="_blank" class="btn btn-default btn-rounded btn-md waves-effect waves-light">Leer más<i class="fa fa-photo ml-2"></i></a>
+
                         </p>
                     </div>
 

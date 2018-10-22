@@ -12,7 +12,7 @@
         <!--Card content-->
         <div class="card-body">
             <!--Title-->
-            <h4 class="card-title">{{ $resource->name }}</h4>
+            <h5 class="card-title">{{ $resource->name }}</h5>
             <!--Text-->
             <p class="card-text">{{ $resource->description }}</p>
             <a href="{{ $resource->filename }}" class="btn btn-primary" target="_blank"><i class="fa fa-file"></i> Descargar</a>

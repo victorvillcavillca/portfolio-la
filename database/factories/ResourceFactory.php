@@ -3,12 +3,12 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\Resource::class, function (Faker $faker) {
-    
+
     $name = $faker->sentence(4);
 
     return [
 		'user_id' 		=> rand(1,30),
-        'resource_category_id' => rand(1,20),
+        'resource_category_id' => rand(1,10),
         'name' 			=> $name,
         'order' 		=> rand(1,20),
         'slug' 			=> str_slug($name),

@@ -27,6 +27,14 @@ class ResourceCategoriesTableSeeder extends Seeder
         	'user_id' => 1
         ]);
 
-		factory(App\ResourceCategory::class, 20)->create();
+        #3
+        App\ResourceCategory::create([
+            'name' => 'Especialidades de Conquistadores ',
+            'slug' => str_slug('Especialidades de Conquistadores '),
+            'description' => 'Preguntas, respuestas, materia e información adicional para reforzar las respuestas de las Especialidades.',
+            'user_id' => 1
+        ]);
+
+		factory(App\ResourceCategory::class, 5)->create();
     }
 }

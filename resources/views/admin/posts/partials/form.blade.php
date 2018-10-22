@@ -3,7 +3,7 @@
 <div class="form-group">
 	{{ Form::label('category_id', 'Categorías') }}
 	{{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
-</div> 
+</div>
 <div class="form-group">
     {{ Form::label('name', 'Nombre de la etiqueta') }}
     {{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
@@ -50,6 +50,8 @@
 @section('scripts')
 <script src="{{ asset('vendor/stringToSlug/jquery.stringToSlug.min.js') }}"></script>
 <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
+{{-- <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.8.3/tinymce.min.js"></script>
 <script>
 	$(document).ready(function(){
 	    $("#name, #slug").stringToSlug({
@@ -58,10 +60,31 @@
 	        }
 	    });
 
-	    CKEDITOR.config.height = 400;
+	    CKEDITOR.config.height = 100;
 		CKEDITOR.config.width  = 'auto';
 
-		CKEDITOR.replace('body');
+		CKEDITOR.replace('excerpt');
+
+	// tinymce.init({
+ //      selector: 'textarea#body',
+ //      height: 100,
+ //      menubar: false,
+ //      content_css: '//www.tinymce.com/css/codepen.min.css'
+ //    });
+
+    tinymce.init({
+      selector: 'textarea#body',
+      height: 400,
+      menubar: true,
+      plugins: [
+        'advlist autolink lists link image charmap print preview anchor',
+        'searchreplace visualblocks code fullscreen',
+        'insertdatetime media table contextmenu paste code'
+      ],
+      toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+      content_css: '//www.tinymce.com/css/codepen.min.css'
+    });
+
 	});
 </script>
 @endsection

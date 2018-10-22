@@ -43,6 +43,6 @@ class CategoriesTableSeeder extends Seeder
         	'body' => 'Publicaciones e informaciones relacionadas a la Categoría Club de Aventureros.'
         ]);
 
-		factory(Category::class, 20)->create();
+		factory(Category::class, 15)->create();
     }
 }

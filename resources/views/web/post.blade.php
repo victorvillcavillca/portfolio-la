@@ -33,12 +33,12 @@
 
                             <!--Card content-->
                             <div class="card-body">
-                                <h1>{{ $post->name }}</h1>
+                                <h2>{{ $post->name }}</h2>
                                 {{-- <p class="h5 my-4">{{ $post->name }}</p> --}}
 
 
                                 <blockquote class="blockquote">
-                                    <p class="mb-0">{{ $post->excerpt }}</p>
+                                    <p class="mb-0">{!! $post->excerpt !!}</p>
                                     {{-- <footer class="blockquote-footer">Someone famous in
                                         <cite title="Source Title">Source Title</cite>
                                     </footer> --}}

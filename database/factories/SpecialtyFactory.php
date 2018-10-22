@@ -8,7 +8,7 @@ $factory->define(App\Specialty::class, function (Faker $faker) {
 
     return [
 		'user_id' 		=> rand(1,30),
-        'specialty_area_id' => rand(1,20),
+        'specialty_area_id' => rand(1,10),
         'name' 			=> $name,
         'order' 		=> rand(1,20),
         'slug' 			=> str_slug($name),

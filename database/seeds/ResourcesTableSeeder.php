@@ -152,7 +152,7 @@ class ResourcesTableSeeder extends Seeder
             'user_id'       => 1,
             'resource_category_id' => 2,
             'name'          => 'C02 Solicitud de Cobertura de Seguro',
-            'order'         => 9,
+            'order'         => 10,
             'slug'          => str_slug('C02 Solicitud de Cobertura de Seguro'),
             'description'   => 'Este formulario debe llenarse al Inicio de Gestión de cada año o cuando el Club es nuevo, deben estar los datos de la Directiva, Consejeros y Conquistadores una vez llenado debe presentarse a su Misión para realizar la Solicitud de Cobertura de Seguro.',
             'body'          => '',
@@ -162,12 +162,43 @@ class ResourcesTableSeeder extends Seeder
             'status'        => 'PUBLISHED'
         ]);
 
-        factory(App\Resource::class, 300)->create()->each(function(App\Resource $resource) {
-        	$resource->tags()->attach([
-        		rand(1,5),
-        		rand(6,14),
-        		rand(15,20)
-        	]);
-        });
+        #-------------------- Specialties Pathfinders --------------------
+        #1
+        App\Resource::create([
+            'user_id'       => 1,
+            'resource_category_id' => 3,
+            'name'          => 'Números, letras y posiciones básicas, Especialidad de Código Semáforo',
+            'order'         => 11,
+            'slug'          => str_slug('Números, letras y posiciones básicas, Especialidad de Código Semáforo'),
+            'description'   => 'Posiciones de los brazos para realizar los números y letras del alfabetos, incluyendo posiciones básicas de Código Semáforo.',
+            'body'          => '',
+            'file'          => '/image/upload/resources/numeros-codigo-semaforo.png',
+            'filename'      => '/doc/upload/resources/AP-046-Codigo-Semaforo-numeros-letras.pdf',
+            'imagename'     => '/image/upload/resources/numeros-codigo-semaforo.png',
+            'status'        => 'PUBLISHED'
+        ]);
+
+        #2
+        App\Resource::create([
+            'user_id'       => 1,
+            'resource_category_id' => 3,
+            'name'          => 'Evaluación básica para conquistadores, Especialidad de Código Semáforo',
+            'order'         => 12,
+            'slug'          => str_slug('Evaluación básica para conquistadores, Especialidad de Código Semáforo'),
+            'description'   => 'Preguntas básicas para conquistadores. Esta evaluación es un modelo en su versión 1 para Instructores que estén dictando la especialidad.',
+            'body'          => '',
+            'file'          => '/image/upload/resources/evaluation-codigo-semaforo.png',
+            'filename'      => '/doc/upload/resources/AP-046-Codigo-Semaforo-preguntas-v1.pdf',
+            'imagename'     => '/image/upload/resources/evaluation-codigo-semaforo.png',
+            'status'        => 'PUBLISHED'
+        ]);
+
+        // factory(App\Resource::class, 100)->create()->each(function(App\Resource $resource) {
+        // 	$resource->tags()->attach([
+        // 		rand(1,2),
+        // 		rand(3,4),
+        // 		rand(4,5)
+        // 	]);
+        // });
     }
 }

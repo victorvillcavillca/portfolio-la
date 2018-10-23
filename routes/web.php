@@ -38,6 +38,8 @@ Route::get('/resources', 'Web\PageController@resources')->name('resources');
 Route::get('/resource/{slug}', 'Web\PageController@resource')->name('resource');
 Route::get('/resource-category/{slug}', 'Web\PageController@resourceCategory')->name('resource-category');
 
+Route::apiResource('thoughts', 'ThoughtController');
+
 Route::group(['middleware'=>['auth']], function (){
    Route::post('favorite/{post}/add','FavoriteController@add')->name('post.favorite');
    Route::post('comment/{post}','CommentController@store')->name('comment.store');
@@ -125,3 +127,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('products/{product}/edit', 'ProductController@edit')->name('products.edit')
         ->middleware('permission:products.edit');
 });
+
+// Route::name('admin')->prefix('admin')->middleware('auth')->group(base_path('routes/admin.php'));
+
+// ['prefix' => 'admin', 'middleware' => 'auth']

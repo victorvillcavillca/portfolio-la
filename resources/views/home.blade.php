@@ -14,10 +14,16 @@
                         </div>
                     @endif
 
-                    Has iniciado sesión!
+                    Has iniciado sesión! d
                 </div>
             </div>
+
+
         </div>
     </div>
+
+    <my-thoughts-component></my-thoughts-component>
+
+    {{-- <example-component></example-component> --}}
 </div>
 @endsection

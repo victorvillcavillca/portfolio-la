@@ -1,8 +1,10 @@
 <template>
-    <div class="card">
+    <!-- <div class="col-lg-4 col-md-12 mb-4"> -->
+    <div class="card mb-4">
         <!-- {{ since(idea.created_at) }} -->
-        <div class="card-header">Publicado en {{ since(thought.created_at) }} - Última actualización: {{ since(thought.updated_at) }}</div>
-        <!-- <div class="panel-heading">Publicado en {{ thought.created_at }} - Última actualización: {{ thought.updated_at }}</div> -->
+        <div class="card-header">Publicado {{ since(thought.created_at) }}</div>
+
+        <!-- <div class="card-header">Publicado en {{ since(thought.created_at) }} - Última actualización: {{ since(thought.updated_at) }}</div> -->
 
         <div class="card-body">
 
@@ -24,6 +26,7 @@
             </button>
         </div>
     </div>
+<!-- </div> -->
 </template>
 
 <script>

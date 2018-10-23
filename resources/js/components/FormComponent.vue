@@ -1,13 +1,13 @@
 <template>
     <div class="card">
-        <div class="card-header">¿Qué estás pensando, Victor Reynaldo?</div>
+        <div class="card-header">Bienvenido ya eres parte de Conquis Blog</div>
         <!-- <div class="panel-heading">¿En qué estás pensando ahora?</div> -->
 
         <div class="card-body">
             <form action="" v-on:submit.prevent="newThought()">
                 <div class="form-group">
                     <label for="thought">Ahora estoy pensando en:</label>
-                    <input type="text" class="form-control" name="thought" v-model="description">
+                    <input type="text" class="form-control" name="thought" v-model="description" placeholder="¿Qué estás pensando, Victor Reynaldo?">
                 </div>
                 <button type="submit" class="btn btn-primary btn-sm">Compartir</button>
             </form>

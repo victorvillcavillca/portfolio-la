@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +38,9 @@ Route::get('/resource/{slug}', 'Web\PageController@resource')->name('resource');
 Route::get('/resource-category/{slug}', 'Web\PageController@resourceCategory')->name('resource-category');
 
 Route::apiResource('thoughts', 'ThoughtController');
+
+#infinite scroll
+Route::get('posts', 'PostController@index');
 
 Route::group(['middleware'=>['auth']], function (){
    Route::post('favorite/{post}/add','FavoriteController@add')->name('post.favorite');

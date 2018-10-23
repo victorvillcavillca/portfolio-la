@@ -19,6 +19,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 Vue.component('my-thoughts-component', require('./components/MyThoughtsComponent.vue'));
 Vue.component('form-component', require('./components/FormComponent.vue'));
 Vue.component('thought-component', require('./components/ThoughtComponent.vue'));
+Vue.component('post-component', require('./components/PostComponent.vue'));
 
 const app = new Vue({
     el: '#app'

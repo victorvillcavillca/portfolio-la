@@ -10,6 +10,16 @@ class Post extends Model
         'user_id', 'category_id', 'name', 'slug', 'excerpt', 'body', 'status', 'file'
     ];
 
+    public function scopeApproved($query)
+    {
+        return $query->where('is_approved', 1);
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('status', 'PUBLISHED');
+    }
+
     /**
      * Returns category model
      * @return App\Category
@@ -36,4 +46,17 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    /**
+     * Returns the comments models
+     * @return \Illuminate\Support\Collection
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
+// public function comments()
+//     {
+//         return $this->hasMany('App\Comment');
+//     }

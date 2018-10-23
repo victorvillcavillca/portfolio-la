@@ -21,6 +21,7 @@
 
     <!-- Custom fonts for this template -->
     {{-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> --}}
+    @yield('styles')
 </head>
 <body>
     <div id="app">
@@ -79,5 +80,7 @@
             @yield('content')
         </main>
     </div>
+    @yield('scripts')
+    {!! Toastr::message() !!}
 </body>
 </html>

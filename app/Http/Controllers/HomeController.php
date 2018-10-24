@@ -25,4 +25,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    /**
+     * Show the view to list thughts all.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function read()
+    {
+        return view('read');
+    }
 }

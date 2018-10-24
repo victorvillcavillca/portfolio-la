@@ -19,9 +19,17 @@ class ThoughtController extends Controller
      */
     public function index(Request $request)
     {
-        // return Thought::orderBy('id', 'desc')->get();
-        // return Thought::where('user_id', auth()->id())->orderBy('id', 'desc')->get();
         return Thought::orderBy('id', 'desc')->paginate(40);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function read(Request $request)
+    {
+        return Thought::where('user_id', auth()->id())->orderBy('id', 'desc')->get();
     }
 
     /**

@@ -21,6 +21,7 @@ Route::view('gradient', 'gradient');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/read', 'HomeController@read')->name('read');
 
 Route::get('/blog', 'Web\PageController@blog')->name('blog');
 Route::get('/post/{slug}', 'Web\PageController@post')->name('post');

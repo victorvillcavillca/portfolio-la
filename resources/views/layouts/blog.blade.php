@@ -17,7 +17,7 @@
     <!-- Bootstrap core CSS -->
     {{-- <link href="{{ asset('vendor/mdb/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
     <!-- Material Design Bootstrap -->
-    <link href="{{ asset('vendor/mdb/css/mdb.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('vendor/mdb/css/mdb.min.css') }}" rel="stylesheet"> --}}
     <!-- Your custom styles (optional) -->
     <link href="{{ asset('vendor/blog/css/style.css') }}" rel="stylesheet">
     @yield('styles')

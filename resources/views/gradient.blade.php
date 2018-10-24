@@ -8,7 +8,7 @@
       <h5 class="mb-0">blue-gradient</h5>
     </div>
     <!-- Grid column -->
-    
+
 <!-- Grid row -->
 <div class="row">
 
@@ -334,7 +334,7 @@
 
 <!-- Grid row -->
 <div class="row">
-	
+
 	<div class="img-gradient">
   <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (122).jpg" class="img-fluid" alt="My photo">
 </div>

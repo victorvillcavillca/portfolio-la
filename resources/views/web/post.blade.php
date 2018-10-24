@@ -58,9 +58,89 @@
                                 <strong><a href="{{ route('category', $post->category->slug) }}" class="card-link">{{ $post->category->name }}</a></strong>
                             </div>
 
+
                         </div>
                         <!--/.Card-->
 
+                        <!--Card-->
+                        <div class="card mb-4 wow fadeIn">
+
+                            <div class="card-header font-weight-bold">
+                                <span>Acerca del Autor</span>
+                                <span class="pull-right">
+                                    <a href="">
+                                        <i class="fa fa-facebook mr-2"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="fa fa-twitter mr-2"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="fa fa-instagram mr-2"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="fa fa-linkedin mr-2"></i>
+                                    </a>
+                                </span>
+                            </div>
+
+                            <!--Card content-->
+                            <div class="card-body">
+
+                                <div class="media d-block d-md-flex mt-3">
+                                    {{-- <img class="d-flex mb-3 mx-auto z-depth-1" src="https://mdbootstrap.com/img/Photos/Avatars/img (30).jpg" alt="Generic placeholder image"
+                                        style="width: 100px;"> --}}
+                                    <img class="d-flex mb-3 mx-auto z-depth-1" src="{{ $post->user->photo }}" alt="Generic placeholder image"
+                                        style="width: 100px;">
+                                    <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                                        <h5 class="mt-0 font-weight-bold">{{ $post->user->name }}
+                                        </h5>
+                                        {{ $post->user->bio }}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!--/.Card-->
+
+                        <!--Comments-->
+                        <div class="card card-comments mb-3 wow fadeIn">
+                            <div class="card-header font-weight-bold">{{ $post->comments()->count() }} omentarios</div>
+                            <div class="card-body">
+
+                                @foreach($post->comments as $comment)
+                                <div class="media d-block d-md-flex mt-4">
+                                    <img class="d-flex mb-3 mx-auto " src="{{ $comment->user->photo }}" alt="Generic placeholder image">
+                                    <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                                        <h5 class="mt-0 font-weight-bold">{{ $comment->user->name }}
+                                            <a href="" class="pull-right">
+                                                <i class="fa fa-reply"></i>
+                                            </a>
+                                            <h6 class="date">{{ $comment->created_at->diffForHumans()}}</h6>
+                                        </h5>
+                                        {{ $comment->comment }}
+                                    </div>
+                                </div>
+                                @endforeach
+                                <!-- Quick Reply -->
+                                @guest
+                                    <p>Para publicar un nuevo comentario. Necesitas iniciar sesión primero.<a class="btn btn-default btn-sm" href="{{ route('login') }}">Login</a></p>
+                                @else
+                                    <form method="post" action="{{ route('comment.store',$post->id) }}">
+                                        @csrf
+                                        <div class="form-group mt-4">
+                                            <label for="quickReplyFormComment">Your comment</label>
+                                            <textarea name="comment" rows="2" class="form-control" id="quickReplyFormComment"></textarea>
+
+                                            <div class="text-center">
+                                                <button class="btn btn-info btn-sm" type="submit">Post</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                @endguest
+                            </div>
+                        </div>
+                        <!--/.Comments-->
                     </div>
                     <!--Grid column-->
 
@@ -119,79 +199,6 @@
             <!--Section: Post-->
 
         </div>
-
-        <section class="comment-section">
-        <div class="container">
-            <h4><b>POST COMMENT</b></h4>
-            <div class="row">
-
-                <div class="col-lg-8 col-md-12">
-                    <div class="comment-form">
-                        @guest
-                            <p>For post a new comment. You need to login first. <a href="{{ route('login') }}">Login</a></p>
-                        @else
-                            <form method="post" action="{{ route('comment.store',$post->id) }}">
-                                @csrf
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <textarea name="comment" rows="2" class="text-area-messge form-control"
-                                                  placeholder="Enter your comment" aria-required="true" aria-invalid="false"></textarea >
-                                    </div><!-- col-sm-12 -->
-                                    <div class="col-sm-12">
-                                        <button class="submit-btn" type="submit" id="form-submit"><b>POST COMMENT</b></button>
-                                    </div><!-- col-sm-12 -->
-
-                                </div><!-- row -->
-                            </form>
-                        @endguest
-                    </div><!-- comment-form -->
-
-                    <h4><b>COMMENTS({{ $post->comments()->count() }})</b></h4>
-                    @if($post->comments->count() > 0)
-                        @foreach($post->comments as $comment)
-                            <div class="commnets-area ">
-
-                                <div class="comment">
-
-                                    <div class="post-info">
-
-                                        <div class="left-area">
-                                            {{-- <a class="avatar" href="#"><img src="{{ Storage::disk('public')->url('profile/'.$comment->user->image) }}" alt="Profile Image"></a> --}}
-
-                                            <a class="avatar" href="#"><img src="{{ asset('image/aMgsf8SUyvCaDh81VN1fkk2VS3mysWSg5JACUAwr.png') }}" alt="Profile Image"></a>
-                                        </div>
-
-                                        <div class="middle-area">
-                                            <a class="name" href="#"><b>{{ $comment->user->name }}</b></a>
-                                            <h6 class="date">on {{ $comment->created_at->diffForHumans()}}</h6>
-                                        </div>
-
-                                    </div><!-- post-info -->
-
-                                    <p>{{ $comment->comment }}</p>
-
-                                </div>
-
-                            </div><!-- commnets-area -->
-                        @endforeach
-                    @else
-
-                    <div class="commnets-area ">
-
-                        <div class="comment">
-                            <p>No Comment yet. Be the first :)</p>
-                    </div>
-                    </div>
-
-                    @endif
-
-                </div><!-- col-lg-8 col-md-12 -->
-
-            </div><!-- row -->
-
-        </div><!-- container -->
-    </section>
-
 
 @endsection
 

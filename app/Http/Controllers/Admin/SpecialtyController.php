@@ -20,8 +20,8 @@ class SpecialtyController extends Controller
      */
     public function index()
     {
-        $specialties = Specialty::paginate();
-        return view('admin.specialties.index', compact('specialties'));
+        // $specialties = Specialty::paginate();
+        return view('admin.specialties.index');
     }
 
     /**

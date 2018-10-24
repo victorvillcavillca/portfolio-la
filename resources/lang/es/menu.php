@@ -19,5 +19,5 @@ return [
     'specialty_areas' => 'Área de Especialidades',
     'products' => 'Productos',
     'specialties' => 'Especialidades',
-
+    'evaluations' => 'Evaluaciones',
 ];

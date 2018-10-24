@@ -30,8 +30,13 @@
 
                     <a href="{{ route('specialty-areas.index') }}" class="nav-link waves-effect"><i class="fa fa-map mr-3"></i>@lang('menu.specialty_areas')<span class="sr-only">(current)</span></a>
                 </li>
+
                 <li class="nav-item {{ request()->is('admin/specialties') || request()->is('admin/specialties/*')? 'active' : ''  }}">
                     <a href="{{ route('specialties.index') }}" class="nav-link waves-effect"><i class="fa fa-map mr-3"></i>@lang('menu.specialties')<span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item {{ request()->is('admin/evaluations') || request()->is('admin/evaluations/*')? 'active' : ''  }}">
+                    <a href="{{ route('evaluations.index') }}" class="nav-link waves-effect"><i class="fa fa-map mr-3"></i>@lang('menu.evaluations')<span class="sr-only">(current)</span></a>
                 </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link waves-effect" href="https://mdbootstrap.com/material-design-for-bootstrap/"

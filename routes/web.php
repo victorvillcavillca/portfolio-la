@@ -70,6 +70,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     Route::get('specialties/data', 'Admin\SpecialtyController@data');
     Route::resource('specialties', 'Admin\SpecialtyController');
+
+    Route::get('evaluations/data', 'Admin\EvaluationController@data');
+    Route::resource('evaluations', 'Admin\EvaluationController');
     // Route::resource('home', 'Admin\HomeController');
 
     //Roles

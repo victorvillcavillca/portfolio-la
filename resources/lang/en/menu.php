@@ -18,5 +18,6 @@ return [
     'users' => 'Users',
     'specialty_areas' => 'Specialty Areas',
     'products' => 'Products',
-
+    'specialties' => 'Specialties',
+    'evaluations' => 'Evaluations',
 ];

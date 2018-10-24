@@ -37,6 +37,15 @@ class Specialty extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Returns the evaluations models
+     * @return \Illuminate\Support\Collection
+     */
+    public function evaluations()
+    {
+        return $this->hasMany(Evaluation::class);
+    }
+
     // /**
     //  * Returns the tags models
     //  * @return \Illuminate\Support\Collection

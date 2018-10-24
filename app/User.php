@@ -29,6 +29,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Returns the posts models
+     * @return \Illuminate\Support\Collection
+     */
     public function posts()
     {
         return $this->hasMany(Post::class);

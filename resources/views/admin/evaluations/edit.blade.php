@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="container-fluid mt-5">
-    
-    <!-- Alerts -->    
+
+    <!-- Alerts -->
     @include('admin.partials.alerts')
     <!-- /.Alerts -->
 
     <!-- Heading -->
-    @include('admin.specialty-areas.partials.heading')
+    @include('admin.evaluations.partials.heading')
     <!-- Heading -->
 
     <!--Grid row-->
@@ -28,12 +28,12 @@
                   @include('admin.partials.errors')
                 @endif
                 <!-- /.errors -->
-                
+
                 <!--Card content-->
                 <div class="card-body">
-                    {!! Form::model($specialty_area, ['route' => ['specialty-areas.update', $specialty_area->id], 'method' => 'PUT']) !!}
-                        
-                        @include('admin.specialty-areas.partials.form')
+                    {!! Form::model($evaluation, ['route' => ['evaluations.update', $evaluation->id], 'method' => 'PUT']) !!}
+
+                        @include('admin.evaluations.partials.form')
 
                     {!! Form::close() !!}
                 </div>

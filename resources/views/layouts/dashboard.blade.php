@@ -38,7 +38,7 @@
     <!--Main Navigation-->
 
 
-     {{--    @if(count($errors))            
+     {{--    @if(count($errors))
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
@@ -57,7 +57,7 @@
     <!--Main layout-->
     <main class="pt-5 mx-lg-7">
         @yield('content')
-        
+
     </main>
     <!--Main layout-->
 
@@ -74,13 +74,13 @@
     <script type="text/javascript" src="{{ asset('vendor/mdb/js/bootstrap.min.js') }}"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{ asset('vendor/mdb/js/mdb.min.js') }}"></script>
-    
+
     @yield('scripts')
 
     <!-- Initializations -->
     <script type="text/javascript">
         // Animations initialization
-        new WOW().init();
+        // new WOW().init();
     </script>
 
     <!-- Charts -->

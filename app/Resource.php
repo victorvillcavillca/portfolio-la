@@ -5,14 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Resource extends Model
-{        
+{
     protected $fillable = [
         'user_id', 'resource_category_id', 'name', 'slug', 'description', 'body', 'status', 'file'
     ];
-    
+
     /**
      * Returns the resource category model
-     * @return App\Patient
+     * @return App\ResourceCategory
      */
     public function resourceCategory()
     {
@@ -21,7 +21,7 @@ class Resource extends Model
 
     /**
      * Returns the user model
-     * @return App\Patient
+     * @return App\User
      */
     public function user()
     {

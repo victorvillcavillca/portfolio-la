@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EvaluationRequest extends FormRequest
+class EvaluationUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +25,9 @@ class EvaluationRequest extends FormRequest
     {
         return [
             'name'          => 'required',
-            'slug'          => 'required|unique:evaluations,slug',
+            'slug'          => 'required',
             'time'          => 'required',
-            'end_date'          => 'required',
+            'end_date'      => 'required',
             'user_id'       => 'required|integer',
             'evaluation_category_id' => 'required|integer',
             'status'        => 'required',

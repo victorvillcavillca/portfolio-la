@@ -45,13 +45,4 @@ class Specialty extends Model
     {
         return $this->hasMany(Evaluation::class);
     }
-
-    // /**
-    //  * Returns the tags models
-    //  * @return \Illuminate\Support\Collection
-    //  */
-    // public function tags()
-    // {
-    //     return $this->belongsToMany(Tag::class);
-    // }
 }

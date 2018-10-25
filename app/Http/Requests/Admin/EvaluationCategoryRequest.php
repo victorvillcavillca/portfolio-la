@@ -26,7 +26,6 @@ class EvaluationCategoryRequest extends FormRequest
         return [
             'name' => 'required',
             'slug' => 'required|unique:evaluation_categories,slug',
-            // 'user_id' => 'required|integer'
         ];
     }
 }

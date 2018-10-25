@@ -10,6 +10,10 @@ class Tag extends Model
         'name', 'slug'
     ];
 
+    /**
+     * Returns the posts models
+     * @return \Illuminate\Support\Collection
+     */
     public function posts()
     {
         return $this->belongsToMany(Post::class);

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Evaluation;
+use App\EvaluationCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EvaluationRequest;
-use App\Specialty;
+use App\Http\Requests\Admin\EvaluationUpdateRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EvaluationController extends Controller
 {
@@ -36,9 +38,9 @@ class EvaluationController extends Controller
      */
     public function create()
     {
-        $specialties = Specialty::orderBy('name', 'ASC')->pluck('name', 'id');
+        $evaluation_categories = EvaluationCategory::orderBy('name', 'ASC')->pluck('name', 'id');
 
-        return view('admin.evaluations.create', compact('specialties'));
+        return view('admin.evaluations.create', compact('evaluation_categories'));
     }
 
     /**
@@ -49,7 +51,8 @@ class EvaluationController extends Controller
      */
     public function store(EvaluationRequest $request)
     {
-        $evaluation = Evaluation::create($request->all());
+        $evaluation = new Evaluation($request->all());
+        $evaluation->user_id = Auth::id();
         $evaluation->save();
 
         return redirect()->route('evaluations.index')->with('info', 'Evaluación creada con éxito');
@@ -58,35 +61,40 @@ class EvaluationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  App\Evaluation  $evaluation
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Evaluation $evaluation)
     {
-        //
+        return view('admin.evaluations.show', compact('evaluation'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  App\Evaluation  $evaluation
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Evaluation $evaluation)
     {
-        //
+        $evaluation_categories = EvaluationCategory::orderBy('name', 'ASC')->pluck('name', 'id');
+
+        return view('admin.evaluations.edit', compact('evaluation_categories','evaluation'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Evaluation  $evaluation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EvaluationUpdateRequest $request, Evaluation $evaluation)
     {
-        //
+        $evaluation->update($request->all());
+
+        return redirect()->route('evaluations.index')
+                        ->with('info','Evaluación Update successfully.');
     }
 
     /**
@@ -97,7 +105,8 @@ class EvaluationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Evaluation::find($id)->delete();
+        return;
     }
 
     /**

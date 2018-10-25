@@ -12,20 +12,15 @@ class SpecialtyTest extends TestCase
     function it_loads_the_specialities_list_page()
     {
         $this->get('/specialties')
-            ->assertStatus(200)
-            ->assertSee('Lista de Especialidades');
+            ->assertStatus(200);
+            // ->assertSee('Lista de Especialidades');
             // ->assertSee('Consequatur aut omnis eius.');
 
     }
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    /** @test */
+    function it_specialties_list_page()
     {
-
         $response = $this->get('/specialties');
 
         $response->assertStatus(200);

@@ -14,7 +14,7 @@ class Evaluation extends Model
         'time',
         'end_date',
         'user_id',
-        'specialty_id'
+        'evaluation_category_id'
     ];
 
     /**

@@ -1,8 +1,8 @@
 {{ Form::hidden('user_id', auth()->user()->id) }}
 
 <div class="form-group">
-	{{ Form::label('specialty_id', 'Especialidades', ['class' => 'font-weight-bold']) }}
-	{{ Form::select('specialty_id', $specialties, null, ['class' => 'form-control']) }}
+	{{ Form::label('evaluation_category_id', 'Categoría', ['class' => 'font-weight-bold']) }}
+	{{ Form::select('evaluation_category_id', $evaluation_categories, null, ['class' => 'form-control']) }}
 </div>
 <div class="form-group">
     {{ Form::label('name', 'Nombre', ['class' => 'font-weight-bold']) }}
@@ -11,6 +11,14 @@
 <div class="form-group">
     {{ Form::label('slug', 'URL amigable', ['class' => 'font-weight-bold']) }}
     {{ Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug']) }}
+</div>
+<div class="form-group">
+    {{ Form::label('time', 'Tiempo', ['class' => 'font-weight-bold']) }}
+    {{ Form::number('time', null, ['class' => 'form-control', 'id' => 'time']) }}
+</div>
+<div class="form-group">
+    {{ Form::label('end_date', 'Tiempo', ['class' => 'font-weight-bold']) }}
+    {{ Form::date('end_date', null, ['class' => 'form-control', 'id' => 'end_date']) }}
 </div>
 <div class="form-group">
     {{ Form::label('description', 'Descripción', ['class' => 'font-weight-bold']) }}

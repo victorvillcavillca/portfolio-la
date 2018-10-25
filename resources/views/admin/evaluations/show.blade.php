@@ -4,7 +4,7 @@
 
 <div class="container-fluid mt-5">
     <!-- Heading -->
-    @include('admin.categories.partials.heading')
+    @include('admin.evaluations.partials.heading')
     <!-- Heading -->
 
     <!--Grid row-->
@@ -20,9 +20,9 @@
                 </div>
                 <!--Card content-->
                 <div class="card-body">
-                    <p><strong>Nombre</strong> {{ $specialty_area->name }}</p>
-                    <p><strong>Slug</strong> {{ $specialty_area->slug }}</p>
-                    <p><strong>Descripción</strong> {{ $specialty_area->description }}</p>
+                    <p><strong>Nombre</strong> {{ $evaluation->name }}</p>
+                    <p><strong>Slug</strong> {{ $evaluation->slug }}</p>
+                    <p><strong>Descripción</strong> {{ $evaluation->description }}</p>
                 </div>
 
             </div>

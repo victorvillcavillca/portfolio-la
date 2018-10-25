@@ -48,7 +48,6 @@ class EvaluationCategoryController extends Controller
      */
     public function store(EvaluationCategoryRequest $request)
     {
-        // $evaluationCategory = EvaluationCategory::create($request->all());
         $evaluationCategory = new EvaluationCategory($request->all());
         $evaluationCategory->user_id = Auth::id();
         $evaluationCategory->save();
@@ -65,7 +64,6 @@ class EvaluationCategoryController extends Controller
      */
     public function show(EvaluationCategory $evaluationCategory)
     {
-
         return view('admin.evaluation-categories.show', compact('evaluationCategory'));
     }
 
@@ -94,7 +92,6 @@ class EvaluationCategoryController extends Controller
 
         return redirect()->route('evaluation-categories.index')
                         ->with('info','Categoría de Evaluación Update successfully.');
-
     }
 
     /**

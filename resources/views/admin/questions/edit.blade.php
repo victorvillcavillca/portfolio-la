@@ -8,7 +8,7 @@
     <!-- /.Alerts -->
 
     <!-- Heading -->
-    @include('admin.evaluations.partials.heading')
+    @include('admin.questions.partials.heading')
     <!-- Heading -->
 
     <!--Grid row-->
@@ -20,7 +20,7 @@
             <!--Card-->
             <div class="card">
                 <div class="card-header">
-                    Editar Area Especialidad
+                    Editar Pregunta
                 </div>
 
                 <!-- errors -->
@@ -31,14 +31,14 @@
 
                 <!--Card content-->
                 <div class="card-body">
-                    {!! Form::model($evaluation, ['route' => ['evaluations.update', $evaluation->id], 'method' => 'PUT']) !!}
+                    {!! Form::model($question, ['route' => ['questions.update', $question->id], 'method' => 'PUT']) !!}
 
-                        @include('admin.evaluations.partials.form')
+                        @include('admin.questions.partials.form')
 
                     {!! Form::close() !!}
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('evaluations.create') }}" class="pull-right btn btn-sm btn-primary">
+                    <a href="{{ route('questions.create') }}" class="pull-right btn btn-sm btn-primary">
                         Crear
                     </a>
                 </div>

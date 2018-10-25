@@ -71,13 +71,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Eliminar Area de Especialiad</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Pregunta</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>¿Esta seguro de eliminar el Area Especialidad?</p>
+                <p>¿Esta seguro de eliminar la Pregunta?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -102,7 +102,7 @@
   <!-- page script -->
   <script>
   $(document).ready(function() {
-     let area_specialty_id = 0;
+     let question_id = 0;
      let table = $('#myTable').DataTable({
       "responsive": true,
       "order": [[ 0, "desc" ]],
@@ -156,12 +156,12 @@
       });
 
       $('#myTable tbody').on( 'click', 'a.delete_area_specialty', function (e) {
-        area_specialty_id = $(this).attr('data-id');
+        question_id = $(this).attr('data-id');
         $('#modalDelete').modal('show');
       });
 
       $( "#delete" ).click(function() {
-        var url = 'questions/' + area_specialty_id;
+        var url = 'questions/' + question_id;
         axios.delete(url).then(response => { //eliminamos
           $('#modalDelete').modal('hide');
           table.ajax.reload();

@@ -16,13 +16,16 @@
             <!--Card-->
             <div class="card">
                 <div class="card-header">
-                    Ver categoría
+                    Ver Pregunta
                 </div>
                 <!--Card content-->
                 <div class="card-body">
-                    <p><strong>Nombre</strong> {{ $evaluation->name }}</p>
-                    <p><strong>Slug</strong> {{ $evaluation->slug }}</p>
-                    <p><strong>Descripción</strong> {{ $evaluation->description }}</p>
+                    <p><strong>Pregunta</strong> {{ $question->question }}</p>
+                    <p><strong>Opción 1</strong> {{ $question->option_1 }}</p>
+                    <p><strong>Opción 2</strong> {{ $question->option_2 }}</p>
+                    <p><strong>Opción 3</strong> {{ $question->option_3 }}</p>
+                    <p><strong>Opción 4</strong> {{ $question->option_4 }}</p>
+                    <p><strong>Respuesta</strong> {{ $question->answer }}</p>
                 </div>
 
             </div>

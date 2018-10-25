@@ -1,8 +1,8 @@
 {{ Form::hidden('user_id', auth()->user()->id) }}
 
 <div class="form-group">
-	{{ Form::label('evaluation_category_id', 'Categoría', ['class' => 'font-weight-bold']) }}
-	{{ Form::select('evaluation_category_id', $evaluations, null, ['class' => 'form-control']) }}
+	{{ Form::label('evaluation_id', 'Categoría', ['class' => 'font-weight-bold']) }}
+	{{ Form::select('evaluation_id', $evaluations, null, ['class' => 'form-control']) }}
 </div>
 
 <div class="form-group">
@@ -33,6 +33,16 @@
 <div class="form-group">
     {{ Form::label('answer', 'Respuesta', ['class' => 'font-weight-bold']) }}
     {{ Form::text('answer', null, ['class' => 'form-control', 'id' => 'answer']) }}
+</div>
+
+<div class="form-group">
+	{{ Form::label('slug', 'Estado', ['class' => 'font-weight-bold']) }}
+	<label>
+		{{ Form::radio('status', 1) }} Publicado
+	</label>
+	<label>
+		{{ Form::radio('status', 0) }} Borrador
+	</label>
 </div>
 
 <div class="form-group">

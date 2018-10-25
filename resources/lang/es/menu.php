@@ -21,4 +21,5 @@ return [
     'specialties' => 'Especialidades',
     'evaluations' => 'Evaluaciones',
     'evaluation_categories' => 'Categoría de Evaluaciones',
+    'questions' => 'Preguntas',
 ];

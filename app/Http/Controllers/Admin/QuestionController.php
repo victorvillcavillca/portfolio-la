@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Evaluation;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\QuestionStoreRequest;
 use App\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
@@ -43,43 +45,51 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuestionStoreRequest $request)
     {
-        //
+        $question = new Question($request->all());
+        $question->user_id = Auth::id();
+        $question->save();
+
+        return redirect()->route('questions.index')->with('info', 'Pregunta creada con éxito');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Question $question)
     {
-        //
+        return view('admin.questions.show', compact('question'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Question $question)
     {
-        //
+        $evaluations = Evaluation::orderBy('name','ASC')->pluck('name','id');
+        return view('admin.questions.edit', compact('evaluations','question'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QuestionStoreRequest $request, Question $question)
     {
-        //
+        $question->update($request->all());
+
+        return redirect()->route('questions.index')
+                        ->with('info','Pregunta Update successfully.');
     }
 
     /**
@@ -90,11 +100,12 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Question::find($id)->delete();
+        return;
     }
 
     /**
-     * Show a list of all the Questions evaluations formatted for Datatables.
+     * Show a list of all the questions of one Evaluation formatted for Datatables.
      *
      * @return Datatables JSON
      */

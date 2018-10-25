@@ -33,8 +33,8 @@
 
         </div>
         <!--Grid column-->
-
     </div>
+
 </div>
 
 @endsection

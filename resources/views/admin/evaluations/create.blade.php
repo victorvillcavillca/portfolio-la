@@ -52,45 +52,41 @@
 @endsection
 
 @section('scripts')
-  <script src="{{ asset('vendor/validate/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('vendor/stringToSlug/jquery.stringToSlug.min.js') }}"></script>
+<script src="{{ asset('vendor/validate/jquery.validate.min.js') }}"></script>
+{{-- <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script> --}}
+<script>
+  $(document).ready(function(){
+      $("#name, #slug").stringToSlug({
+          callback: function(text){
+              $('#slug').val(text);
+          }
+      });
 
-  <script>
-  $(document).ready(function() {
-    // $.validator.addMethod("valueNotPatient", function(value, element, arg) {
-    //   return arg != value;
-    // }, 'Por favor, seleccione al Paciente');
-
-    // $.validator.addMethod("valueNotTurn", function(value, element, arg) {
-    //   return arg != value;
-    // }, 'Por favor, seleccione el Turno');
-
-    // $.validator.addMethod("valueNotService", function(value, element, arg) {
-    //   return arg != value;
-    // }, 'Por favor, seleccione el Servicio');
-
-    $("#formId" ).validate({
-      rules: {
-        name: {
-          required: true
-        },
-        slug: {
-          required: true
-        },
-        order: {
-          required: true
-        },
-        image: {
-          required: true
-        },
-        filename: {
-          required: true
-        },
-      }
-      // messages: {
-      //   number: 'Por favor, ingrese el número',
-      //   day_number: 'Por favor, ingrese el número del día',
-      // }
-    });
+      $("#formId" ).validate({
+        errorClass: 'text-danger',
+        rules: {
+          name: {
+            required: true
+          },
+          slug: {
+            required: true
+          },
+          order: {
+            required: true
+          },
+          // image: {
+          //   required: true
+          // },
+          // filename: {
+          //   required: true
+          // },
+        }
+        // messages: {
+        //   number: 'Por favor, ingrese el número',
+        //   day_number: 'Por favor, ingrese el número del día',
+        // }
+      });
   });
-  </script>
+</script>
 @endsection

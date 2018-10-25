@@ -108,7 +108,13 @@
       "order": [[ 0, "desc" ]],
         "processing": true,
         "serverSide": true,
-        "ajax": "questions/data",
+        // "ajax": "questions/data",
+        "ajax": {
+          "url": "questions/data",
+          "data": {
+            "evaluation_id": 1,
+          }
+        },
         "columns": [
           { "data": "id" },
           { "data": "question" },

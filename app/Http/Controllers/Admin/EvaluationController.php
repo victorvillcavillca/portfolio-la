@@ -115,7 +115,7 @@ class EvaluationController extends Controller
     }
 
     /**
-     * Show a list of all the Expenses evaluations formatted for Datatables.
+     * Show a list of all the evaluations formatted for Datatables.
      *
      * @return Datatables JSON
      */

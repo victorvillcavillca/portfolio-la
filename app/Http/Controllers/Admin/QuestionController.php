@@ -104,6 +104,22 @@ class QuestionController extends Controller
         return;
     }
 
+    // /**
+    //  * Show a list of all the questions formatted for Datatables.
+    //  *
+    //  * @return Datatables JSON
+    //  */
+    // public function data()
+    // {
+    //     $query = Question::select('id', 'question', 'answer', 'created_at');
+
+    //     return datatables()
+    //         ->eloquent($query)
+    //         ->addColumn('btn', 'admin.questions.partials.actions')
+    //         ->rawColumns(['btn'])
+    //         ->toJson();
+    // }
+
     /**
      * Show a list of all the questions of one Evaluation formatted for Datatables.
      *
@@ -111,7 +127,8 @@ class QuestionController extends Controller
      */
     public function data()
     {
-        $query = Question::select('id', 'question', 'answer', 'created_at');
+        $evaluation_id = $_GET['evaluation_id'];
+        $query = Question::select('id', 'question', 'answer', 'created_at')->where('evaluation_id', $evaluation_id);
 
         return datatables()
             ->eloquent($query)

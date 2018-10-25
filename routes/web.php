@@ -65,12 +65,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::resource('categories',  'Admin\CategoryController');
     Route::resource('posts',       'Admin\PostController');
 
+    #Specialty Areas
     Route::get('specialty-areas/data', 'Admin\SpecialtyAreaController@data');
 	Route::resource('specialty-areas', 'Admin\SpecialtyAreaController');
 
+    #Specialties
     Route::get('specialties/data', 'Admin\SpecialtyController@data');
     Route::resource('specialties', 'Admin\SpecialtyController');
 
+    #Evaluation Categories
+    Route::get('evaluation-categories/data', 'Admin\EvaluationCategoryController@data');
+    Route::resource('evaluation-categories', 'Admin\EvaluationCategoryController');
+
+    #Evaluations
     Route::get('evaluations/data', 'Admin\EvaluationController@data');
     Route::resource('evaluations', 'Admin\EvaluationController');
     // Route::resource('home', 'Admin\HomeController');

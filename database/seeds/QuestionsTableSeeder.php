@@ -1,9 +1,9 @@
 <?php
 
-use App\Evaluation;
+use App\Question;
 use Illuminate\Database\Seeder;
 
-class EvaluationsTableSeeder extends Seeder
+class QuestionsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class EvaluationsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Evaluation::class, 150)->create();
+        factory(Question::class, 100)->create();
     }
 }

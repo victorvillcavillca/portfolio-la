@@ -35,6 +35,10 @@
                     <a href="{{ route('specialties.index') }}" class="nav-link waves-effect"><i class="fa fa-map mr-3"></i>@lang('menu.specialties')<span class="sr-only">(current)</span></a>
                 </li>
 
+                <li class="nav-item {{ request()->is('admin/evaluation-categories') || request()->is('admin/evaluation-categories/*')? 'active' : ''  }}">
+                    <a href="{{ route('evaluation-categories.index') }}" class="nav-link waves-effect"><i class="fa fa-map mr-3"></i>@lang('menu.evaluation_categories')<span class="sr-only">(current)</span></a>
+                </li>
+
                 <li class="nav-item {{ request()->is('admin/evaluations') || request()->is('admin/evaluations/*')? 'active' : ''  }}">
                     <a href="{{ route('evaluations.index') }}" class="nav-link waves-effect"><i class="fa fa-map mr-3"></i>@lang('menu.evaluations')<span class="sr-only">(current)</span></a>
                 </li>

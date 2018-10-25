@@ -16,21 +16,23 @@ class CreateEvaluationsTable extends Migration
         Schema::create('evaluations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            // $table->string('slug', 256)->unique();
             $table->string('slug')->unique();
             $table->mediumText('description')->nullable();
+            $table->integer('time')->unsigned();
 
-            // $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('DRAFT');
             $table->boolean('status')->default(false);
+            $table->dateTime('end_date');
+            $table->tinyInteger('total_question')->default(10);
+            $table->tinyInteger('score')->default(0);
 
             $table->integer('user_id')->unsigned();
-            $table->integer('specialty_id')->unsigned();
+            $table->integer('evaluation_category_id')->unsigned();
             //relation
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('specialty_id')->references('id')->on('specialties')
+            $table->foreign('evaluation_category_id')->references('id')->on('evaluation_categories')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 

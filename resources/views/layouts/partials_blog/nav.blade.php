@@ -30,9 +30,9 @@
                 <li class="nav-item {{ (request()->is('home') || request()->is('home/*')) || (request()->is('post') || request()->is('post/*'))? 'active' : ''  }}">
                     <a class="nav-link waves-effect" href="{{ route('home') }}">Inicio</a>
                 </li>
-                <li class="nav-item {{ (request()->is('read') || request()->is('read/*')) || (request()->is('post') || request()->is('post/*'))? 'active' : ''  }}">
+                {{-- <li class="nav-item {{ (request()->is('read') || request()->is('read/*')) || (request()->is('post') || request()->is('post/*'))? 'active' : ''  }}">
                     <a class="nav-link waves-effect" href="{{ route('read') }}">{{ Auth::user()->name }}</a>
-                </li>
+                </li> --}}
                 <li class="nav-item {{ request()->is('specialties') || request()->is('specialty-area/*')? 'active' : ''  }}">
                     <a class="nav-link waves-effect" href="{{ route('specialties') }}">Especialidades</a>
                 </li>

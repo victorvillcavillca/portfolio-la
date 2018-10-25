@@ -20,4 +20,5 @@ return [
     'products' => 'Products',
     'specialties' => 'Specialties',
     'evaluations' => 'Evaluations',
+    'evaluation_categories' => 'Evaluation Categories',
 ];

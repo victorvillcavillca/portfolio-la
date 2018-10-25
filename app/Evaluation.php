@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evaluation extends Model
 {
-    protected $fillable = ['name','slug','description','status','user_id','specialty_id'];
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+        'status',
+        'time',
+        'end_date',
+        'user_id',
+        'specialty_id'
+    ];
 
     /**
      * Returns specialty model

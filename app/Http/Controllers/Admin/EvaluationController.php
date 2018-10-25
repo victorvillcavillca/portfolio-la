@@ -7,6 +7,7 @@ use App\EvaluationCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EvaluationRequest;
 use App\Http\Requests\Admin\EvaluationUpdateRequest;
+use App\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -79,7 +80,11 @@ class EvaluationController extends Controller
     {
         $evaluation_categories = EvaluationCategory::orderBy('name', 'ASC')->pluck('name', 'id');
 
-        return view('admin.evaluations.edit', compact('evaluation_categories','evaluation'));
+        $questions = Question::where('evaluation_id', $evaluation->id)
+            ->orderBy('id', 'DESC')->where('status', true)->paginate(3);
+            // var_dump($questions); die();
+
+        return view('admin.evaluations.edit', compact('evaluation_categories','evaluation','questions'));
     }
 
     /**

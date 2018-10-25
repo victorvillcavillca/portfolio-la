@@ -80,6 +80,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     #Evaluations
     Route::get('evaluations/data', 'Admin\EvaluationController@data');
     Route::resource('evaluations', 'Admin\EvaluationController');
+
+    #Questions
+    Route::get('questions/data', 'Admin\QuestionController@data');
+    Route::resource('questions', 'Admin\QuestionController');
     // Route::resource('home', 'Admin\HomeController');
 
     //Roles

@@ -1,16 +1,16 @@
-@extends('layouts.dashboard')
+@extends('layouts.tim-admin')
 
 @section('content')
 <div class="container-fluid mt-5">
-    
-    <!-- Alerts -->    
+
+    <!-- Alerts -->
     @include('admin.partials.alerts')
     <!-- /.Alerts -->
 
     <!-- Heading -->
     @include('admin.posts.partials.heading')
     <!-- Heading -->
-    
+
     <!--Grid row-->
     <div class="row wow fadeIn">
 
@@ -24,7 +24,7 @@
                 <div class="card-body">
 
                     {{-- <canvas id="myChart"></canvas> --}}
-                    
+
                     <a href="{{ route('posts.create') }}" class="pull-right btn btn-sm btn-primary">
                         Crear
                     </a>
@@ -52,13 +52,13 @@
                                     {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'DELETE']) !!}
                                         <button class="btn btn-sm btn-danger">
                                             Eliminar
-                                        </button>                           
+                                        </button>
                                     {!! Form::close() !!}
                                 </td>
                             </tr>
                             @endforeach
-                        </tbody>   
-                    </table>       
+                        </tbody>
+                    </table>
 
                     {{ $posts->links() }}
                 </div>

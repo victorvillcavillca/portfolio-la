@@ -1,16 +1,16 @@
-@extends('layouts.dashboard')
+@extends('layouts.tim-admin')
 
 @section('content')
 <div class="container-fluid mt-5">
-    
-    <!-- Alerts -->    
+
+    <!-- Alerts -->
     @include('admin.partials.alerts')
     <!-- /.Alerts -->
 
     <!-- Heading -->
     @include('admin.tags.partials.heading')
     <!-- Heading -->
-    
+
     <!--Grid row-->
     <div class="row wow fadeIn">
 
@@ -22,7 +22,7 @@
 
                 <!--Card content-->
                 <div class="card-body">
-                    
+
                     <a href="{{ route('tags.create') }}" class="pull-right btn btn-sm btn-primary">
                         Crear
                     </a>
@@ -50,13 +50,13 @@
                                     {!! Form::open(['route' => ['tags.destroy', $tag->id], 'method' => 'DELETE']) !!}
                                         <button class="btn btn-sm btn-danger">
                                             Eliminar
-                                        </button>                           
+                                        </button>
                                     {!! Form::close() !!}
                                 </td>
                             </tr>
                             @endforeach
-                        </tbody>   
-                    </table>        
+                        </tbody>
+                    </table>
 
                     {{ $tags->links() }}
                 </div>

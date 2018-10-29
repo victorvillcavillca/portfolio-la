@@ -1,3 +1,4 @@
+
 <div class="sidebar" data-color="azure" data-background-color="white">
   <!--
     Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -11,7 +12,7 @@
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
-      <li class="nav-item active  ">
+      <li class="nav-item">
         <a class="nav-link" href="#0">
           <i class="material-icons">dashboard</i>
           <p>Dashboard</p>
@@ -19,54 +20,89 @@
       </li>
       <!-- your sidebar here -->
       <li class="nav-item ">
-        <a class="nav-link" href="./user.html">
+        <a class="nav-link" href="#">
           <i class="material-icons">person</i>
           <p>User Profile</p>
         </a>
       </li>
-      <li class="nav-item active ">
-        <a href="{{ route('posts.index') }}" class="nav-link {{ request()->is('admin/posts') || request()->is('admin/posts/*')? 'active' : ''}}">
+
+      <li class="nav-item active">
+        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+          <i class="material-icons">content_paste</i>
+          <span class="menu-title">Conquistadores</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-basic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item {{ request()->is('admin/specialties') || request()->is('admin/specialties/*')? 'active' : ''}}">
+              <a class="nav-link" href="{{ route('specialties.index') }}"><i class="material-icons">content_paste</i>Especialidades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ request()->is('admin/specialties') || request()->is('admin/specialties/*')? 'active' : ''}}" href="{{ route('specialty-areas.index') }}"><i class="material-icons">content_paste</i>Áreas de especialidades</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item {{ request()->is('admin/evaluations') || request()->is('admin/evaluations/*')? 'active' : ''}}">
+        <a class="nav-link" data-toggle="collapse" href="#ui-basic-2" aria-expanded="false" aria-controls="ui-basic-2">
+          <i class="material-icons">content_paste</i>
+          <span class="menu-title">Evaluaciones</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-basic-2">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item {{ request()->is('admin/evaluations') || request()->is('admin/evaluations/*')? 'active' : ''}}">
+              <a class="nav-link" href="{{ route('evaluations.index') }}"><i class="material-icons">content_paste</i>Evaluaciones</a>
+            </li>
+
+            <li class="nav-item {{ request()->is('admin/evaluation-categories') || request()->is('admin/evaluation-categories/*')? 'active' : ''}}">
+              <a class="nav-link" href="{{ route('evaluation-categories.index') }}"><i class="material-icons">content_paste</i>Categoría Evaluaciones</a>
+            </li>
+
+            <li class="nav-item {{ request()->is('admin/questions') || request()->is('admin/questions/*')? 'active' : ''}}">
+              <a class="nav-link" href="{{ route('questions.index') }}"><i class="material-icons">content_paste</i>Preguntas</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+
+      <li class="nav-item {{ request()->is('admin/posts') || request()->is('admin/posts/*')? 'active' : ''}}">
+        <a href="{{ route('posts.index') }}" class="nav-link">
             <i class="material-icons">content_paste</i>
-          <p>Post</p>
+          <p>Posts</p>
+        </a>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="./typography.html">
+
+      <li class="nav-item {{ request()->is('admin/categories') || request()->is('admin/categories/*')? 'active' : ''}}">
+        <a class="nav-link" href="{{ route('categories.index') }}">
           <i class="material-icons">library_books</i>
-          <p>Typography</p>
+          <p>Categories</p>
         </a>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="./icons.html">
+
+      <li class="nav-item {{ request()->is('admin/tags') || request()->is('admin/tags/*')? 'active' : ''  }}">
+        <a class="nav-link" href="{{ route('tags.index') }}">
           <i class="material-icons">bubble_chart</i>
-          <p>Icons</p>
+          <p>Etiquetas</p>
         </a>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="./map.html">
-          <i class="material-icons">location_ons</i>
-          <p>Maps</p>
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="./notifications.html">
+
+      <li class="nav-item {{ request()->is('admin/roles') || request()->is('admin/roles/*')? 'active' : ''  }}">
+        <a class="nav-link" href="{{ route('roles.index') }}">
           <i class="material-icons">notifications</i>
-          <p>Notifications</p>
+          <p>@lang('menu.roles')</p>
         </a>
       </li>
 
+      <li class="nav-item {{ request()->is('admin/users') || request()->is('admin/users/*')? 'active' : ''  }}">
+        <a class="nav-link" href="{{ route('users.index') }}">
+          <i class="material-icons">location_ons</i>
+          <p>@lang('menu.users')</p>
+        </a>
+      </li>
 
-      <a href="{{ route('posts.index') }}" class="list-group-item list-group-item-action waves-effect {{ request()->is('admin/posts') || request()->is('admin/posts/*')? 'active' : ''}}">
-            <i class="fa fa-map mr-3"></i>Posts</a>
-        <a href="{{ route('categories.index') }}" class="list-group-item list-group-item-action waves-effect {{ request()->is('admin/categories') || request()->is('admin/categories/*')? 'active' : ''}}">
-            <i class="fa fa-money mr-3"></i>Categories</a>
-        <a href="{{ route('tags.index') }}" class="list-group-item list-group-item-action waves-effect {{ request()->is('admin/tags') || request()->is('admin/tags/*')? 'active' : ''  }}">
-            <i class="fa fa-map mr-3"></i>Etiquetas</a>
-        <a href="{{ route('products.index') }}" class="list-group-item list-group-item-action waves-effect">
-            <i class="fa fa-map mr-3"></i>@lang('menu.products')</a>
-        <a href="{{ route('roles.index') }}" class="list-group-item list-group-item-action waves-effect {{ request()->is('admin/roles') || request()->is('admin/roles/*')? 'active' : ''  }}">
-            <i class="fa fa-map mr-3"></i>@lang('menu.roles')</a>
-        <a href="{{ route('users.index') }}" class="list-group-item list-group-item-action waves-effect {{ request()->is('admin/users') || request()->is('admin/users/*')? 'active' : ''  }}">
-            <i class="fa fa-map mr-3"></i>@lang('menu.users')</a>
       {{-- <li class="nav-item active-pro ">
             <a class="nav-link" href="./upgrade.html">
                 <i class="material-icons">unarchive</i>

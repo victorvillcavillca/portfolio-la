@@ -1,16 +1,16 @@
-@extends('layouts.dashboard')
+@extends('layouts.tim-admin')
 
 @section('content')
 <div class="container-fluid mt-5">
-    
-    <!-- Alerts -->    
+
+    <!-- Alerts -->
     @include('admin.partials.alerts')
     <!-- /.Alerts -->
 
     <!-- Heading -->
     @include('admin.categories.partials.heading')
     <!-- Heading -->
-    
+
     <!--Grid row-->
     <div class="row wow fadeIn">
 
@@ -24,7 +24,7 @@
                 <div class="card-body">
 
                     {{-- <canvas id="myChart"></canvas> --}}
-                    
+
                     <a href="{{ route('categories.create') }}" class="pull-right btn btn-sm btn-primary">
                         Crear
                     </a>
@@ -57,8 +57,8 @@
                                 </td>
                             </tr>
                             @endforeach
-                        </tbody>   
-                    </table>        
+                        </tbody>
+                    </table>
 
                     {{ $categories->links() }}
                 </div>

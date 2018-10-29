@@ -1,4 +1,6 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark default-color scrolling-navbar">
+{{-- <nav class="navbar navbar-expand-lg navbar-dark default-color scrolling-navbar"> --}}
     <div class="container-fluid">
 
         <!-- Brand -->
@@ -46,6 +48,17 @@
                 <li class="nav-item {{ request()->is('admin/questions') || request()->is('admin/questions/*')? 'active' : ''  }}">
                     <a href="{{ route('questions.index') }}" class="nav-link waves-effect"><i class="fa fa-map mr-3"></i>@lang('menu.questions')<span class="sr-only">(current)</span></a>
                 </li>
+
+                <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link waves-effect" href="https://mdbootstrap.com/material-design-for-bootstrap/"
                         target="_blank">About MDB</a>

@@ -1,9 +1,9 @@
-@extends('layouts.dashboard')
+@extends('layouts.tim-admin')
 
 @section('content')
 <div class="container-fluid mt-5">
-    
-    <!-- Alerts -->    
+
+    <!-- Alerts -->
     @include('admin.partials.alerts')
     <!-- /.Alerts -->
 
@@ -28,11 +28,11 @@
                   @include('admin.partials.errors')
                 @endif
                 <!-- /.errors -->
-                
+
                 <!--Card content-->
                 <div class="card-body">
                     {!! Form::model($category, ['route' => ['categories.update', $category->id], 'method' => 'PUT']) !!}
-                        
+
                         @include('admin.categories.partials.form')
 
                     {!! Form::close() !!}

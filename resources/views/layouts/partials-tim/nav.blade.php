@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
+<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
   <div class="container-fluid">
     <div class="navbar-wrapper">
       <a class="navbar-brand" href="#pablo">Dashboard</a>
@@ -20,6 +20,14 @@
         </div>
       </form>
       <ul class="navbar-nav">
+        <li class="nav-item {{ request()->is('admin/specialties') || request()->is('admin/specialties/*')? 'active' : ''  }}">
+                    <a href="{{ route('specialties.index') }}" class="nav-link waves-effect"><i class="material-icons">dashboard</i>@lang('menu.specialties')<span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item {{ request()->is('admin/evaluation-categories') || request()->is('admin/evaluation-categories/*')? 'active' : ''  }}">
+                    <a href="{{ route('evaluation-categories.index') }}" class="nav-link waves-effect"><i class="material-icons">dashboard</i>@lang('menu.evaluation_categories')<span class="sr-only">(current)</span></a>
+                </li>
+      {{-- <ul class="navbar-nav mr-auto"> --}}
         <li class="nav-item">
           <a class="nav-link" href="#pablo">
             <i class="material-icons">dashboard</i>
@@ -28,6 +36,7 @@
             </p>
           </a>
         </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="material-icons">notifications</i>
@@ -52,6 +61,40 @@
             </p>
           </a>
         </li>
+      </ul>
+
+      <!-- Right Side Of Navbar -->
+      {{-- <ul class="navbar-nav ml-auto"> --}}
+      <ul class="navbar-nav nav-flex-icons">
+          <!-- Authentication Links -->
+          @guest
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+              </li>
+              <li class="nav-item">
+                  @if (Route::has('register'))
+                      <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                  @endif
+              </li>
+          @else
+              <li class="nav-item dropdown">
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      {{ Auth::user()->name }} <span class="caret"></span>
+                  </a>
+
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                      </a>
+
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                      </form>
+                  </div>
+              </li>
+          @endguest
       </ul>
     </div>
   </div>

@@ -1,9 +1,9 @@
-@extends('layouts.dashboard')
+@extends('layouts.tim-admin')
 
 @section('content')
 <div class="container-fluid mt-5">
-    
-    <!-- Alerts -->    
+
+    <!-- Alerts -->
     @include('admin.partials.alerts')
     <!-- /.Alerts -->
 
@@ -16,10 +16,10 @@
 
         <!--Grid column-->
         <div class="col-md-12 mb-4">
-            
+
             <!--Card-->
             <div class="card">
-               
+
                 <div class="card-header">
                     Crear Etiqueta
                 </div>
@@ -33,7 +33,7 @@
                 <!--Card content-->
                 <div class="card-body">
                     {!! Form::open(['route' => 'tags.store']) !!}
-                        
+
                         @include('admin.tags.partials.form')
 
                     {!! Form::close() !!}

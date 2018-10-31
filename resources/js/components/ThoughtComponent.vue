@@ -1,6 +1,6 @@
 <template>
     <!-- <div class="col-lg-4 col-md-12 mb-4"> -->
-    <div class="card mb-4">
+    <div class="card mt-3">
         <!-- {{ since(idea.created_at) }} -->
         <div class="card-header">Publicado {{ since(thought.created_at) }}</div>
 

@@ -22,7 +22,7 @@
     <link href="{{ asset('vendor/blog/css/style.css') }}" rel="stylesheet">
     @yield('styles')
 </head>
-<body class="grey lighten-3">
+<body class="grey lighten-4">
     {{-- min-height: 100vh --}}
     <div id="app">
 

@@ -8,36 +8,15 @@
     <!--./Breadcrumbs-->
 
     <!--Section: Jumbotron-->
-    <section class="card wow fadeIn" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
 
-        <!-- Content -->
-        <div class="card-body text-white text-center py-5 px-5 my-5">
-            {{-- <img class="d-block w-100" src="https://filadelfiaiasd.interamerica.org/uploaded_assets/163479-conquistadores.gif?thumbnail=original&1448399922" alt="First slide"> --}}
-
-            <img src="{{ asset('image/logos/triangulo-conquis-24.png')}}" class="img-fluid" alt="Conquistadores" style="width: 150px;">
-            <h1 class="mb-4">
-                <strong>Conquis Blog</strong>
-            </h1>
-            <h4 class="mb-4">
-                <strong>El Blog para el Club de Conquistadores</strong>
-            </h4>
-            <p class="mb-4">
-                <strong>Este Blog es para los líderes, conquistadores y personas simpatizantes del Club de Conquistadores, donde encontraras Publicaciones, Noticias, Artículos, Materiales, Videos, Informaciones actualizadas sobre el Club de Conquistadores y el Ministerio Joven de la Iglesia Adventista del Séptimo Día.</strong>
-            </p>
-            {{-- <a target="_blank" href="https://mdbootstrap.com/bootstrap-tutorial/" class="btn btn-outline-white btn-lg">Start free tutorial
-                <i class="fa fa-graduation-cap ml-2"></i>
-            </a> --}}
-
-        </div>
-        <!-- Content -->
-    </section>
     <!--Section: Jumbotron-->
 
-    <hr class="my-5">
+    {{-- <hr class="my-5"> --}}
 
     <!--Section: Cards-->
     <section class="text-center">
-
+        <h2>Blog de los Conquistadores</h2>
+        <hr>
         <!--Grid row-->
         <div class="row mb-4 wow fadeIn">
             {{-- @foreach($posts as $post)

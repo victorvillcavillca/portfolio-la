@@ -14,6 +14,12 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    public function index()
+    {
+        $posts = Post::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(6);
+        return view('home', compact('posts'));
+    }
+
     public function blog(){
     	$posts = Post::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(6);
 
@@ -21,12 +27,13 @@ class PageController extends Controller
     }
 
     public function category($slug){
-        $category = Category::where('slug', $slug)->pluck('id')->first();
+        $category_id = Category::where('slug', $slug)->pluck('id')->first();
 
-        $posts = Post::where('category_id', $category)
+        $posts = Post::where('category_id', $category_id)
             ->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(3);
 
-        return view('web.posts', compact('posts'));
+        $name_bread = 'category';
+        return view('web.category', compact('posts','name_bread'));
     }
 
     public function tag($slug){
@@ -35,7 +42,8 @@ class PageController extends Controller
         })
         ->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(3);
 
-        return view('web.posts', compact('posts'));
+        $name_bread = 'tags';
+        return view('web.category', compact('posts','name_bread'));
     }
 
     public function post($slug){

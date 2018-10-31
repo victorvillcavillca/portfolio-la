@@ -2,7 +2,7 @@
 
 // Home
 Breadcrumbs::for('home', function ($trail) {
-    $trail->push('Home', route('home'));
+    $trail->push('Home', route('index'));
 });
 
 // Home > About
@@ -38,7 +38,17 @@ Breadcrumbs::for('resources', function ($trail) {
 // Home > Blog > Post
 Breadcrumbs::for('post', function ($trail) {
     $trail->parent('blog');
-    $trail->push('Post', url('post/{slug}'));
+    $trail->push('Detalle anuncio', url('post/{slug}'));
+});
+
+Breadcrumbs::for('category', function ($trail) {
+    $trail->parent('blog');
+    $trail->push('Categorías', url('post/{slug}'));
+});
+
+Breadcrumbs::for('tags', function ($trail) {
+    $trail->parent('blog');
+    $trail->push('Artículos relacionados', url('post/{slug}'));
 });
 
 // Home > Blog > [Category]

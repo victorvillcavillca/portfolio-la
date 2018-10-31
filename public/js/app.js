@@ -64708,7 +64708,7 @@ var render = function() {
   return _c("div", { staticClass: "row justify-content-center" }, [
     _c(
       "div",
-      { staticClass: "col-md-8" },
+      { staticClass: "col-md-6" },
       [
         _c("form-component", { on: { new: _vm.addThought } }),
         _vm._v(" "),
@@ -65077,7 +65077,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card mb-4" }, [
+  return _c("div", { staticClass: "card mt-3" }, [
     _c("div", { staticClass: "card-header" }, [
       _vm._v("Publicado " + _vm._s(_vm.since(_vm.thought.created_at)))
     ]),

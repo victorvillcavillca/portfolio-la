@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EvaluationRequest;
 use App\Http\Requests\Admin\EvaluationUpdateRequest;
 use App\Question;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,7 +57,7 @@ class EvaluationController extends Controller
         $evaluation->user_id = Auth::id();
         $evaluation->save();
 
-        return redirect()->route('evaluations.index')->with('info', 'Evaluación creada con éxito');
+        return redirect()->route('evaluations.edit', $evaluation->id)->with('info', 'Evaluación creada con éxito');
     }
 
     /**
@@ -78,13 +79,10 @@ class EvaluationController extends Controller
      */
     public function edit(Evaluation $evaluation)
     {
+        $evaluation->end_date = Carbon::parse($evaluation->end_date)->format('Y-m-d');
         $evaluation_categories = EvaluationCategory::orderBy('name', 'ASC')->pluck('name', 'id');
 
-        $questions = Question::where('evaluation_id', $evaluation->id)
-            ->orderBy('id', 'DESC')->where('status', true)->paginate(3);
-            // var_dump($questions); die();
-
-        return view('admin.evaluations.edit', compact('evaluation_categories','evaluation','questions'));
+        return view('admin.evaluations.edit', compact('evaluation_categories','evaluation'));
     }
 
     /**

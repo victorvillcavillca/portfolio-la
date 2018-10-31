@@ -37,11 +37,11 @@
 
                     {!! Form::close() !!}
                 </div>
-                <div class="card-footer">
+                {{-- <div class="card-footer">
                     <a href="{{ route('questions.create') }}" class="pull-right btn btn-sm btn-primary">
                         Crear
                     </a>
-                </div>
+                </div> --}}
 
             </div>
             <!--/.Card-->

@@ -1,9 +1,9 @@
 {{ Form::hidden('user_id', auth()->user()->id) }}
-
-<div class="form-group">
-	{{ Form::label('evaluation_id', 'Categoría', ['class' => 'font-weight-bold']) }}
+{{ Form::hidden('evaluation_id', $evaluation_id) }}
+{{-- <div class="form-group">
+	{{ Form::label('evaluation_id', 'Evaluaciones', ['class' => 'font-weight-bold']) }}
 	{{ Form::select('evaluation_id', $evaluations, null, ['class' => 'form-control']) }}
-</div>
+</div> --}}
 
 <div class="form-group">
     {{ Form::label('question', 'Pregunta', ['class' => 'font-weight-bold']) }}

@@ -53,8 +53,8 @@
                 <div class="card-header">
                   Preguntas
                   <div class="btn-group pull-right">
-                      <a href="{{ route('questions.create') }}" class="pull-right btn btn-sm btn-primary">
-                        Crear
+                      <a href="{{ route('questions.create', ['evaluation_id' => $evaluation->id]) }}" class="pull-right btn btn-sm btn-primary">
+                        Agregar preguntas
                     </a>
                     </div>
 
@@ -85,6 +85,30 @@
 
     </div>
 </div>
+
+<!--Modal: Delete Confirmation-->
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Pregunta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¿Esta seguro de eliminar la Pregunta?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="delete">Si</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal: Delete Confirmation-->
+
 @endsection
 
 @section('scripts')
@@ -129,8 +153,8 @@
         }
       });
 
-      let question_id = 0;
-     let table = $('#myTable').DataTable({
+    let question_id = 0;
+    let table = $('#myTable').DataTable({
       "responsive": true,
       "order": [[ 0, "desc" ]],
         "processing": true,
@@ -139,7 +163,7 @@
         "ajax": {
           "url": "/admin/questions/data",
           "data": {
-            "evaluation_id": 1,
+            "evaluation_id": {{$evaluation->id}},
           }
         },
         "columns": [
@@ -188,13 +212,13 @@
         }
       });
 
-      $('#myTable tbody').on( 'click', 'a.delete_area_specialty', function (e) {
+      $('#myTable tbody').on( 'click', 'a.delete_question', function (e) {
         question_id = $(this).attr('data-id');
         $('#modalDelete').modal('show');
       });
 
       $( "#delete" ).click(function() {
-        var url = 'questions/' + question_id;
+        var url = '/admin/questions/' + question_id;
         axios.delete(url).then(response => { //eliminamos
           $('#modalDelete').modal('hide');
           table.ajax.reload();

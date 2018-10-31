@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEvaluationCategoriesTable extends Migration
+class CreateEvaluationUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,21 @@ class CreateEvaluationCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('evaluation_categories', function (Blueprint $table) {
+        Schema::create('evaluation_user', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->string('name', 128);
-            $table->string('slug', 128)->unique();
-
-            $table->mediumText('description')->nullable();
-
+            $table->integer('evaluation_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->integer('user_id_edit')->unsigned()->nullable();
+            $table->string('answer',128);
+
             //relation
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->foreign('evaluation_id')->references('id')->on('evaluations')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -40,6 +38,6 @@ class CreateEvaluationCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evaluation_categories');
+        Schema::dropIfExists('evaluation_user');
     }
 }

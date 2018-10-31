@@ -35,8 +35,10 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $evaluations = Evaluation::orderBy('name','ASC')->pluck('name','id');
-        return view('admin.questions.create', compact('evaluations'));
+        $evaluation_id = $_GET['evaluation_id'];
+
+        // $evaluations = Evaluation::orderBy('name','ASC')->pluck('name','id');
+        return view('admin.questions.create', compact('evaluation_id'));
     }
 
     /**
@@ -51,7 +53,8 @@ class QuestionController extends Controller
         $question->user_id = Auth::id();
         $question->save();
 
-        return redirect()->route('questions.index')->with('info', 'Pregunta creada con éxito');
+        // return redirect()->route('questions.index')->with('info', 'Pregunta creada con éxito');
+        return redirect()->route('evaluations.edit', $request->get('evaluation_id'))->with('info', 'Pregunta creada con éxito');
     }
 
     /**
@@ -73,8 +76,8 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        $evaluations = Evaluation::orderBy('name','ASC')->pluck('name','id');
-        return view('admin.questions.edit', compact('evaluations','question'));
+        $evaluation_id = $question->evaluation_id;
+        return view('admin.questions.edit', compact('evaluation_id','question'));
     }
 
     /**
@@ -88,8 +91,10 @@ class QuestionController extends Controller
     {
         $question->update($request->all());
 
-        return redirect()->route('questions.index')
-                        ->with('info','Pregunta Update successfully.');
+        return redirect()->route('evaluations.edit', $request->get('evaluation_id'))->with('info', 'Pregunta actualizada con éxito');
+
+        // return redirect()->route('questions.index')
+        //                 ->with('info','Pregunta Update successfully.');
     }
 
     /**
@@ -103,22 +108,6 @@ class QuestionController extends Controller
         Question::find($id)->delete();
         return;
     }
-
-    // /**
-    //  * Show a list of all the questions formatted for Datatables.
-    //  *
-    //  * @return Datatables JSON
-    //  */
-    // public function data()
-    // {
-    //     $query = Question::select('id', 'question', 'answer', 'created_at');
-
-    //     return datatables()
-    //         ->eloquent($query)
-    //         ->addColumn('btn', 'admin.questions.partials.actions')
-    //         ->rawColumns(['btn'])
-    //         ->toJson();
-    // }
 
     /**
      * Show a list of all the questions of one Evaluation formatted for Datatables.

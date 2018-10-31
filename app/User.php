@@ -37,4 +37,22 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    /**
+     * Returns the questions models
+     * @return \Illuminate\Support\Collection
+     */
+    public function questions()
+    {
+        return $this->belongsToMany(Question::class);
+    }
+
+    /**
+     * Returns the evaluations models
+     * @return \Illuminate\Support\Collection
+     */
+    public function evaluations()
+    {
+        return $this->belongsToMany(Evaluation::class);
+    }
 }

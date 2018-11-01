@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Evaluation;
-use App\EvaluationCategory;
+use App\Matter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EvaluationRequest;
 use App\Http\Requests\Admin\EvaluationUpdateRequest;
@@ -40,9 +40,9 @@ class EvaluationController extends Controller
      */
     public function create()
     {
-        $evaluation_categories = EvaluationCategory::orderBy('name', 'ASC')->pluck('name', 'id');
+        $matters = Matter::orderBy('name', 'ASC')->pluck('name', 'id');
 
-        return view('admin.evaluations.create', compact('evaluation_categories'));
+        return view('admin.evaluations.create', compact('matters'));
     }
 
     /**
@@ -80,9 +80,9 @@ class EvaluationController extends Controller
     public function edit(Evaluation $evaluation)
     {
         $evaluation->end_date = Carbon::parse($evaluation->end_date)->format('Y-m-d');
-        $evaluation_categories = EvaluationCategory::orderBy('name', 'ASC')->pluck('name', 'id');
+        $matters = Matter::orderBy('name', 'ASC')->pluck('name', 'id');
 
-        return view('admin.evaluations.edit', compact('evaluation_categories','evaluation'));
+        return view('admin.evaluations.edit', compact('matters','evaluation'));
     }
 
     /**

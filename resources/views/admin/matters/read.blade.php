@@ -49,6 +49,7 @@
                 <div class="card-body">
 
                     <div class="table-responsive">
+
                       {{ $dataTable->table(['id' => 'users','class' => 'table table-striped table-bordered table-sm dt-responsive'], true) }}
 
                       {{-- {{ $dataTable->table(['id' => 'users'])}} --}}
@@ -122,9 +123,39 @@
             }
         });
 
+        // $('#users').dataTable( {
+        //   "columnDefs": [
+        //     { "name": "My column title", "targets": 1 }
+        //   ]
+        // } );
+
         var editor = new $.fn.dataTable.Editor({
             ajax: "/users",
             table: "#users",
+            columnDefs: [
+              { "name": "My column title"}
+            ],
+            i18n: {
+                create: {
+                    button: "Crear",
+                    title:  "Crear nuevo usuario",
+                    submit: "Guardar"
+                },
+                edit: {
+                    button: "Editar",
+                    title:  "Actualizar usuario",
+                    submit: "Guardar"
+                },
+                remove: {
+                    button: "Eliminar",
+                    title:  "Eliminar Usuario",
+                    submit: "Eliminar",
+                    confirm: {
+                        _: "¿Está seguro de Eliminar? %d Usuarios?",
+                        1: "¿Está seguro de Eliminar? 1 Usuario?"
+                    }
+                }
+            },
             display: "bootstrap",
             fields: [
                 {label: "Nombre:", name: "name"},

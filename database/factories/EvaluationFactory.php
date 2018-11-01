@@ -12,6 +12,6 @@ $factory->define(App\Evaluation::class, function (Faker $faker) {
         'time' => rand(1000,5000),
         'end_date' => now(),
         'user_id' => rand(1,30),
-        'evaluation_category_id' => rand(1,50),
+        'matter_id' => rand(1,50),
     ];
 });

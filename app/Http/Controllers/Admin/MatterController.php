@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\MatterRequest;
 use App\Http\Requests\Admin\MatterUpdateRequest;
+use App\Management;
 use App\Matter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,7 +38,9 @@ class MatterController extends Controller
      */
     public function create()
     {
-        return view('admin.matters.create');
+        $managements = Management::orderBy('name', 'ASC')->pluck('name', 'id');
+
+        return view('admin.matters.create', compact('managements'));
     }
 
     /**
@@ -75,7 +78,9 @@ class MatterController extends Controller
      */
     public function edit(Matter $matter)
     {
-        return view('admin.matters.edit', compact('matter'));
+        $managements = Management::orderBy('name', 'ASC')->pluck('name', 'id');
+
+        return view('admin.matters.edit', compact('matter', 'managements'));
     }
 
     /**

@@ -29,7 +29,7 @@ class EvaluationRequest extends FormRequest
             'time'          => 'required',
             'end_date'          => 'required',
             'user_id'       => 'required|integer',
-            'evaluation_category_id' => 'required|integer',
+            'matter_id' => 'required|integer',
             'status'        => 'required',
         ];
     }

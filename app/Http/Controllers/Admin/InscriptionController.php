@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\EvaluationCategory;
+use App\Matter;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\EvaluationCategoryRequest;
-use App\Http\Requests\Admin\EvaluationCategoryUpdateRequest;
+use App\Http\Requests\Admin\MatterRequest;
+use App\Http\Requests\Admin\MatterUpdateRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,11 +38,11 @@ class InscriptionController extends Controller
      */
     public function create()
     {
-        $evaluationCategory = EvaluationCategory::find(100);
-        $user = $evaluationCategory->users()->find(3);
+        $matter = Matter::find(100);
+        $user = $Matter->users()->find(3);
         $final_score = 100;
 
-        $evaluationCategory->users()->updateExistingPivot($user->id, compact('final_score'));
+        $matter->users()->updateExistingPivot($user->id, compact('final_score'));
         // $user->roles()->updateExistingPivot($roleId, $attributes);
         return view('admin.inscriptions.create');
     }
@@ -53,31 +53,31 @@ class InscriptionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EvaluationCategoryRequest $request)
+    public function store(MatterRequest $request)
     {
-        $evaluationCategory = new EvaluationCategory($request->all());
-        $evaluationCategory->user_id = Auth::id();
-        $evaluationCategory->save();
+        $matter = new Matter($request->all());
+        $matter->user_id = Auth::id();
+        $matter->save();
 
         return redirect()->route('inscriptions.index')
-                        ->with('info','Categoría de Evaluación created successfully.');
+                        ->with('info','Materia created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  EvaluationCategory  $evaluationCategory
+     * @param  Matter  $Matter
      * @return \Illuminate\Http\Response
      */
-    public function show(EvaluationCategory $evaluationCategory)
+    public function show(Matter $Matter)
     {
-        return view('admin.inscriptions.show', compact('evaluationCategory'));
+        return view('admin.inscriptions.show', compact('Matter'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  EvaluationCategory  $evaluationCategory
+     * @param  Matter  $Matter
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -87,8 +87,8 @@ class InscriptionController extends Controller
      //    count($users->count()); die();
      // echo count($users); die();
 
-        $evaluationCategory = EvaluationCategory::findOrFail($id);
-        return view('admin.inscriptions.edit', compact('evaluationCategory','users'));
+        $matter = Matter::findOrFail($id);
+        return view('admin.inscriptions.edit', compact('matter','users'));
     }
 
     /**
@@ -100,16 +100,16 @@ class InscriptionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $evaluationCategory = EvaluationCategory::find($id);
-        $evaluationCategory->update($request->except('users'));
+        $matter = Matter::find($id);
+        $matter->update($request->except('users'));
 
         $users = $request->input('users');
         if ($users != NULL) {
             foreach ($users as $userId) {
                 // $user = User::find((int)$userId);
-                if (! $evaluationCategory->users->contains($userId)) {
-                    $evaluationCategory->users()->attach((int)$userId, [
-                    // $evaluationCategory->users()->save($user, [
+                if (! $matter->users->contains($userId)) {
+                    $matter->users()->attach((int)$userId, [
+                    // $Matter->users()->save($user, [
                         'accepted' => true,
                         'approved' => false,
                         'evaluation_date' => now(),
@@ -120,7 +120,7 @@ class InscriptionController extends Controller
         }
 
         return redirect()->route('inscriptions.index')
-                        ->with('info','Categoría de Evaluación Update successfully.');
+                        ->with('info','Materia Update successfully.');
     }
 
     /**
@@ -131,7 +131,7 @@ class InscriptionController extends Controller
      */
     public function destroy($id)
     {
-        EvaluationCategory::find($id)->delete();
+        Matter::find($id)->delete();
         return;
     }
 
@@ -142,7 +142,7 @@ class InscriptionController extends Controller
      */
     public function data()
     {
-        $query = EvaluationCategory::select('id', 'name', 'description', 'created_at');
+        $query = Matter::select('id', 'name', 'description', 'created_at');
 
         return datatables()
             ->eloquent($query)

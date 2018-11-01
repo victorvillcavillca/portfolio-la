@@ -26,13 +26,13 @@ class CreateEvaluationsTable extends Migration
             $table->tinyInteger('score')->default(0);
 
             $table->integer('user_id')->unsigned();
-            $table->integer('evaluation_category_id')->unsigned();
+            $table->integer('matter_id')->unsigned();
             //relation
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('evaluation_category_id')->references('id')->on('evaluation_categories')
+            $table->foreign('matter_id')->references('id')->on('matters')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 

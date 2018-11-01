@@ -1,5 +1,9 @@
 <div class="form-group">
-    {{ Form::label('name', 'Nombre de la categoría') }}
+	{{ Form::label('management_id', 'Gestión', ['class' => 'font-weight-bold']) }}
+	{{ Form::select('management_id', $managements, null, ['class' => 'form-control']) }}
+</div>
+<div class="form-group">
+    {{ Form::label('name', 'Materia/Tema') }}
     {{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
 </div>
 <div class="form-group">

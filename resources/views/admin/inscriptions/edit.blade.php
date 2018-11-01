@@ -20,7 +20,7 @@
             <!--Card-->
             <div class="card">
                 <div class="card-header">
-                    Editar Area Especialidad
+                    Adicionar
                 </div>
 
                 <!-- errors -->
@@ -31,7 +31,7 @@
 
                 <!--Card content-->
                 <div class="card-body">
-                    {!! Form::model($evaluationCategory, ['route' => ['inscriptions.update', $evaluationCategory->id], 'method' => 'PUT']) !!}
+                    {!! Form::model($matter, ['route' => ['inscriptions.update', $matter->id], 'method' => 'PUT']) !!}
 
                         @include('admin.inscriptions.partials.form')
 
@@ -50,7 +50,7 @@
             <!--Card-->
             <div class="card">
 
-                @foreach($evaluationCategory->users as $user)
+                @foreach($matter->users as $user)
                 <p>{{ $user->id }} {{ $user->name }}</p>
                 @endforeach
             </div>

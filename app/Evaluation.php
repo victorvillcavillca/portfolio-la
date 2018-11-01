@@ -14,26 +14,26 @@ class Evaluation extends Model
         'time',
         'end_date',
         'user_id',
-        'evaluation_category_id'
+        'matter_id'
     ];
 
     /**
-     * Returns evaluationCategory model
-     * @return App\evaluationCategory
+     * Returns matter model
+     * @return App\Matter
      */
-    public function evaluationCategory()
+    public function matter()
     {
-        return $this->belongsTo(EvaluationCategory::class);
+        return $this->belongsTo(Matter::class);
     }
 
-    /**
-     * Returns specialty model
-     * @return App\Specialty
-     */
-    public function specialty()
-    {
-        return $this->belongsTo(Specialty::class);
-    }
+    // /**
+    //  * Returns specialty model
+    //  * @return App\Specialty
+    //  */
+    // public function specialty()
+    // {
+    //     return $this->belongsTo(Specialty::class);
+    // }
 
     /**
      * Returns the user model

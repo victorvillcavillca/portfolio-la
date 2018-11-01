@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEvaluationUserTable extends Migration
+class CreateQuestionUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,21 @@ class CreateEvaluationUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('evaluation_user', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('evaluation_id')->unsigned();
+        Schema::create('question_user', function (Blueprint $table) {
+            // $table->increments('id');
+            $table->integer('question_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->string('answer',128);
+            $table->tinyInteger('score')->default(0);
 
             //relation
-            $table->foreign('evaluation_id')->references('id')->on('evaluations')
+            $table->foreign('question_id')->references('id')->on('questions')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+
             $table->timestamps();
         });
     }
@@ -38,6 +39,6 @@ class CreateEvaluationUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evaluation_user');
+        Schema::dropIfExists('question_user');
     }
 }

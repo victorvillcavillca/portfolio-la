@@ -15,7 +15,7 @@ class CreateMatterUserTable extends Migration
     {
         Schema::create('matter_user', function (Blueprint $table) {
             // $table->increments('id');
-            $table->integer('evaluation_category_id')->unsigned();
+            $table->integer('matter_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->boolean('approved')->default(false);
             $table->boolean('accepted')->default(false);
@@ -23,13 +23,14 @@ class CreateMatterUserTable extends Migration
             $table->dateTime('evaluation_date')->default(NULL);
 
             //relation
-            $table->foreign('evaluation_category_id')->references('id')->on('evaluation_categories')
+            $table->foreign('matter_id')->references('id')->on('matters')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

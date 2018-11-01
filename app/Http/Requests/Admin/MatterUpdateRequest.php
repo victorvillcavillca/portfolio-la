@@ -25,7 +25,7 @@ class MatterUpdateRequest extends FormRequest
     {
         return [
             'name'          => 'required',
-            'slug'          => 'required|unique:matters,slug',
+            'slug'          => 'required|unique:matters,slug,' . $this->matter,
         ];
     }
 }

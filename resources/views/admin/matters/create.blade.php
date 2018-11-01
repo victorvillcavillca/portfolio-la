@@ -21,7 +21,7 @@
             <div class="card">
 
                 <div class="card-header">
-                    Crear Especialidad Area
+                    Crear Materia
                 </div>
 
                 <!-- errors -->

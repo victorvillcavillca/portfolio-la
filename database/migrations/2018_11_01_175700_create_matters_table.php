@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuestionUserTable extends Migration
+class CreateMattersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,24 @@ class CreateQuestionUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('question_user', function (Blueprint $table) {
+        Schema::create('matters', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('question_id')->unsigned();
+
+            $table->string('name', 128);
+            $table->string('slug', 128)->unique();
+
+            $table->mediumText('description')->nullable();
+
             $table->integer('user_id')->unsigned();
-            $table->tinyInteger('score')->default(0);
+            $table->integer('user_id_edit')->unsigned()->nullable();
+            $table->integer('management_id')->unsigned();
 
             //relation
-            $table->foreign('question_id')->references('id')->on('questions')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->foreign('management_id')->references('id')->on('managements')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
@@ -39,6 +45,6 @@ class CreateQuestionUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_user');
+        Schema::dropIfExists('matters');
     }
 }

@@ -2,8 +2,8 @@
 {{ Form::hidden('user_id', auth()->user()->id) }}
 
 <div class="form-group">
-	{{ Form::label('evaluation_category_id', 'Categoría', ['class' => 'font-weight-bold']) }}
-	{{ Form::select('evaluation_category_id', $evaluation_categories, null, ['class' => 'form-control']) }}
+	{{ Form::label('matter_id', 'Categoría', ['class' => 'font-weight-bold']) }}
+	{{ Form::select('matter_id', $matters, null, ['class' => 'form-control']) }}
 </div>
 <div class="form-group">
     {{ Form::label('name', 'Nombre', ['class' => 'font-weight-bold']) }}

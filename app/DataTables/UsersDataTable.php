@@ -18,7 +18,9 @@ class UsersDataTable extends DataTable
         // return datatables($query)
         //     ->addColumn('action', 'usersdatatable.action');
 
-        return datatables($query)->setRowId('id')->addColumn('password', '');
+        return datatables($query)->setRowId('id')->addColumn('password', '')
+            ->addColumn('btn', 'admin.matters.partials.actions')
+            ->rawColumns(['btn']);
     }
 
     /**
@@ -90,6 +92,7 @@ class UsersDataTable extends DataTable
             'id',
             'name',
             'email',
+            'btn',
         ];
     }
 

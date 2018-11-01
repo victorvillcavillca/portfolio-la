@@ -18,6 +18,15 @@ class Evaluation extends Model
     ];
 
     /**
+     * Returns evaluationCategory model
+     * @return App\evaluationCategory
+     */
+    public function evaluationCategory()
+    {
+        return $this->belongsTo(EvaluationCategory::class);
+    }
+
+    /**
      * Returns specialty model
      * @return App\Specialty
      */

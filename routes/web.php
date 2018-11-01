@@ -1,4 +1,12 @@
 <?php
+Use App\Datatables\UserDataTable;
+
+Route::get('users', function(UserDataTable $dataTable) {
+
+    return $dataTable->render('admin.matters.read');
+    // return view('admin.matters.read', compact('html'));
+});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

@@ -123,9 +123,13 @@ class EvaluationController extends Controller
 
         return datatables()
             ->eloquent($query)
+            // ->setRowClass('{{ $id % 2 == 0 ? "alert-success":"alert-warning" }}')
             ->editColumn('status', 'admin.evaluations.datatables.status')
+            ->addColumn('intro', function(Evaluation $evaluation) {
+                    return $evaluation->name;
+                })
             ->addColumn('btn', 'admin.evaluations.partials.actions')
-            ->rawColumns(['status','btn'])
+            ->rawColumns(['intro','status','btn'])
             ->toJson();
     }
 }

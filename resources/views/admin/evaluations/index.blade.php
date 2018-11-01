@@ -45,6 +45,7 @@
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>Descripción</th>
+                            <th>Intro</th>
                             <th>Estado</th>
                             <th>Creado</th>
                             <th>Acciones</th>
@@ -114,6 +115,7 @@
           { "data": "id" },
           { "data": "name" },
           { "data": "description" },
+          { "data": "intro" },
           { "data": "status" },
           { "data": "created_at" },
           { "data": 'btn'},

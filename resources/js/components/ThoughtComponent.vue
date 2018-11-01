@@ -41,7 +41,7 @@
             };
         },
         mounted() {
-            console.log('Component mounted.')
+            console.log('Tought Component mounted.')
         },
         methods: {
             since: function(d) {

@@ -1,7 +1,6 @@
 <template>
     <div class="row justify-content-center">
         <div class="col-md-6">
-
             <form-component @new="addThought"></form-component>
             <thought-component
                 v-for="(thought, index) in thoughts"
@@ -21,6 +20,7 @@
 </template>
 
 <script>
+    import axios from 'axios';
     import toastr from 'toastr';
     import moment from 'moment';
     import InfiniteLoading from 'vue-infinite-loading';
@@ -30,7 +30,7 @@
     export default {
 
         created() {
-            this.getThoughts();
+            // this.getThoughts();
         },
         data() {
             return {
@@ -38,10 +38,7 @@
             }
         },
         mounted() {
-            // axios.get('/thoughts').then((response) => {
-            //     console.log(response.data);
-            //     this.thoughts = response.data;
-            // });
+            console.log('my thought component');
         },
 
         methods: {
@@ -49,7 +46,6 @@
                axios.get('/thoughts').then((response) => {
                     this.thoughts = response.data.data;
                 });
-
             },
             infiniteHandler: function ($state) {
                 let limit = this.thoughts.length / 40 + 1;

@@ -14,7 +14,7 @@ class CreateMatterUserTable extends Migration
     public function up()
     {
         Schema::create('matter_user', function (Blueprint $table) {
-            $table->increments('id');
+            // $table->increments('id');
             $table->integer('evaluation_category_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->boolean('approved')->default(false);

@@ -73,6 +73,10 @@
         </a>
         <div class="collapse" id="ui-basic-2">
           <ul class="nav flex-column sub-menu">
+            <li class="nav-item {{ request()->is('admin/inscriptions') || request()->is('admin/inscriptions/*')? 'active' : ''}}">
+              <a class="nav-link" href="{{ route('inscriptions.index') }}"><i class="material-icons">content_paste</i>Inscripciones</a>
+            </li>
+
             <li class="nav-item {{ request()->is('admin/evaluations') || request()->is('admin/evaluations/*')? 'active' : ''}}">
               <a class="nav-link" href="{{ route('evaluations.index') }}"><i class="material-icons">content_paste</i>Evaluaciones</a>
             </li>

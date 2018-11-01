@@ -20,6 +20,8 @@
     {{-- <link href="{{ asset('vendor/mdb/css/mdb.min.css') }}" rel="stylesheet"> --}}
     <!-- Your custom styles (optional) -->
     <link href="{{ asset('vendor/blog/css/style.css') }}" rel="stylesheet">
+
+    <link rel="icon" href="{{ asset('image/logos/triangle.png') }}" type="image/x-icon">
     @yield('styles')
 </head>
 <body class="grey lighten-4">

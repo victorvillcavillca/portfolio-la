@@ -62,7 +62,8 @@ class PageController extends Controller
 
         $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
 
-    	return view('web.specialties', compact('specialties','specialty_areas'));
+        $name_bread = 'specialties';
+    	return view('web.specialties', compact('specialties','specialty_areas','name_bread'));
     }
 
     /**
@@ -79,7 +80,8 @@ class PageController extends Controller
 
         $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
 
-        return view('web.specialties', compact('specialties','specialty_areas','area_name'));
+        $name_bread = 'area-specialties';
+        return view('web.specialties', compact('specialties','specialty_areas','area_name','name_bread'));
     }
 
     /**
@@ -104,7 +106,8 @@ class PageController extends Controller
 
         $resource_categories = ResourceCategory::orderBy('id', 'DESC')->get();
 
-        return view('web.resources', compact('resources','resource_categories'));
+        $name_bread = 'resources';
+        return view('web.resources', compact('resources','resource_categories','name_bread'));
     }
 
     /**
@@ -121,6 +124,7 @@ class PageController extends Controller
 
         $resource_categories = ResourceCategory::orderBy('id', 'DESC')->get();
 
-        return view('web.resources', compact('resources','resource_categories','category_name'));
+        $name_bread = 'resource-categories';
+        return view('web.resources', compact('resources','resource_categories','category_name','name_bread'));
     }
 }

@@ -119,12 +119,13 @@ class EvaluationController extends Controller
      */
     public function data()
     {
-        $query = Evaluation::select('id', 'name', 'description', 'created_at');
+        $query = Evaluation::select('id', 'name', 'description', 'status','created_at');
 
         return datatables()
             ->eloquent($query)
+            ->editColumn('status', 'admin.evaluations.datatables.status')
             ->addColumn('btn', 'admin.evaluations.partials.actions')
-            ->rawColumns(['btn'])
+            ->rawColumns(['status','btn'])
             ->toJson();
     }
 }

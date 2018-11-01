@@ -21,10 +21,8 @@
                     <div class="col-md-8 mb-4">
 
                         <!--Featured Image-->
-                        {{-- <div class="card mb-4 wow fadeIn"> --}}
                         <div class="card mb-4 wow fadeIn">
 
-                            {{-- <img src="http://mdbootstrap.com/img/Photos/Slides/img%20(144).jpg" class="img-fluid" alt=""> --}}
                             @if($post->file)
                                 <img src="{{ $post->file }}" class="img-fluid" alt="{{ $post->name }}">
                             @endif
@@ -43,12 +41,7 @@
 
                                 <blockquote class="blockquote">
                                     <p class="mb-0">{!! $post->excerpt !!}</p>
-                                    {{-- <footer class="blockquote-footer">Someone famous in
-                                        <cite title="Source Title">Source Title</cite>
-                                    </footer> --}}
                                 </blockquote>
-
-                                {{-- <p class="h5 my-4">That's a very long heading </p> --}}
 
                                 {!! $post->body !!}
 
@@ -87,8 +80,7 @@
                             <div class="card-body">
 
                                 <div class="media d-block d-md-flex mt-3">
-                                    {{-- <img class="d-flex mb-3 mx-auto z-depth-1" src="https://mdbootstrap.com/img/Photos/Avatars/img (30).jpg" alt="Generic placeholder image"
-                                        style="width: 100px;"> --}}
+
                                     <img class="d-flex mb-3 mx-auto z-depth-1" src="{{ $post->user->photo }}" alt="Generic placeholder image"
                                         style="width: 100px;">
                                     <div class="media-body text-center text-md-left ml-md-3 ml-0">
@@ -147,7 +139,6 @@
                     <!--Grid column-->
                     <div class="col-md-4 mb-4">
 
-
                         <!--/.Card : Dynamic content wrapper-->
 
                         <!--Card-->
@@ -170,12 +161,10 @@
                                     @else
                                     <li class="media my-4">
                                     @endif
-                                        {{-- <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder7.jpg" alt="Generic placeholder image"> --}}
                                         <div class="media-body">
                                             <a href="{{ route('tag', $tag->slug) }}">
                                                 <h5 class="mt-0 mb-1 font-weight-bold">{{ $tag->name }}</h5>
                                             </a>
-                                            {{-- Lorem ipsum dolor. --}}
                                         </div>
                                     </li>
                                     @php $c++; @endphp

@@ -23,10 +23,22 @@ Breadcrumbs::for('specialties', function ($trail) {
     $trail->push('Especialidades', route('specialties'));
 });
 
+// Home > Blog > Specialties > Area Specialties
+Breadcrumbs::for('area-specialties', function ($trail) {
+    $trail->parent('specialties');
+    $trail->push('Área de especialidades', route('specialties'));
+});
+
 // Home > Blog > Resources
 Breadcrumbs::for('resources', function ($trail) {
     $trail->parent('blog');
     $trail->push('Recursos', route('resources'));
+});
+
+// Home > Blog > Resources > Category resources
+Breadcrumbs::for('resource-categories', function ($trail) {
+    $trail->parent('resources');
+    $trail->push('Categoría de recursos', route('resources'));
 });
 
 // Home > Blog > Category

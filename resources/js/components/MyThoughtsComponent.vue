@@ -21,8 +21,8 @@
 </template>
 
 <script>
-    import toastr from 'toastr'
-    import moment from 'moment'
+    import toastr from 'toastr';
+    import moment from 'moment';
     import InfiniteLoading from 'vue-infinite-loading';
 
     moment.locale('es');

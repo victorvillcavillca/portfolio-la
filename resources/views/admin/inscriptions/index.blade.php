@@ -15,7 +15,7 @@
     <!-- /.Alerts -->
 
     <!-- Heading -->
-    @include('admin.evaluations.partials.heading')
+    @include('admin.inscriptions.partials.heading')
     <!-- Heading -->
 
     <!--Grid row-->
@@ -29,7 +29,7 @@
                 <div class="card-header">
                   {{-- <h3 class="card-title">Servicios</h3> --}}
                   <div class="btn-group pull-right">
-                      <a href="{{ route('evaluations.create') }}" class="pull-right btn btn-sm btn-primary">
+                      <a href="{{ route('inscriptions.create') }}" class="pull-right btn btn-sm btn-primary">
                         Crear
                     </a>
                     </div>
@@ -45,7 +45,6 @@
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>Descripción</th>
-                            <th>Estado</th>
                             <th>Creado</th>
                             <th>Acciones</th>
                           </tr>
@@ -72,7 +71,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Eliminar Area de Especialiad</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar __('Categoría de Evaluación')</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -109,12 +108,11 @@
       "order": [[ 0, "desc" ]],
         "processing": true,
         "serverSide": true,
-        "ajax": "evaluations/data",
+        "ajax": "inscriptions/data",
         "columns": [
           { "data": "id" },
           { "data": "name" },
           { "data": "description" },
-          { "data": "status" },
           { "data": "created_at" },
           { "data": 'btn'},
         ],
@@ -163,7 +161,7 @@
       });
 
       $( "#delete" ).click(function() {
-        var url = 'evaluations/' + area_specialty_id;
+        var url = 'inscriptions/' + area_specialty_id;
         axios.delete(url).then(response => { //eliminamos
           $('#modalDelete').modal('hide');
           table.ajax.reload();

@@ -85,6 +85,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('questions', 'Admin\QuestionController');
     // Route::resource('home', 'Admin\HomeController');
 
+    #Inscriptions
+    Route::get('inscriptions/data', 'Admin\InscriptionController@data');
+    Route::resource('inscriptions', 'Admin\InscriptionController');
+
     //Roles
     Route::post('roles/store', 'RoleController@store')->name('roles.store')
         ->middleware('permission:roles.create');

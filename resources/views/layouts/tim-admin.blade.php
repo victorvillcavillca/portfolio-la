@@ -21,7 +21,7 @@
   <!-- CSS Files -->
 
   <link href="{{ asset('vendor/tim-admin/assets/css/material-dashboard.css?v=2.1.0') }}" rel="stylesheet" />
-  <link href="{{ asset('vendor/mdb/css/mdb.min.css') }}" rel="stylesheet">
+  {{-- <link href="{{ asset('vendor/mdb/css/mdb.min.css') }}" rel="stylesheet"> --}}
   @yield('styles')
 </head>
 

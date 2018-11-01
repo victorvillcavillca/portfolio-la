@@ -1,11 +1,12 @@
 <?php
-Use App\Datatables\UserDataTable;
+// Use App\Datatables\UserDataTable;
 
-Route::get('users', function(UserDataTable $dataTable) {
+Route::resource('users', 'UsersController');
+// Route::get('users', function(UserDataTable $dataTable) {
 
-    return $dataTable->render('admin.matters.read');
-    // return view('admin.matters.read', compact('html'));
-});
+//     return $dataTable->render('admin.matters.read');
+//     // return view('admin.matters.read', compact('html'));
+// });
 
 /*
 |--------------------------------------------------------------------------

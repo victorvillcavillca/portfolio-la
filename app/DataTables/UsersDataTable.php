@@ -15,8 +15,10 @@ class UsersDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        return datatables($query)
-            ->addColumn('action', 'usersdatatable.action');
+        // return datatables($query)
+        //     ->addColumn('action', 'usersdatatable.action');
+
+        return datatables($query)->setRowId('id')->addColumn('password', '');
     }
 
     /**
@@ -27,7 +29,8 @@ class UsersDataTable extends DataTable
      */
     public function query(User $model)
     {
-        return $model->newQuery()->select('id', 'name','email', 'created_at', 'updated_at');
+        // return $model->newQuery()->select('id', 'name','email', 'created_at', 'updated_at');
+        return $model->newQuery()->select('id', 'name', 'email');
     }
 
     /**
@@ -37,11 +40,27 @@ class UsersDataTable extends DataTable
      */
     public function html()
     {
+        // return $this->builder()
+        //             ->columns($this->getColumns())
+        //             ->minifiedAjax()
+        //             ->addAction(['width' => '80px'])
+        //             ->parameters($this->getBuilderParameters());
         return $this->builder()
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->addAction(['width' => '80px'])
-                    ->parameters($this->getBuilderParameters());
+                    ->parameters([
+                        'dom' => 'Bfrtip',
+                        'order' => [1, 'asc'],
+                        'select' => [
+                            'style' => 'os',
+                            'selector' => 'td:first-child',
+                        ],
+                        'buttons' => [
+                            ['extend' => 'create', 'editor' => 'editor'],
+                            ['extend' => 'edit', 'editor' => 'editor'],
+                            ['extend' => 'remove', 'editor' => 'editor'],
+                        ]
+                    ]);
     }
 
     /**
@@ -51,12 +70,26 @@ class UsersDataTable extends DataTable
      */
     protected function getColumns()
     {
+        // return [
+        //     'id',
+        //     'name',
+        //     'email',
+        //     'created_at',
+        //     'updated_at'
+        // ];
+
         return [
+            [
+                'data' => null,
+                'defaultContent' => '',
+                'className' => 'select-checkbox',
+                'title' => '',
+                'orderable' => false,
+                'searchable' => false
+            ],
             'id',
             'name',
             'email',
-            'created_at',
-            'updated_at'
         ];
     }
 
@@ -67,6 +100,7 @@ class UsersDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Users_' . date('YmdHis');
+        // return 'Users_' . date('YmdHis');
+        return 'users_' . time();
     }
 }

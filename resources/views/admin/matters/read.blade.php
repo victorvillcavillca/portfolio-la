@@ -4,6 +4,16 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+
+  {{-- editor --}}
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.2/css/select.bootstrap4.min.css">
+  {{-- editor  --}}
+
+  {{-- <link rel="stylesheet" href="{{ asset('editor/css/dataTables.editor.css')}}"> --}}
+  <link rel="stylesheet" href="{{ asset('vendor/editor/css/editor.bootstrap4.css')}}">
+  {{-- ./editor --}}
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 @endsection
 
@@ -39,7 +49,9 @@
                 <div class="card-body">
 
                     <div class="table-responsive">
-                      {{ $dataTable->table(['class' => 'table table-striped table-bordered table-sm dt-responsive'], true) }}
+                      {{ $dataTable->table(['id' => 'users','class' => 'table table-striped table-bordered table-sm dt-responsive'], true) }}
+
+                      {{-- {{ $dataTable->table(['id' => 'users'])}} --}}
 
                     </div>
 
@@ -83,13 +95,51 @@
 @section('scripts')
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
+
+  {{-- Editor --}}
+  <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/select/1.2.5/js/dataTables.select.min.js"></script>
+  <script src="{{asset('vendor/editor/js/dataTables.editor.min.js')}}"></script>
+
+  <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+  <script src="{{asset('vendor/editor/js/editor.bootstrap4.min.js')}}"></script>
+  {{-- ./Editor --}}
+
+
   <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" ></script>
   <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js" ></script>
+
 
   <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   {{-- <script src="{{ asset('js/toastr.min.js') }}"></script> --}}
-  {!! $dataTable->scripts() !!}
+  {{-- {!! $dataTable->scripts() !!} --}}
+  <script>
+    $(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': '{{csrf_token()}}'
+            }
+        });
 
+        var editor = new $.fn.dataTable.Editor({
+            ajax: "/users",
+            table: "#users",
+            display: "bootstrap",
+            fields: [
+                {label: "Nombre:", name: "name"},
+                {label: "Apellido:", name: "last_name"},
+                {label: "Email:", name: "email"},
+                {label: "Password:", name: "password", type: "password"}
+            ]
+        });
+
+        $('#users').on('click', 'tbody td:not(:first-child)', function (e) {
+            editor.inline(this);
+        });
+
+        {{ $dataTable->generateScripts() }}
+    })
+</script>
 @endsection
 

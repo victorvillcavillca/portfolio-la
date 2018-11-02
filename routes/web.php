@@ -76,6 +76,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('evaluation-categories/data', 'Admin\EvaluationCategoryController@data');
     Route::resource('evaluation-categories', 'Admin\EvaluationCategoryController');
 
+    #Matters
+    Route::get('matters/data', 'Admin\MatterController@data');
+    Route::resource('matters', 'Admin\MatterController');
+
     #Evaluations
     Route::get('evaluations/data', 'Admin\EvaluationController@data');
     Route::resource('evaluations', 'Admin\EvaluationController');

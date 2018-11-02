@@ -59,7 +59,7 @@
               <a class="nav-link" href="{{ route('specialties.index') }}"><i class="material-icons">content_paste</i>Especialidades</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {{ request()->is('admin/specialties') || request()->is('admin/specialties/*')? 'active' : ''}}" href="{{ route('specialty-areas.index') }}"><i class="material-icons">content_paste</i>Áreas de especialidades</a>
+              <a class="nav-link {{ request()->is('admin/specialty-areas') || request()->is('admin/specialty-areas/*')? 'active' : ''}}" href="{{ route('specialty-areas.index') }}"><i class="material-icons">content_paste</i>Áreas de especialidades</a>
             </li>
           </ul>
         </div>
@@ -83,6 +83,10 @@
 
             <li class="nav-item {{ request()->is('admin/evaluation-categories') || request()->is('admin/evaluation-categories/*')? 'active' : ''}}">
               <a class="nav-link" href="{{ route('evaluation-categories.index') }}"><i class="material-icons">content_paste</i>Categoría Evaluaciones</a>
+            </li>
+
+            <li class="nav-item {{ request()->is('admin/matters') || request()->is('admin/matters/*')? 'active' : ''}}">
+              <a class="nav-link" href="{{ route('matters.index') }}"><i class="material-icons">content_paste</i>Materias</a>
             </li>
 
             <li class="nav-item {{ request()->is('admin/questions') || request()->is('admin/questions/*')? 'active' : ''}}">

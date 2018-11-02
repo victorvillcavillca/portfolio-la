@@ -2,11 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\MatterRequest;
+use App\Http\Requests\Admin\MatterUpdateRequest;
+use App\Matter;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MatterController extends Controller
 {
+    /*Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +27,7 @@ class MatterController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.matters.index');
     }
 
     /**
@@ -24,7 +37,7 @@ class MatterController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.matters.create');
     }
 
     /**
@@ -33,31 +46,36 @@ class MatterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MatterRequest $request)
     {
-        //
+        $matter = new Matter($request->all());
+        $matter->user_id = Auth::id();
+        $matter->save();
+
+        return redirect()->route('matters.index')
+                        ->with('info','Materia created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Matter  $matter
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Matter $matter)
     {
-        //
+        return view('admin.matters.show', compact('matter'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Matter  $matter
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Matter $matter)
     {
-        //
+        return view('admin.matters.edit', compact('matter'));
     }
 
     /**
@@ -67,9 +85,13 @@ class MatterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MatterUpdateRequest $request, $id)
     {
-        //
+        $matter = Matter::find($id);
+        $matter->update($request->all());
+
+        return redirect()->route('matters.index')
+                        ->with('info','Materia Update successfully.');
     }
 
     /**
@@ -80,6 +102,23 @@ class MatterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Matter::find($id)->delete();
+        return;
+    }
+
+    /**
+     * Show a list of all the Matters formatted for Datatables.
+     *
+     * @return Datatables JSON
+     */
+    public function data()
+    {
+        $query = Matter::select('id', 'name', 'description', 'created_at');
+
+        return datatables()
+            ->eloquent($query)
+            ->addColumn('btn', 'admin.matters.partials.actions')
+            ->rawColumns(['btn'])
+            ->toJson();
     }
 }

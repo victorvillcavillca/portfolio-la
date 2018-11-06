@@ -118,12 +118,13 @@ class MatterController extends Controller
      */
     public function data()
     {
-        $query = Matter::select('id', 'name', 'description', 'created_at');
+        $query = Matter::select('id', 'name', 'status', 'created_at');
 
         return datatables()
             ->eloquent($query)
+            ->editColumn('status', 'admin.matters.datatables.status')
             ->addColumn('btn', 'admin.matters.partials.actions')
-            ->rawColumns(['btn'])
+            ->rawColumns(['status','btn'])
             ->toJson();
     }
 }

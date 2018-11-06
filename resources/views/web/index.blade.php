@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="container">
-
-    <my-thoughts-component></my-thoughts-component>
+    <my-thoughts-component :username={{ auth::user()->name }}></my-thoughts-component>
 
 </div>
 @endsection

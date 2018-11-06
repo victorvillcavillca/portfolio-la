@@ -27,6 +27,10 @@ Route::get('/', 'Web\PageController@index')->name('index');
 
 Route::view('gradient', 'gradient');
 
+#Login Socialite
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -101,6 +105,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     #Inscriptions
     Route::get('inscriptions/data', 'Admin\InscriptionController@data');
     Route::resource('inscriptions', 'Admin\InscriptionController');
+
+    #Managements
+    Route::get('managements/data', 'Admin\ManagementController@data');
+    Route::resource('managements', 'Admin\ManagementController');
 
     //Roles
     Route::post('roles/store', 'RoleController@store')->name('roles.store')

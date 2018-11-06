@@ -19,7 +19,7 @@ class CreateManagementsTable extends Migration
             $table->string('name', 128);
             $table->string('slug', 128)->unique();
             $table->mediumInteger('year')->default(2018);
-
+            $table->boolean('status')->default(false);
             $table->mediumText('description')->nullable();
 
             $table->integer('user_id')->unsigned();

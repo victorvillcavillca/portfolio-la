@@ -81,17 +81,21 @@
               <a class="nav-link" href="{{ route('evaluations.index') }}"><i class="material-icons">content_paste</i>Evaluaciones</a>
             </li>
 
-            <li class="nav-item {{ request()->is('admin/evaluation-categories') || request()->is('admin/evaluation-categories/*')? 'active' : ''}}">
+            {{-- <li class="nav-item {{ request()->is('admin/evaluation-categories') || request()->is('admin/evaluation-categories/*')? 'active' : ''}}">
               <a class="nav-link" href="{{ route('evaluation-categories.index') }}"><i class="material-icons">content_paste</i>Categoría Evaluaciones</a>
-            </li>
+            </li> --}}
 
             <li class="nav-item {{ request()->is('admin/matters') || request()->is('admin/matters/*')? 'active' : ''}}">
               <a class="nav-link" href="{{ route('matters.index') }}"><i class="material-icons">content_paste</i>Materias</a>
             </li>
 
-            <li class="nav-item {{ request()->is('admin/questions') || request()->is('admin/questions/*')? 'active' : ''}}">
-              <a class="nav-link" href="{{ route('questions.index') }}"><i class="material-icons">content_paste</i>Preguntas</a>
+            <li class="nav-item {{ request()->is('admin/managements') || request()->is('admin/managements/*')? 'active' : ''}}">
+              <a class="nav-link" href="{{ route('managements.index') }}"><i class="material-icons">content_paste</i>Gestión</a>
             </li>
+
+            {{-- <li class="nav-item {{ request()->is('admin/questions') || request()->is('admin/questions/*')? 'active' : ''}}">
+              <a class="nav-link" href="{{ route('questions.index') }}"><i class="material-icons">content_paste</i>Preguntas</a>
+            </li> --}}
           </ul>
         </div>
       </li>

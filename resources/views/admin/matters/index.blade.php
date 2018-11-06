@@ -44,7 +44,7 @@
                           <tr>
                             <th>Id</th>
                             <th>Nombre</th>
-                            <th>Descripción</th>
+                            <th>Estado</th>
                             <th>Creado</th>
                             <th>Acciones</th>
                           </tr>
@@ -112,7 +112,7 @@
         "columns": [
           { "data": "id" },
           { "data": "name" },
-          { "data": "description" },
+          { "data": "status" },
           { "data": "created_at" },
           { "data": 'btn'},
         ],

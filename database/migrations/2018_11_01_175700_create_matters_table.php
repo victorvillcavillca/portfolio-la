@@ -20,6 +20,7 @@ class CreateMattersTable extends Migration
             $table->string('slug', 128)->unique();
 
             $table->mediumText('description')->nullable();
+            $table->boolean('status')->default(false);
 
             $table->integer('user_id')->unsigned();
             $table->integer('user_id_edit')->unsigned()->nullable();

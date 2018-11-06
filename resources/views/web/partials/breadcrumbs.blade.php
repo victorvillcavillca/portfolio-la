@@ -1,4 +1,4 @@
-<div class="light-font">
+<div class="dark-font">
     {{-- <ol class="breadcrumb primary-color">
         <li class="breadcrumb-item"><a class="white-text" href="{{ url('/') }}">Inicio</a></li>
         <li class="breadcrumb-item"><a class="white-text" href="#">Library</a></li>
@@ -9,7 +9,7 @@
 </div>
 @section('scripts')
   <script>
-    $('.breadcrumb').addClass('primary-color');
-    $('.breadcrumb-item > a').addClass('white-text');
+    // $('.breadcrumb').addClass('primary-color');
+    // $('.breadcrumb-item > a').addClass('white-text');
   </script>
 @endsection

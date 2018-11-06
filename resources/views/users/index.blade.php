@@ -1,16 +1,16 @@
-@extends('layouts.dashboard')
+@extends('layouts.admin-dash')
 
 @section('content')
 <div class="container-fluid mt-5">
-    
-    <!-- Alerts -->    
+
+    <!-- Alerts -->
     @include('admin.partials.alerts')
     <!-- /.Alerts -->
 
     <!-- Heading -->
     @include('admin.users.partials.heading')
     <!-- Heading -->
-    
+
     <!--Grid row-->
     <div class="row wow fadeIn">
 
@@ -22,7 +22,7 @@
 
                 <!--Card content-->
                 <div class="card-body">
-                    
+
                     {{-- <a href="{{ route('users.create') }}" class="pull-right btn btn-sm btn-primary">
                         Crear
                     </a> --}}
@@ -42,7 +42,7 @@
                                 <td>{{ $user->name }}</td>
                                 @can('users.show')
                                 <td width="10px">
-                                    <a href="{{ route('users.show', $user->id) }}" 
+                                    <a href="{{ route('users.show', $user->id) }}"
                                     class="btn btn-sm btn-default">
                                         ver
                                     </a>
@@ -50,7 +50,7 @@
                                 @endcan
                                 @can('users.edit')
                                 <td width="10px">
-                                    <a href="{{ route('users.edit', $user->id) }}" 
+                                    <a href="{{ route('users.edit', $user->id) }}"
                                     class="btn btn-sm btn-default">
                                         editar
                                     </a>
@@ -58,7 +58,7 @@
                                 @endcan
                                 @can('users.destroy')
                                 <td width="10px">
-                                    {!! Form::open(['route' => ['users.destroy', $user->id], 
+                                    {!! Form::open(['route' => ['users.destroy', $user->id],
                                     'method' => 'DELETE']) !!}
                                         <button class="btn btn-sm btn-danger">
                                             Eliminar

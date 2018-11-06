@@ -1,9 +1,9 @@
-@extends('layouts.dashboard')
+@extends('layouts.admin-dash')
 
 @section('content')
 <div class="container-fluid mt-5">
-    
-    <!-- Alerts -->    
+
+    <!-- Alerts -->
     @include('admin.partials.alerts')
     <!-- /.Alerts -->
 
@@ -28,14 +28,14 @@
                   @include('admin.partials.errors')
                 @endif
                 <!-- /.errors -->
-                
+
                 <!--Card content-->
                 <div class="card-body">
                     {!! Form::model($user, ['route' => ['users.update', $user->id],
                     'method' => 'PUT']) !!}
 
                         @include('users.partials.form')
-                        
+
                     {!! Form::close() !!}
                 </div>
 

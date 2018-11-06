@@ -1,9 +1,9 @@
-@extends('layouts.dashboard')
+@extends('layouts.admin-dash')
 
 @section('content')
 <div class="container-fluid mt-5">
-    
-    <!-- Alerts -->    
+
+    <!-- Alerts -->
     @include('admin.partials.alerts')
     <!-- /.Alerts -->
 
@@ -16,10 +16,10 @@
 
         <!--Grid column-->
         <div class="col-md-12 mb-4">
-            
+
             <!--Card-->
             <div class="card">
-               
+
                 <div class="card-header">
                     Crear producto
                 </div>
@@ -35,7 +35,7 @@
                     {{ Form::open(['route' => 'products.store']) }}
 
                         @include('products.partials.form')
-                        
+
                     {{ Form::close() }}
                 </div>
 

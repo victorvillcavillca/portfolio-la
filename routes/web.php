@@ -107,8 +107,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('inscriptions', 'Admin\InscriptionController');
 
     #Managements
-    Route::get('managements/data', 'Admin\ManagementController@data');
+    // Route::get('managements/data', 'Admin\ManagementController@data');
     Route::resource('managements', 'Admin\ManagementController');
+
+    #Resource Categories
+    // Route::get('managements/data', 'Admin\ManagementController@data');
+    Route::resource('resource-categories', 'Admin\ResourceCategoryController');
+
+    #Resources
+    Route::get('resources/data', 'Admin\ResourceController@data');
+    Route::resource('resources', 'Admin\ResourceController');
 
     //Roles
     Route::post('roles/store', 'RoleController@store')->name('roles.store')

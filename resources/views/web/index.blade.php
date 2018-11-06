@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="container">
-    <my-thoughts-component :username={{ auth::user()->name }}></my-thoughts-component>
+	<!--Breadcrumbs-->
+	@php $name = 'start' @endphp
+    @include('web.partials.breadcrumbs',array('name' =>  $name))
+    <!--./Breadcrumbs-->
+
+    <my-thoughts-component></my-thoughts-component>
 
 </div>
 @endsection

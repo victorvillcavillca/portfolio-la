@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ManagementsDataTablesEditor extends DataTablesEditor
 {
-    protected $model = User::class;
+    protected $model = Management::class;
 
     /**
      * Get create action validation rules.
@@ -19,8 +19,9 @@ class ManagementsDataTablesEditor extends DataTablesEditor
     public function createRules()
     {
         return [
-            'email' => 'required|email|unique:users',
+            // 'email' => 'required|email|unique:users',
             'name'  => 'required',
+            // 'status'  => 'required',
         ];
     }
 
@@ -33,8 +34,11 @@ class ManagementsDataTablesEditor extends DataTablesEditor
     public function editRules(Model $model)
     {
         return [
-            'email' => 'sometimes|required|email|' . Rule::unique($model->getTable())->ignore($model->getKey()),
+            // 'email' => 'sometimes|required|email|' . Rule::unique($model->getTable())->ignore($model->getKey()),
+            // 'name'  => 'sometimes|required',
+
             'name'  => 'sometimes|required',
+            'status'  => 'required',
         ];
     }
 
@@ -47,5 +51,35 @@ class ManagementsDataTablesEditor extends DataTablesEditor
     public function removeRules(Model $model)
     {
         return [];
+    }
+
+    /**
+    * Pre-create action event hook.
+    *
+    * @param Model $model
+    * @return array
+    */
+    public function creating(Model $model, array $data)
+    {
+        // $data['password'] = bcrypt($data['password']);
+
+        return $data;
+    }
+
+    /**
+    * Pre-update action event hook.
+    *
+    * @param Model $model
+    * @return array
+    */
+    public function updating(Model $model, array $data)
+    {
+        // if (empty($data['password'])) {
+        //     unset($data['password']);
+        // } else {
+        //     $data['password'] = bcrypt($data['password']);
+        // }
+
+        return $data;
     }
 }

@@ -91,7 +91,7 @@ class ManagementsDataTable extends DataTable
                 'orderable' => false,
                 'searchable' => false
             ],
-            'id',
+            // 'id',
             'name',
             'status',
             'created_at',

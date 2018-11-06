@@ -17,6 +17,12 @@ Breadcrumbs::for('blog', function ($trail) {
     $trail->push('Blog', route('blog'));
 });
 
+// Home > Inicio
+Breadcrumbs::for('start', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Pensamientos', route('home'));
+});
+
 // Home > Blog > Specialties
 Breadcrumbs::for('specialties', function ($trail) {
     $trail->parent('blog');

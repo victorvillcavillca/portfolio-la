@@ -1,4 +1,4 @@
-@extends('layouts.tim-admin')
+@extends('layouts.admin-dash')
 
 @section('styles')
   <!-- DataTables -->

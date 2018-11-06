@@ -1,4 +1,4 @@
-@extends('layouts.tim-admin')
+@extends('layouts.admin-dash')
 
 @section('styles')
   <!-- DataTables -->
@@ -49,7 +49,7 @@
                 <div class="card-body">
 
                     <div class="table-responsive">
-                      {{ $dataTable->table(['id' => 'users','class' => 'table table-striped table-bordered table-sm dt-responsive'], true) }}
+                      {{ $dataTable->table(['id' => 'managements','class' => 'table table-striped table-bordered table-sm dt-responsive'], true) }}
 
                       {{-- <table id="myTable" class="table table-striped table-bordered table-sm dt-responsive" cellspacing="`0" width="100%">
                           <thead>
@@ -131,36 +131,36 @@
             }
         });
 
-        // $('#users').dataTable( {
+        // $('#managements').dataTable( {
         //   "columnDefs": [
         //     { "name": "My column title", "targets": 1 }
         //   ]
         // } );
 
         var editor = new $.fn.dataTable.Editor({
-            ajax: "/users",
-            table: "#users",
+            ajax: "/admin/managements",
+            table: "#managements",
             columnDefs: [
               { "name": "My column title"}
             ],
             i18n: {
                 create: {
                     button: "Crear",
-                    title:  "Crear nuevo usuario",
+                    title:  "Crear nueva Gestion",
                     submit: "Guardar"
                 },
                 edit: {
                     button: "Editar",
-                    title:  "Actualizar usuario",
+                    title:  "Actualizar Gestion",
                     submit: "Guardar"
                 },
                 remove: {
                     button: "Eliminar",
-                    title:  "Eliminar Usuario",
+                    title:  "Eliminar Gestion",
                     submit: "Eliminar",
                     confirm: {
-                        _: "¿Está seguro de Eliminar? %d Usuarios?",
-                        1: "¿Está seguro de Eliminar? 1 Usuario?"
+                        _: "¿Está seguro de Eliminar? %d Gestiones?",
+                        1: "¿Está seguro de Eliminar? 1 Gestion?"
                     }
                 }
             },
@@ -173,7 +173,7 @@
             ]
         });
 
-        $('#users').on('click', 'tbody td:not(:first-child)', function (e) {
+        $('#managements').on('click', 'tbody td:not(:first-child)', function (e) {
             editor.inline(this);
         });
 

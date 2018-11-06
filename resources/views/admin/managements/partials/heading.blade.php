@@ -6,7 +6,7 @@
         <h4 class="mb-2 mb-sm-0 pt-1">
             <a href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">Dashboard</a>
             <span>/</span>
-            <span>Materias</span>
+            <span>Gestiones</span>
         </h4>
 
        {{--  <form class="d-flex justify-content-center">

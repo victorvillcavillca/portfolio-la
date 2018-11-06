@@ -1,16 +1,16 @@
-@extends('layouts.dashboard')
+@extends('layouts.admin-dash')
 
 @section('content')
 <div class="container-fluid mt-5">
-    
-    <!-- Alerts -->    
+
+    <!-- Alerts -->
     @include('admin.partials.alerts')
     <!-- /.Alerts -->
 
     <!-- Heading -->
     @include('admin.products.partials.heading')
     <!-- Heading -->
-    
+
     <!--Grid row-->
     <div class="row wow fadeIn">
 
@@ -24,7 +24,7 @@
                 <div class="card-body">
 
                     {{-- <canvas id="myChart"></canvas> --}}
-                    
+
                     <a href="{{ route('products.create') }}" class="pull-right btn btn-sm btn-primary">
                         Crear
                     </a>
@@ -44,7 +44,7 @@
                                 <td>{{ $product->name }}</td>
                                 @can('products.show')
                                 <td width="10px">
-                                    <a href="{{ route('products.show', $product->id) }}" 
+                                    <a href="{{ route('products.show', $product->id) }}"
                                     class="btn btn-sm btn-default">
                                         ver
                                     </a>
@@ -52,7 +52,7 @@
                                 @endcan
                                 @can('products.edit')
                                 <td width="10px">
-                                    <a href="{{ route('products.edit', $product->id) }}" 
+                                    <a href="{{ route('products.edit', $product->id) }}"
                                     class="btn btn-sm btn-default">
                                         editar
                                     </a>
@@ -60,7 +60,7 @@
                                 @endcan
                                 @can('products.destroy')
                                 <td width="10px">
-                                    {!! Form::open(['route' => ['products.destroy', $product->id], 
+                                    {!! Form::open(['route' => ['products.destroy', $product->id],
                                     'method' => 'DELETE']) !!}
                                         <button class="btn btn-sm btn-danger">
                                             Eliminar

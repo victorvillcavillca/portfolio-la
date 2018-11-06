@@ -1,4 +1,4 @@
-@extends('layouts.tim-admin')
+@extends('layouts.admin-dash')
 
 @section('content')
 <div class="container-fluid mt-5">
@@ -28,38 +28,40 @@
                     <a href="{{ route('posts.create') }}" class="pull-right btn btn-sm btn-primary">
                         Crear
                     </a>
-                    <!-- Table  -->
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th width="10px">ID</th>
-                                <th>Nombre</th>
-                                <th colspan="3">&nbsp;</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($posts as $post)
-                            <tr>
-                                <td>{{ $post->id }}</td>
-                                <td>{{ $post->name }}</td>
-                                <td width="10px">
-                                    <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-default">Ver</a>
-                                </td>
-                                <td width="10px">
-                                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-warning">Editar</a>
-                                </td>
-                                <td width="10px">
-                                    {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'DELETE']) !!}
-                                        <button class="btn btn-sm btn-danger">
-                                            Eliminar
-                                        </button>
-                                    {!! Form::close() !!}
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
 
+                    <div class="table-responsive">
+                        <!-- Table  -->
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="10px">ID</th>
+                                    <th>Nombre</th>
+                                    <th colspan="3">&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($posts as $post)
+                                <tr>
+                                    <td>{{ $post->id }}</td>
+                                    <td>{{ $post->name }}</td>
+                                    <td width="10px">
+                                        <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-default">Ver</a>
+                                    </td>
+                                    <td width="10px">
+                                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-warning">Editar</a>
+                                    </td>
+                                    <td width="10px">
+                                        {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'DELETE']) !!}
+                                            <button class="btn btn-sm btn-danger">
+                                                Eliminar
+                                            </button>
+                                        {!! Form::close() !!}
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                     {{ $posts->links() }}
                 </div>
 

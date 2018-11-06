@@ -12,7 +12,7 @@ class ManagementController extends Controller
 {
     public function index(ManagementsDataTable $dataTable)
     {
-        return $dataTable->render('admin.matters.read');
+        return $dataTable->render('admin.managements.index');
     }
 
     public function store(ManagementsDataTablesEditor $editor)

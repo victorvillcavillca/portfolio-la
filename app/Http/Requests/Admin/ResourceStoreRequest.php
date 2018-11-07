@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SpecialtyStoreRequest extends FormRequest
+class ResourceStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,10 @@ class SpecialtyStoreRequest extends FormRequest
     {
         $rules = [
             'name'          => 'required',
-            'slug'          => 'required|unique:specialties,slug',
+            'slug'          => 'required|unique:resources,slug',
             'order'          => 'required',
             'user_id'       => 'required|integer',
-            'specialty_area_id'   => 'required|integer',
+            'resource_category_id'   => 'required|integer',
             'status'        => 'required|in:DRAFT,PUBLISHED',
             // 'file'        => 'required',
             'filename'        => 'required',

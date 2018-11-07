@@ -7,7 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Resource extends Model
 {
     protected $fillable = [
-        'user_id', 'resource_category_id', 'name', 'slug', 'description', 'body', 'status', 'file'
+        'user_id',
+        'resource_category_id',
+        'name',
+        'order',
+        'slug',
+        'description',
+        'body',
+        'status',
+        'file',
+        'filename'
     ];
 
     /**

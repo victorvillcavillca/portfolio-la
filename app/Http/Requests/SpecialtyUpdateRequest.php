@@ -25,7 +25,7 @@ class SpecialtyUpdateRequest extends FormRequest
     {
         $rules = [
             'name'          => 'required',
-            'slug'          => 'required|unique:posts,slug,' . $this->specialty,
+            'slug'          => 'required|unique:specialties,slug,' . $this->specialty,
             'order'          => 'required',
             'user_id'       => 'required|integer',
             'specialty_area_id'   => 'required|integer',

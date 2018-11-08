@@ -4,6 +4,7 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 @endsection
 
@@ -29,8 +30,7 @@
                 <div class="card-header">
                   {{-- <h3 class="card-title">Servicios</h3> --}}
                   <div class="btn-group pull-right">
-                      <a href="{{ route('resources.create') }}" class="pull-right btn btn-sm btn-primary">
-                        Crear
+                      <a href="{{ route('resources.create') }}" class="pull-right btn btn-sm btn-primary"><i class="fa fa-plus"></i> @lang('button.create')
                     </a>
                     </div>
 
@@ -40,14 +40,17 @@
                     <!-- Table  -->
                     {{-- <table id="myTable" class="table table-hover" style="width: 100%"> --}}
                    <div class="table-responsive">
-                      <table id="myTable" class="table table-striped table-bordered table-sm dt-responsive" cellspacing="`0" width="100%">
-                        <thead>
+                      <table id="myTable" class="table table-hover dt-responsive" cellspacing="`0" width="100%">
+                        {{-- <thead class="blue lighten-4"> --}}
+                        <thead class="thead-dark">
                         <tr>
                           <th>Id</th>
                           <th>Nombre</th>
                           <th>Descripción</th>
+                          <th>Estado</th>
+                          <th>Categoría</th>
                           <th>Creado</th>
-                          <th>Acciones</th>
+                          <th style="width: 82px;">Acciones</th>
                         </tr>
                         </thead>
                       </table>
@@ -65,42 +68,24 @@
 </div>
 
 <!--Modal: Delete Confirmation-->
-<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Eliminar Especialiad</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>¿Esta seguro de eliminar la Especialidad?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="delete">Si</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!--Modal: Delete Confirmation-->
 @endsection
 
 @section('scripts')
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
-  <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" ></script>
-  <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js" ></script>
+
+  {{-- <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" ></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js" ></script> --}}
 
   <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-  {{-- <script src="{{ asset('js/toastr.min.js') }}"></script> --}}
+
   <!-- page script -->
   <script>
   $(document).ready(function() {
-     let specialty_id = 0;
+     let resource_id = 0;
      let table = $('#myTable').DataTable({
       "responsive": true,
       "order": [[ 0, "desc" ]],
@@ -110,7 +95,9 @@
         "columns": [
           { "data": "id" },
           { "data": "name" },
-          { "data": "description" },
+          { "data": "filename" },
+          { "data": "status" },
+          { "data": "resource_category_id" },
           { "data": "created_at" },
           { "data": 'btn'},
         ],
@@ -122,49 +109,21 @@
         }
         ],
         "language": {
-          "processing": "Procesando...",
-          "lengthMenu": 'Mostrar <select >'+
-            '<option value="10">10</option>'+
-            '<option value="25">25</option>'+
-            '<option value="50">50</option>'+
-            '<option value="100">100</option>'+
-            '<option value="-1">Todos</option>'+
-            '</select> registros',
-            "zeroRecords": "No se encontraron resultados",
-            "emptyTable": "Ningún dato disponible en esta tabla",
-            "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-            "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-            "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-            "infoPostFix": "",
-            "search": "Buscar:",
-            "url": "",
-            "thousands": ",",
-            "loadingRecords": "Cargando...",
-            "paginate": {
-              "first": "Primero",
-              "last": "Último",
-              "next": "Siguiente",
-              "previous": "Anterior"
-            },
-          "aria": {
-            "sortAscending": ": Activar para ordenar la columna de manera ascendente",
-            "sortDescending": ": Activar para ordenar la columna de manera descendente"
-          }
+            "url": "/json/lang/es/pagination.json"
         }
       });
 
-      $('#myTable tbody').on( 'click', 'a.delete_specialty', function (e) {
-        specialty_id = $(this).attr('data-id');
+      $('#myTable tbody').on( 'click', 'a.delete_resource', function (e) {
+        resource_id = $(this).attr('data-id');
         $('#modalDelete').modal('show');
       });
 
-      $( "#delete" ).click(function() {
-        // let service_id = specialty_id;
-        var url = 'resources/' + specialty_id;
+      $('#delete').click(function() {
+        var url = 'resources/' + resource_id;
         axios.delete(url).then(response => { //eliminamos
           $('#modalDelete').modal('hide');
           table.ajax.reload();
-          toastr.success('Eliminado correctamente ESPE'); //mensaje
+          toastr.error(response.data.message); //mensaje
         });
       });
 

@@ -1,4 +1,3 @@
-@php use Carbon\Carbon; @endphp
 {{ Form::hidden('user_id', auth()->user()->id) }}
 
 <div class="form-group">

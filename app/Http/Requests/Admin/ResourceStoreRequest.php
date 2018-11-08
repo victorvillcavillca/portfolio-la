@@ -26,19 +26,19 @@ class ResourceStoreRequest extends FormRequest
         $rules = [
             'name'          => 'required',
             'slug'          => 'required|unique:resources,slug',
-            'order'          => 'required',
+            'order'         => 'required',
             'user_id'       => 'required|integer',
-            'resource_category_id'   => 'required|integer',
+            'resource_category_id' => 'required|integer',
             'status'        => 'required|in:DRAFT,PUBLISHED',
             // 'file'        => 'required',
-            'filename'        => 'required',
+            'filename'      => 'required',
         ];
 
         if($this->get('image'))
             $rules = array_merge($rules, ['image' => 'required|mimes:jpg,jpeg,png']);
 
         if($this->get('filename'))
-            $rules = array_merge($rules, ['filename' => 'required|mimes:doc,pdf,docx,zip']);
+            $rules = array_merge($rules, ['filename' => 'required|file|size:20480|mimes:doc,pdf,docx,zip']);
 
         return $rules;
     }

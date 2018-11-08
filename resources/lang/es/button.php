@@ -13,14 +13,14 @@ return [
     |
     */
 
-    'create' => 'Create',
-    'edit' => 'Edit',
-    'cancel' => 'Cancel',
-    'save' => 'Save',
-    'delete' => 'Delete',
-    'view' => 'View',
-    'update' => 'Update',
-    'updated' => 'Updated',
-    'register' => 'Register',
-    'download' => 'Download',
+    'create' => 'Crear',
+    'edit' => 'Editar',
+    'cancel' => 'Cancelar',
+    'save' => 'Guardar',
+    'delete' => 'Eliminar',
+    'view' => 'Ver',
+    'update' => 'Actulizar',
+    'updated' => 'Actulizado',
+    'register' => 'Registrar',
+    'download' => 'Descargar',
 ];

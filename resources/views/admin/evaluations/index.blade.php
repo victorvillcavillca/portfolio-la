@@ -48,7 +48,7 @@
                             <th>Intro</th>
                             <th>Estado</th>
                             <th>Creado</th>
-                            <th>Acciones</th>
+                            <th style="width: 80px;">Acciones</th>
                           </tr>
                           </thead>
                       </table>

@@ -6,15 +6,45 @@
 </div>
 <div class="form-group">
     {{ Form::label('name', 'Nombre', ['class' => 'font-weight-bold']) }}
-    {{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
+    @if ($errors->has('name'))
+    {{ Form::text('name', null, ['class' => "form-control is-invalid",'id' => 'name']) }}
+    @else
+    {{ Form::text('name', null, ['class' => "form-control",'id' => 'name']) }}
+    @endif
+
+	@if ($errors->has('name'))
+    <span class="invalid-feedback">
+    	{{ $errors->first('name') }}
+  	</span>
+	@endif
 </div>
 <div class="form-group">
     {{ Form::label('slug', 'URL amigable', ['class' => 'font-weight-bold']) }}
-    {{ Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug']) }}
+    {{-- @if ($errors->has('slug')) --}}
+    {{-- {{ Form::text('slug', null, ['class' => 'form-control is-invalid', 'id' => 'slug']) }} --}}
+    {{-- @else --}}
+    {{ Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug', 'readonly']) }}
+    {{-- @endif --}}
+
+    {{-- @if ($errors->has('slug'))
+    <span class="invalid-feedback">
+    	{{ $errors->first('slug') }}
+  	</span>
+	@endif --}}
 </div>
 <div class="form-group">
     {{ Form::label('order', 'Orden', ['class' => 'font-weight-bold']) }}
-    {{ Form::number('order', null, ['class' => 'form-control', 'id' => 'order']) }}
+    @if ($errors->has('order'))
+    {{ Form::number('order', null, ['class' => 'form-control is-invalid', 'id' => 'order']) }}
+    @else
+    {{ Form::number('order', isset($order)? $order : null, ['class' => 'form-control', 'id' => 'order']) }}
+    @endif
+
+    @if ($errors->has('order'))
+    <span class="invalid-feedback">
+    	{{ $errors->first('order') }}
+  	</span>
+	@endif
 </div>
 <div class="form-group">
     {{ Form::label('description', 'Descripción', ['class' => 'font-weight-bold']) }}
@@ -23,6 +53,12 @@
 <div class="form-group">
     {{ Form::label('image', 'Imagen', ['class' => 'font-weight-bold']) }}
     {{ Form::file('image') }}
+
+    {{-- @if ($errors->has('image'))
+    <div class="help-blok text-danger" style="font-size: 80%;">
+    	{{ $errors->first('image') }}
+  	</div>
+	@endif --}}
 </div>
 <div class="form-group">
 	{{ Form::label('slug', 'Estado', ['class' => 'font-weight-bold']) }}
@@ -32,18 +68,31 @@
 	<label>
 		{{ Form::radio('status', 'DRAFT') }} Borrador
 	</label>
+
+	@if ($errors->has('status'))
+    <div class="help-blok text-danger" style="font-size: 80%;">
+    	{{ $errors->first('status') }}
+  	</div>
+	@endif
 </div>
 
 <div class="form-group">
     {{ Form::label('filename', 'Documento', ['class' => 'font-weight-bold']) }}
     {{ Form::file('filename') }}
+{{-- doc,pdf,docx,zip --}}
+    <div class="help-blok text-danger" style="font-size: 80%;"><strong>Sólo se aceptarán formatos doc, docx, xls, xlsx, pdf, ppt, pptx, jpg, jpeg e zip</strong> (Seleccione un archivo de hasta 2 MB ..)
+    </div>
+
+    @if ($errors->has('filename'))
+    <div class="help-blok text-danger" style="font-size: 80%;">
+    	{{ $errors->first('filename') }}
+  	</div>
+	@endif
 </div>
-{{-- <div class="form-group">
-    {{ Form::label('body', 'Descripción') }}
-    {{ Form::textarea('body', null, ['class' => 'form-control']) }}
-</div> --}}
+
 <div class="form-group">
-    {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
+    {{-- {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }} --}}
+    <button type="submit"  class="btn btn-sm btn-primary"><i class="fa fa-save"></i> @lang('button.save')</button>
 </div>
 
 @section('scripts')
@@ -58,30 +107,30 @@
 	        }
 	    });
 
-	    $("#formId" ).validate({
-	      errorClass: 'text-danger',
-	      rules: {
-	        name: {
-	          required: true
-	        },
-	        slug: {
-	          required: true
-	        },
-	        order: {
-	          required: true
-	        },
-	        // image: {
-	        //   required: true
-	        // },
-	        // filename: {
-	        //   required: true
-	        // },
-	      }
-	      // messages: {
-	      //   number: 'Por favor, ingrese el número',
-	      //   day_number: 'Por favor, ingrese el número del día',
-	      // }
-    	});
+	    // $("#formId" ).validate({
+	    //   errorClass: 'text-danger',
+	    //   rules: {
+	    //     name: {
+	    //       required: true
+	    //     },
+	    //     slug: {
+	    //       required: true
+	    //     },
+	    //     order: {
+	    //       required: true
+	    //     },
+	    //     // image: {
+	    //     //   required: true
+	    //     // },
+	    //     // filename: {
+	    //     //   required: true
+	    //     // },
+	    //   }
+	    //   // messages: {
+	    //   //   number: 'Por favor, ingrese el número',
+	    //   //   day_number: 'Por favor, ingrese el número del día',
+	    //   // }
+    	// });
 
 	 //    CKEDITOR.config.height = 400;
 		// CKEDITOR.config.width  = 'auto';

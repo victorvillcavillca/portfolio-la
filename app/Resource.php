@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Resource extends Model
 {
@@ -18,6 +19,14 @@ class Resource extends Model
         'file',
         'filename'
     ];
+
+    /**
+     * @param date $attr
+     * @return Carbon
+     */
+    public function getCreatedAtAttribute($attr) {
+        return Carbon::parse($attr)->format('d-m-Y');
+    }
 
     /**
      * Returns the resource category model

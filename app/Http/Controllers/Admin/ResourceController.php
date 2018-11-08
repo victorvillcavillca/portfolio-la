@@ -33,9 +33,10 @@ class ResourceController extends Controller
      */
     public function create()
     {
+        $order = Resource::max('order');
         $resource_categories = ResourceCategory::orderBy('name', 'ASC')->pluck('name', 'id');
 
-        return view('admin.resources.create', compact('resource_categories'));
+        return view('admin.resources.create', compact('resource_categories','order'));
     }
 
     /**
@@ -52,13 +53,26 @@ class ResourceController extends Controller
         //IMAGE
         if($request->file('image')){
             $path = Storage::disk('public')->put('image/upload/resources',  $request->file('image'));
-            $resource->fill(['file' => asset($path)]);
+            $resource->fill(['file' => asset($path), 'imagename' => asset($path)]);
         }
 
         // var_dump($request->file('filename')); die();
         if($request->file('filename')){
-            $path_doc = Storage::disk('public')->put('doc/upload/resources',  $request->file('filename'));
-            $resource->fill(['filename' => asset($path_doc)]);
+
+            $file = $request->file('filename');
+
+            $file_name = time() . $file->getClientOriginalName();
+
+            $file_path = 'doc/upload/resources/';
+
+            $file->move($file_path, $file_name);
+
+            // $path_doc = Storage::disk('public')->put('doc/upload/resources',  $request->file('filename'));
+
+            // var_dump($request->file('filename'));
+            // // echo "<br>";
+            // var_dump($path_doc);die();
+            $resource->fill(['filename' => asset($file_path)]);
 
             // $file = Input::file('filename');
             // $filename = $file->getClientOriginalName();
@@ -140,8 +154,11 @@ class ResourceController extends Controller
      */
     public function destroy($id)
     {
-        $specialty_area = Resource::find($id)->delete();
-        return;
+        $resource = Resource::find($id);
+        $message = 'Eliminado el recurso; '.$resource->name;
+        $resource->delete();
+        // $product->delete();
+        return array('message' => $message);
     }
 
     /**
@@ -151,12 +168,28 @@ class ResourceController extends Controller
      */
     public function data()
     {
-        $query = Resource::select('id', 'name', 'description', 'created_at');
+        // 'user_id',
+        // 'resource_category_id',
+        // 'name',
+        // 'order',
+        // 'slug',
+        // 'description',
+        // 'body',
+        // 'status',
+        // 'file',
+        // 'filename'
+
+        $query = Resource::select('id', 'name', 'filename', 'status', 'resource_category_id','created_at');
 
         return datatables()
             ->eloquent($query)
+            ->editColumn('status', 'admin.resources.datatables.status')
+            ->editColumn('filename', 'admin.resources.datatables.filename')
+            ->editColumn('resource_category_id', function(Resource $resource) {
+                    return $resource->resourceCategory->name;
+                })
             ->addColumn('btn', 'admin.resources.partials.actions')
-            ->rawColumns(['btn'])
+            ->rawColumns(['filename','status','btn'])
             ->toJson();
     }
 }

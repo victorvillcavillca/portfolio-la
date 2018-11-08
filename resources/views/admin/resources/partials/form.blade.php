@@ -20,17 +20,17 @@
 </div>
 <div class="form-group">
     {{ Form::label('slug', 'URL amigable', ['class' => 'font-weight-bold']) }}
-    {{-- @if ($errors->has('slug')) --}}
-    {{-- {{ Form::text('slug', null, ['class' => 'form-control is-invalid', 'id' => 'slug']) }} --}}
-    {{-- @else --}}
+    @if ($errors->has('slug'))
+    {{ Form::text('slug', null, ['class' => 'form-control is-invalid', 'id' => 'slug']) }}
+    @else
     {{ Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug', 'readonly']) }}
-    {{-- @endif --}}
+    @endif
 
-    {{-- @if ($errors->has('slug'))
+    @if ($errors->has('slug'))
     <span class="invalid-feedback">
     	{{ $errors->first('slug') }}
   	</span>
-	@endif --}}
+	@endif
 </div>
 <div class="form-group">
     {{ Form::label('order', 'Orden', ['class' => 'font-weight-bold']) }}

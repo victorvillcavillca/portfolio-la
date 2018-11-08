@@ -36,9 +36,9 @@ class SpecialtyAreaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(SpecialtyAreaRequest $request)
-    {  
+    {
         SpecialtyArea::create($request->all());
-   
+
         return redirect()->route('specialty-areas.index')
                         ->with('info','Area de Especialidad created successfully.');
     }
@@ -75,7 +75,7 @@ class SpecialtyAreaController extends Controller
     public function update(SpecialtyAreaRequest $request, SpecialtyArea $specialty_area)
     {
         $specialty_area->update($request->all());
-  
+
         return redirect()->route('specialty-areas.index')
                         ->with('info','Area de Especialidad Update successfully.');
     }
@@ -88,10 +88,11 @@ class SpecialtyAreaController extends Controller
      */
     public function destroy($id)
     {
-        $specialty_area = SpecialtyArea::find($id)->delete();
-        return;
+        $SpecialtyArea = SpecialtyArea::find($id);
+        $message = 'Eliminado la Especialidad; '.$SpecialtyArea->name;
+        $SpecialtyArea->delete();
 
-        // return back()->with('info', 'Eliminado correctamente');
+        return array('message' => $message);
     }
 
     /**

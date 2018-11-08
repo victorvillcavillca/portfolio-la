@@ -3,18 +3,17 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{ $title }}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar {{ isset($title)?$title:'Item' }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                {{-- <p>¿Esta seguro de eliminar la Especialidad?</p> --}}
-                <p>{{ $description }}</p>
+                <p>¿Está seguro de eliminar? {{ isset($description)?$description:'El Item' }} <strong id="item-name"></strong></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="delete">Si</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('button.cancel')</button>
+                <button type="button" class="btn btn-primary" id="delete">@lang('button.yes')</button>
             </div>
         </div>
     </div>

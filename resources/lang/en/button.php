@@ -23,4 +23,6 @@ return [
     'updated' => 'Updated',
     'register' => 'Register',
     'download' => 'Download',
+    'yes' => 'Yes',
+    'no' => 'Not',
 ];

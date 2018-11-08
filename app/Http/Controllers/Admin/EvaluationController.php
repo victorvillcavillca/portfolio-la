@@ -108,8 +108,11 @@ class EvaluationController extends Controller
      */
     public function destroy($id)
     {
-        Evaluation::find($id)->delete();
-        return;
+        $evaluation = Evaluation::find($id);
+        $message = 'Eliminado la Evaluación; '.$evaluation->name;
+        $evaluation->delete();
+
+        return array('message' => $message);
     }
 
     /**

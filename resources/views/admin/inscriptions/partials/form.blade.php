@@ -16,10 +16,6 @@
     {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
 </div>
 
-
-
-
-
 @section('scripts')
 
 @endsection

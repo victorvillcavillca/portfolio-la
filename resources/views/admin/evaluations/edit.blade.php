@@ -62,19 +62,19 @@
                 <!--Card content-->
                 <div class="card-body">
 
-                    {{-- <div class="table-responsive"> --}}
-                      <table id="myTable" class="table table-striped table-bordered table-sm dt-responsive" cellspacing="`0" width="100%">
-                          <thead>
-                          <tr>
-                            <th>Id</th>
-                            <th>Pregunta</th>
-                            <th>Respuesta</th>
-                            <th>Creado</th>
-                            <th>Acciones</th>
-                          </tr>
-                          </thead>
-                      </table>
-                    {{-- </div> --}}
+                  <div class="table-responsive">
+                    <table id="myTable" class="table table-hover dt-responsive" cellspacing="`0" width="100%">
+                        <thead class="thead-dark">
+                        <tr>
+                          <th>Id</th>
+                          <th>Pregunta</th>
+                          <th>Respuesta</th>
+                          <th>Creado</th>
+                          <th style="width: 82px;">Acciones</th>
+                        </tr>
+                        </thead>
+                    </table>
+                  </div>
 
                 </div>
 

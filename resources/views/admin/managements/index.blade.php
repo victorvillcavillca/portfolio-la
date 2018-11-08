@@ -49,7 +49,7 @@
                 <div class="card-body">
 
                     <div class="table-responsive">
-                      {{ $dataTable->table(['id' => 'managements','class' => 'table table-striped table-bordered table-sm dt-responsive'], true) }}
+                      {{ $dataTable->table(['id' => 'managements','class' => 'table table-hover dt-responsive'], true) }}
 
                       {{-- <table id="myTable" class="table table-striped table-bordered table-sm dt-responsive" cellspacing="`0" width="100%">
                           <thead>
@@ -78,27 +78,9 @@
 </div>
 
 <!--Modal: Delete Confirmation-->
-<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Eliminar __('Materia')</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>¿Esta seguro de eliminar el Area Especialidad?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="delete">Si</button>
-            </div>
-        </div>
-    </div>
-</div>
+@include('admin.partials.modal-delete', ['title' => trans('management.management'), 'description' => 'La '.trans('management.management')])
 <!--Modal: Delete Confirmation-->
+
 @endsection
 
 @section('scripts')

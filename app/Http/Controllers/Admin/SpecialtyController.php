@@ -142,8 +142,11 @@ class SpecialtyController extends Controller
      */
     public function destroy($id)
     {
-        $specialty_area = Specialty::find($id)->delete();
-        return;
+        $specialty = Specialty::find($id);
+        $message = 'Eliminado la Especialidad; '.$specialty->name;
+        $specialty->delete();
+
+        return array('message' => $message);
     }
 
     /**

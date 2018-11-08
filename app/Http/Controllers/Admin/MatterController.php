@@ -107,8 +107,11 @@ class MatterController extends Controller
      */
     public function destroy($id)
     {
-        Matter::find($id)->delete();
-        return;
+        $matter = Matter::find($id);
+        $message = 'Eliminado la Materia; '.$matter->name;
+        $matter->delete();
+
+        return array('message' => $message);
     }
 
     /**

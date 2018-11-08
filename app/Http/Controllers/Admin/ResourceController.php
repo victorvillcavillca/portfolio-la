@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\ResourceUpdateRequest;
 use App\Resource;
 use App\ResourceCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 
 class ResourceController extends Controller
@@ -47,7 +48,7 @@ class ResourceController extends Controller
      */
     public function store(ResourceStoreRequest $request)
     {
-        $resource = Resource::create($request->all());
+        $resource = new Resource($request->all());
         // $this->authorize('pass', $resource);
 
         //IMAGE
@@ -56,28 +57,14 @@ class ResourceController extends Controller
             $resource->fill(['file' => asset($path), 'imagename' => asset($path)]);
         }
 
-        // var_dump($request->file('filename')); die();
         if($request->file('filename')){
+            $file = Input::file('filename');
 
-            $file = $request->file('filename');
-
-            $file_name = time() . $file->getClientOriginalName();
-
+            $file_name = $file->getClientOriginalName();
             $file_path = 'doc/upload/resources/';
-
             $file->move($file_path, $file_name);
 
-            // $path_doc = Storage::disk('public')->put('doc/upload/resources',  $request->file('filename'));
-
-            // var_dump($request->file('filename'));
-            // // echo "<br>";
-            // var_dump($path_doc);die();
-            $resource->fill(['filename' => asset($file_path)]);
-
-            // $file = Input::file('filename');
-            // $filename = $file->getClientOriginalName();
-            // $resource->filename = 'documents/uploads/resources/'.$filename;
-            // $file->move('documents/uploads/resources', $filename);
+            $resource->filename = asset($file_path . $file_name);
         }
 
         $resource->save();
@@ -157,7 +144,7 @@ class ResourceController extends Controller
         $resource = Resource::find($id);
         $message = 'Eliminado el recurso; '.$resource->name;
         $resource->delete();
-        // $product->delete();
+
         return array('message' => $message);
     }
 

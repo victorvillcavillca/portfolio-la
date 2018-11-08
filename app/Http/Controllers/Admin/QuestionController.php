@@ -105,8 +105,11 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        Question::find($id)->delete();
-        return;
+        $question = Question::find($id);
+        $message = 'Eliminado la Pregunta; '.$question->name;
+        $question->delete();
+
+        return array('message' => $message);
     }
 
     /**

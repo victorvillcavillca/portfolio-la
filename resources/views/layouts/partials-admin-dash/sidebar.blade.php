@@ -35,6 +35,9 @@
 
         <li><a href="#dropdownDropdown_evaluation" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Evaluaciones</a>
           <ul id="dropdownDropdown_evaluation" class="collapse list-unstyled ">
+            <li class="{{ request()->is('admin/inscriptions') || request()->is('admin/inscriptions/*')? 'active' : ''}}"><a href="{{ route('inscriptions.index') }}">
+            <i class="icon-interface-windows"></i>Inscripciones</a></li>
+
             <li class="{{ request()->is('admin/evaluations') || request()->is('admin/evaluations/*')? 'active' : ''}}"><a href="{{ route('evaluations.index') }}">
             <i class="icon-interface-windows"></i>Evaluaciones</a></li>
 

@@ -102,8 +102,11 @@ class EvaluationCategoryController extends Controller
      */
     public function destroy($id)
     {
-        EvaluationCategory::find($id)->delete();
-        return;
+        $evaluationCategory = EvaluationCategory::find($id);
+        $message = 'Eliminado el recurso; '.$evaluationCategory->name;
+        $evaluationCategory->delete();
+
+        return array('message' => $message);
     }
 
     /**

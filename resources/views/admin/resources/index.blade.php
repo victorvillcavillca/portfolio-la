@@ -30,9 +30,8 @@
                 <div class="card-header">
                   {{-- <h3 class="card-title">Servicios</h3> --}}
                   <div class="btn-group pull-right">
-                      <a href="{{ route('resources.create') }}" class="pull-right btn btn-sm btn-primary"><i class="fa fa-plus"></i> @lang('button.create')
-                    </a>
-                    </div>
+                    <a href="{{ route('resources.create') }}" class="pull-right btn btn-sm btn-primary"><i class="fa fa-plus"></i> @lang('button.create')</a>
+                  </div>
 
                 </div>
                 <!--Card content-->
@@ -68,8 +67,9 @@
 </div>
 
 <!--Modal: Delete Confirmation-->
-
+@include('admin.partials.modal-delete', ['title' => trans('button.view'), 'description' => 'El '.trans('button.view')])
 <!--Modal: Delete Confirmation-->
+
 @endsection
 
 @section('scripts')
@@ -115,18 +115,20 @@
 
       $('#myTable tbody').on( 'click', 'a.delete_resource', function (e) {
         resource_id = $(this).attr('data-id');
+        let name = $(this).attr('data-name');
+
+        $('#item-name').text(name);
         $('#modalDelete').modal('show');
       });
 
       $('#delete').click(function() {
-        var url = 'resources/' + resource_id;
-        axios.delete(url).then(response => { //eliminamos
+        let url = 'resources/' + resource_id;
+        axios.delete(url).then(response => { //deleting
           $('#modalDelete').modal('hide');
           table.ajax.reload();
-          toastr.error(response.data.message); //mensaje
+          toastr.error(response.data.message); //message
         });
       });
-
     });
   </script>
 @endsection

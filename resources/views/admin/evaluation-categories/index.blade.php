@@ -66,27 +66,9 @@
 </div>
 
 <!--Modal: Delete Confirmation-->
-<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Eliminar __('Categoría de Evaluación')</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>¿Esta seguro de eliminar el Area Especialidad?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="delete">Si</button>
-            </div>
-        </div>
-    </div>
-</div>
+@include('admin.partials.modal-delete', ['title' => trans('button.view'), 'description' => 'El '.trans('button.view')])
 <!--Modal: Delete Confirmation-->
+
 @endsection
 
 @section('scripts')
@@ -157,15 +139,18 @@
 
       $('#myTable tbody').on( 'click', 'a.delete_area_specialty', function (e) {
         area_specialty_id = $(this).attr('data-id');
+        let name = $(this).attr('data-name');
+
+        $('#item-name').text(name);
         $('#modalDelete').modal('show');
       });
 
       $( "#delete" ).click(function() {
-        var url = 'evaluation-categories/' + area_specialty_id;
-        axios.delete(url).then(response => { //eliminamos
+        let url = 'evaluation-categories/' + resource_id;
+        axios.delete(url).then(response => { //deleting
           $('#modalDelete').modal('hide');
           table.ajax.reload();
-          toastr.success('Eliminado correctamente Area Especialidad'); //mensaje
+          toastr.error(response.data.message); //message
         });
       });
 

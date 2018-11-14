@@ -121,12 +121,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('resources', 'Admin\ResourceController');
 
     //Roles
-    Route::resource('roles', 'RoleController');
+    Route::get('roles/data', 'Admin\RoleController@data');
+    Route::resource('roles', 'Admin\RoleController');
     //Users
     Route::get('users/data', 'Admin\UserController@data');
     Route::resource('users', 'Admin\UserController');
 
-    
+
     //Products
     Route::post('products/store', 'ProductController@store')->name('products.store')
         ->middleware('permission:products.create');

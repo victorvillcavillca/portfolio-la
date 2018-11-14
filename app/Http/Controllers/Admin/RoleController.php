@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use Caffeinated\Shinobi\Models\Role;
+use App\Http\Controllers\Controller;
 use Caffeinated\Shinobi\Models\Permission;
+use Caffeinated\Shinobi\Models\Role;
+use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-    public function __construct()
+	public function __construct()
     {
         $this->middleware('permission:roles.create')->only(['create','store']);
         $this->middleware('permission:roles.index')->only('index');
@@ -56,8 +57,6 @@ class RoleController extends Controller
 
         $role = Role::create($request->all());
 
-// var_dump($request->get('permissions'));die();
-        // var_dump($request->get('permissions')); die();
         $role->permissions()->sync($request->get('permissions'));
 
         return redirect()->route('roles.edit', $role->id)
@@ -119,8 +118,33 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $role = Role::find($id)->delete();
+        // $role = Role::find($id)->delete();
 
-        return back()->with('info', 'Eliminado correctamente');
+        // return back()->with('info', 'Eliminado correctamente');
+
+        $role = Role::find($id);
+        $message = 'Eliminado el recurso; '.$role->name;
+        $role->delete();
+
+        return array('message' => $message);
+    }
+
+    /**
+     * Show a list of all the Expenses roles formatted for Datatables.
+     *
+     * @return Datatables JSON
+     */
+    public function data()
+    {
+        $query = Role::select('id', 'name', 'description', 'created_at');
+
+        return datatables()
+            ->eloquent($query)
+            ->addColumn('btn', 'admin.roles.partials.actions')
+            ->editColumn('created_at', function(Role $role) {
+                    return $role->created_at->format('d-m-Y');
+                })
+            ->rawColumns(['btn'])
+            ->toJson();
     }
 }

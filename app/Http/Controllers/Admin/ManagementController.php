@@ -85,16 +85,20 @@ class ManagementController extends Controller
     //     //
     // }
 
-    // /**
-    //  * Remove the specified resource from storage.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function destroy($id)
-    // {
-    //     //
-    // }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $management = Management::find($id);
+        $message = 'Eliminado Correctamente la Gestión '. $management->name;
+        $management->delete();
+
+        return ['message' => $message];
+    }
 
     // /**
     //  * Show a list of all the evaluations formatted for Datatables.

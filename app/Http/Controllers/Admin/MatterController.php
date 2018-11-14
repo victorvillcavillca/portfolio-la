@@ -107,9 +107,19 @@ class MatterController extends Controller
      */
     public function destroy($id)
     {
-        $matter = Matter::find($id);
-        $message = 'Eliminado la Materia; '.$matter->name;
-        $matter->delete();
+        if (is_numeric($id)) {
+            $matter = Matter::find($id);
+            $message = 'Eliminado la Materia; '.$matter->name;
+            $matter->delete();
+        } else {
+            $ids_array = explode(",", $id);
+
+            foreach ($ids_array as $id) {
+                $matter = Matter::find($id);
+                $message = 'Eliminado la Materia; '.$matter->name;
+                $matter->delete();
+            }
+        }
 
         return array('message' => $message);
     }
@@ -126,8 +136,9 @@ class MatterController extends Controller
         return datatables()
             ->eloquent($query)
             ->editColumn('status', 'admin.matters.datatables.status')
+            ->addColumn('check', 'admin.matters.datatables.checkbox')
             ->addColumn('btn', 'admin.matters.partials.actions')
-            ->rawColumns(['status','btn'])
+            ->rawColumns(['check','status','btn'])
             ->toJson();
     }
 }

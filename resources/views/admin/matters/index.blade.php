@@ -41,6 +41,11 @@
                           <thead class="thead-dark">
                           <tr>
                             <th>Id</th>
+
+
+
+                            {{-- <th><input type="checkbox"  id="bulkDelete"  /> <button id="deleteTriger">Delete</button></th> --}}
+                            <th style="width: 50px;"><input type="checkbox"  id="bulkDelete"/> <a href="javascript:void(0)" id="deleteTriger" class="btn btn-danger btn-sm" ><i class="fa fa-trash"></i></a></th>
                             <th>Nombre</th>
                             <th>Estado</th>
                             <th>Creado</th>
@@ -92,6 +97,7 @@
         "ajax": "matters/data",
         "columns": [
           { "data": "id" },
+          { "data": 'check' },
           { "data": "name" },
           { "data": "status" },
           { "data": "created_at" },
@@ -102,7 +108,8 @@
           "targets": [ 0 ],
           "visible": false,
           "searchable": false
-        }
+        },
+        { "orderable": false, "targets": 1 },
         ],
         "language": {
             "url": "/json/lang/es/pagination.json"
@@ -117,7 +124,7 @@
         $('#modalDelete').modal('show');
       });
 
-      $( "#delete" ).click(function() {
+      $("#delete").click(function() {
         let url = 'matters/' + matter_id;
         axios.delete(url).then(response => { //deleting
           $('#modalDelete').modal('hide');
@@ -125,6 +132,33 @@
           toastr.error(response.data.message); //message
         });
       });
+
+      $("#bulkDelete").click(function() {
+        let status = this.checked;
+        $(".deleteRow").each( function() {
+            $(this).prop("checked",status);
+        });
+      });
+
+      $("#deleteTriger").click(function() {
+        if( $('.deleteRow:checked').length > 0 ) {  // at-least one checkbox checked
+          var ids = [];
+          $('.deleteRow').each(function(){
+              if($(this).is(':checked')) {
+                  ids.push($(this).val());
+              }
+          });
+
+          let ids_string = ids.toString();  // array to string conversion
+          let url = 'matters/' + ids_string;
+          axios.delete(url).then(response => { //deleting
+            $('#modalDelete').modal('hide');
+            table.ajax.reload();
+            toastr.error(response.data.message); //message
+          });
+        }
+      });
+
     });
   </script>
 @endsection

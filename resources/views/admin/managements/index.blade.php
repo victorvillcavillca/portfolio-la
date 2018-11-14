@@ -90,7 +90,8 @@
   {{-- Editor --}}
   <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
   <script src="https://cdn.datatables.net/select/1.2.5/js/dataTables.select.min.js"></script>
-  <script src="{{asset('vendor/editor/js/dataTables.editor.min.js')}}"></script>
+
+  <script src="{{asset('vendor/editor/editor.dataTables.js')}}"></script>
 
   <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
   <script src="{{asset('vendor/editor/js/editor.bootstrap4.min.js')}}"></script>
@@ -107,59 +108,79 @@
   {{-- {!! $dataTable->scripts() !!} --}}
   <script>
     $(function() {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': '{{csrf_token()}}'
-            }
+      let management_id = 0;
+
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': '{{csrf_token()}}'
+          }
+      });
+
+      // $('#managements').dataTable( {
+      //   "columnDefs": [
+      //     { "name": "My column title", "targets": 1 }
+      //   ]
+      // } );
+
+      let editor = new $.fn.dataTable.Editor({
+          ajax: "/admin/managements",
+          table: "#managements",
+          columnDefs: [
+            { "name": "My column title"}
+          ],
+          i18n: {
+              create: {
+                  button: "Crear",
+                  title:  "Crear nueva Gestion",
+                  submit: "Guardar"
+              },
+              edit: {
+                  button: "Editar",
+                  title:  "Actualizar Gestion",
+                  submit: "Guardar"
+              },
+              remove: {
+                  button: "Eliminar",
+                  title:  "Eliminar Gestion",
+                  submit: "Eliminar",
+                  confirm: {
+                      _: "¿Está seguro de Eliminar? %d Gestiones?",
+                      1: "¿Está seguro de Eliminar? 1 Gestion?"
+                  }
+              }
+          },
+          display: "bootstrap",
+          fields: [
+              {label: "Nombre:", name: "name"},
+              {label: "Descripción:", name: "description"},
+              {label: "Estado:", name: "status"},
+              // {label: "Password:", name: "password", type: "password"}
+          ]
+      });
+
+      $('#managements').on('click', 'tbody td:not(:first-child)', function (e) {
+          editor.inline(this);
+      });
+
+      {{ $dataTable->generateScripts() }}
+
+      $('#managements tbody').on( 'click', 'a.delete_management', function (e) {
+        management_id = $(this).attr('data-id');
+        let name = $(this).attr('data-name');
+
+        $('#item-name').text(name);
+        $('#modalDelete').modal('show');
+      });
+
+      $( "#delete" ).click(function() {
+        let url = 'managements/' + management_id;
+        axios.delete(url).then(response => { //deleting
+          $('#modalDelete').modal('hide');
+          editor.table.ajax.reload();
+          toastr.error(response.data.message); //message
         });
+      });
 
-        // $('#managements').dataTable( {
-        //   "columnDefs": [
-        //     { "name": "My column title", "targets": 1 }
-        //   ]
-        // } );
-
-        var editor = new $.fn.dataTable.Editor({
-            ajax: "/admin/managements",
-            table: "#managements",
-            columnDefs: [
-              { "name": "My column title"}
-            ],
-            i18n: {
-                create: {
-                    button: "Crear",
-                    title:  "Crear nueva Gestion",
-                    submit: "Guardar"
-                },
-                edit: {
-                    button: "Editar",
-                    title:  "Actualizar Gestion",
-                    submit: "Guardar"
-                },
-                remove: {
-                    button: "Eliminar",
-                    title:  "Eliminar Gestion",
-                    submit: "Eliminar",
-                    confirm: {
-                        _: "¿Está seguro de Eliminar? %d Gestiones?",
-                        1: "¿Está seguro de Eliminar? 1 Gestion?"
-                    }
-                }
-            },
-            display: "bootstrap",
-            fields: [
-                {label: "Nombre:", name: "name"},
-                {label: "Descripción:", name: "description"},
-                {label: "Estado:", name: "status"},
-                // {label: "Password:", name: "password", type: "password"}
-            ]
-        });
-
-        $('#managements').on('click', 'tbody td:not(:first-child)', function (e) {
-            editor.inline(this);
-        });
-
-        {{ $dataTable->generateScripts() }}
     })
 </script>
 @endsection

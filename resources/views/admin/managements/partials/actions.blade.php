@@ -2,7 +2,7 @@
 @if(true)
 <a href="{{ route('managements.edit', $id) }}" class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="@lang('button.edit')"><i class="fa fa-pencil"></i></a>
 @endif
-<a href="javascript:void(0)" data-id="{{ $id }}" data-name="{{ $name }}" class="delete_evaluation btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="@lang('button.delete')"><i class="fa fa-trash"></i></a>
+<a href="javascript:void(0)" data-id="{{ $id }}" data-name="{{ $name }}" class="delete_management btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="@lang('button.delete')"><i class="fa fa-trash"></i></a>
 
 <script>
 $(function () {

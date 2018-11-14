@@ -21,7 +21,10 @@
             <i class="icon-interface-windows"></i>Inicio</a></li>
 
         <li><a href="#dropdownDropdown_post" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Publicaciones</a>
-          <ul id="dropdownDropdown_post" class="collapse list-unstyled ">
+          <ul id="dropdownDropdown_post" class="collapse list-unstyled
+            {{ request()->is('admin/posts') || request()->is('admin/posts/*') || request()->is('admin/categories') || request()->is('admin/categories/*') || request()->is('admin/tags') || request()->is('admin/tags/*')? 'show' : ''}}
+            ">
+
             <li class="{{ request()->is('admin/posts') || request()->is('admin/posts/*')? 'active' : ''}}"><a href="{{ route('posts.index') }}">
             <i class="icon-interface-windows"></i>Posts</a></li>
 
@@ -34,7 +37,10 @@
         </li>
 
         <li><a href="#dropdownDropdown_evaluation" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Evaluaciones</a>
-          <ul id="dropdownDropdown_evaluation" class="collapse list-unstyled ">
+          <ul id="dropdownDropdown_evaluation" class="collapse list-unstyled
+            {{ request()->is('admin/inscriptions') || request()->is('admin/inscriptions/*') || request()->is('admin/evaluations') || request()->is('admin/evaluations/*') || request()->is('admin/questions') || request()->is('admin/questions/*') || request()->is('admin/matters') || request()->is('admin/matters/*') || request()->is('admin/managements') || request()->is('admin/managements/*') ? 'show' : ''}}
+            ">
+
             <li class="{{ request()->is('admin/inscriptions') || request()->is('admin/inscriptions/*')? 'active' : ''}}"><a href="{{ route('inscriptions.index') }}">
             <i class="icon-interface-windows"></i>Inscripciones</a></li>
 
@@ -53,7 +59,9 @@
         </li>
 
         <li><a href="#dropdownDropdown_specialty" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Conquistadores</a>
-          <ul id="dropdownDropdown_specialty" class="collapse list-unstyled ">
+          <ul id="dropdownDropdown_specialty" class="collapse list-unstyled {{ request()->is('admin/specialties') || request()->is('admin/specialties/*') || request()->is('admin/specialty-areas') || request()->is('admin/specialty-areas/*') || request()->is('admin/resources') || request()->is('admin/resources/*') || request()->is('admin/resource-categories') || request()->is('admin/resource-categories/*') ? 'show' : ''}}
+            ">
+
             <li class="{{ request()->is('admin/specialties') || request()->is('admin/specialties/*')? 'active' : ''}}"><a href="{{ route('specialties.index') }}">
             <i class="icon-interface-windows"></i>Especialidades</a></li>
 

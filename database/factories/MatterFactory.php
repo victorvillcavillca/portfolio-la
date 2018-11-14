@@ -8,7 +8,7 @@ $factory->define(App\Matter::class, function (Faker $faker) {
     return [
 		'name' => $name,
         'slug' => str_slug($name),
-        'description' => $faker->text(500),
+        'description' => $faker->text(100),
         'management_id' => rand(1,30),
         'user_id' => rand(1,30)
     ];

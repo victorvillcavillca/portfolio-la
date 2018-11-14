@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\DateFormat;
 use Illuminate\Database\Eloquent\Model;
 
 class Specialty extends Model
 {
+    use DateFormat;
+    // protected $guarded = ['id'];
     protected $fillable = [
         'user_id',
         'specialty_area_id',

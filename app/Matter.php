@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\DateFormat;
 use Illuminate\Database\Eloquent\Model;
 
 class Matter extends Model
 {
+    use DateFormat;
+
     protected $fillable = [
         'name', 'slug', 'description','management_id'
     ];

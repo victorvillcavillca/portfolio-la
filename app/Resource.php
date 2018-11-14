@@ -2,11 +2,14 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\DateFormat;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 
 class Resource extends Model
 {
+    use DateFormat;
+
     protected $fillable = [
         'user_id',
         'resource_category_id',
@@ -19,14 +22,6 @@ class Resource extends Model
         'file',
         'filename'
     ];
-
-    /**
-     * @param date $attr
-     * @return Carbon
-     */
-    public function getCreatedAtAttribute($attr) {
-        return Carbon::parse($attr)->format('d-m-Y');
-    }
 
     /**
      * Returns the resource category model

@@ -33,6 +33,14 @@ class User extends Authenticatable
     ];
 
     /**
+     * @param date $attr
+     * @return Carbon
+     */
+    public function getCreatedAtAttribute($attr) {
+        return Carbon::parse($attr)->format('d/m/Y');
+    }
+
+    /**
      * Returns the posts models
      * @return \Illuminate\Support\Collection
      */

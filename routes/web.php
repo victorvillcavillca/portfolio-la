@@ -123,22 +123,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     //Roles
     Route::resource('roles', 'RoleController');
     //Users
-    // Route::resource('users', 'Admin\UserController');
+    Route::get('users/data', 'Admin\UserController@data');
+    Route::resource('users', 'Admin\UserController');
 
-    Route::get('users', 'Admin\UserController@index')->name('users.index')
-        ->middleware('permission:users.index');
-
-    Route::put('users/{user}', 'Admin\UserController@update')->name('users.update')
-        ->middleware('permission:users.edit');
-
-    Route::get('users/{user}', 'Admin\UserController@show')->name('users.show')
-        ->middleware('permission:users.show');
-
-    Route::delete('users/{user}', 'Admin\UserController@destroy')->name('users.destroy')
-        ->middleware('permission:users.destroy');
-
-    Route::get('users/{user}/edit', 'Admin\UserController@edit')->name('users.edit')
-        ->middleware('permission:users.edit');
+    
     //Products
     Route::post('products/store', 'ProductController@store')->name('products.store')
         ->middleware('permission:products.create');

@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Caffeinated\Shinobi\Models\Role;
 use App\User;
+use Caffeinated\Shinobi\Models\Role;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('permission:users.index')->only('index');
+        $this->middleware('permission:users.edit')->only(['edit','update']);
+        $this->middleware('permission:users.show')->only('show');
+        $this->middleware('permission:users.destroy')->only('destroy');
+    }
+
 	/**
      * Display a listing of the resource.
      *
@@ -16,9 +25,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'DESC')->paginate();
-
-        return view('admin.users.index', compact('users'));
+        return view('admin.users.index');
     }
 
     /**
@@ -58,9 +65,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        var_dump(var_dump($request->all())); die();
         $user->update($request->all());
-
 
         $user->roles()->sync($request->get('roles'));
 
@@ -76,10 +81,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-    	// var_dump($id); die();
-        $user = User::find($id)->delete();
+        $user = User::find($id);
+        $message = 'Eliminado el Usuario; '.$user->name;
+        $user->delete();
 
-        return back()->with('info', 'Eliminado correctamente');
+        return array('message' => $message);
     }
 
     /**

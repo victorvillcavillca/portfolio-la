@@ -14,14 +14,27 @@
 
             <!--Card-->
             <div class="card">
-                <div class="card-header">
-                    Ver categoría
-                </div>
+                {{-- <div class="card-header"> --}}
+                <div class="card-header font-weight-bold">Ver Post</div>
                 <!--Card content-->
+                <div class="text-center">
+                  @if($post->file)
+                    <img style="width: 200px; height: 200px;" src="{{ $post->file }}" class="img-fluid" alt="{{ $post->name }}">
+                  @endif
+                </div>
                 <div class="card-body">
-                    <p><strong>Nombre</strong> {{ $post->name }}</p>
-                    <p><strong>Slug</strong> {{ $post->slug }}</p>
-                    <p><strong>Descripción</strong> {{ $post->body }}</p>
+                    <p><strong>Nombre: </strong> {{ $post->name }}</p>
+                    <p><strong>Slug: </strong> {{ $post->slug }}</p>
+                    <p><strong>Resumen: </strong></p> {!! $post->excerpt !!}
+                    <p><strong>Estado: </strong>
+                        @if($post->status === 'PUBLISHED')
+                            <span class="badge badge-success">Publicado</span>
+                            @else
+                            <span class="badge badge-danger">Borrador</span>
+                            @endif
+                    </p>
+                    <p><strong>Descripción: </strong></p>{!! $post->body !!}
+                    <p><strong>Creado: </strong> {{ $post->created_at }}</p>
                 </div>
 
             </div>

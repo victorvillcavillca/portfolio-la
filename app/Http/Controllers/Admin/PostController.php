@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Category;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
-
-use App\Http\Controllers\Controller;
-
-use Illuminate\Support\Facades\Storage;
-
 use App\Post;
-use App\Category;
 use App\Tag;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -25,7 +22,7 @@ class PostController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -33,11 +30,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id', 'DESC')
-            ->where('user_id', auth()->user()->id)
-            ->paginate();
+        // die('ppepepe');
+        // $posts = Post::orderBy('id', 'DESC')
+        //     ->where('user_id', auth()->user()->id)
+        //     ->paginate();
 
-        return view('admin.posts.index', compact('posts'));
+        return view('admin.posts.index');
+
     }
 
     /**
@@ -64,7 +63,7 @@ class PostController extends Controller
         $post = Post::create($request->all());
         $this->authorize('pass', $post);
 
-        //IMAGE 
+        //IMAGE
         if($request->file('image')){
             $path = Storage::disk('public')->put('image/upload/posts',  $request->file('image'));
             $post->fill(['file' => asset($path)])->save();
@@ -120,7 +119,7 @@ class PostController extends Controller
 
         $post->fill($request->all())->save();
 
-        //IMAGE 
+        //IMAGE
         if($request->file('image')){
             $path = Storage::disk('public')->put('image/upload/posts',  $request->file('image'));
             $post->fill(['file' => asset($path)])->save();
@@ -140,10 +139,47 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+        // $post = Post::find($id);
+        // $this->authorize('pass', $post);
+        // $post->delete();
+
+        // return back()->with('info', 'Eliminado correctamente');
+
         $post = Post::find($id);
         $this->authorize('pass', $post);
+        $message = 'Eliminado la Publicación; '.$post->name;
         $post->delete();
 
-        return back()->with('info', 'Eliminado correctamente');
+        return array('message' => $message);
+    }
+
+    /**
+     * Show a list of all the Expenses posts formatted for Datatables.
+     *
+     * @return Datatables JSON
+     */
+    public function data()
+    {
+        // 'user_id', 'category_id', 'name', 'slug', 'excerpt', 'body', 'status', 'file'
+
+// $posts = Post::orderBy('id', 'DESC')
+//             ->where('user_id', auth()->user()->id)
+//             ->paginate();
+
+        $query = Post::select('id', 'name', 'file', 'status', 'category_id', 'user_id', 'created_at')->where('user_id', auth()->user()->id);
+
+        return datatables()
+            ->eloquent($query)
+            ->editColumn('status', 'admin.posts.datatables.status')
+            ->editColumn('file', 'admin.posts.datatables.file')
+            ->editColumn('category_id', function(Post $post) {
+                    return $post->category->name;
+                })
+            ->editColumn('user_id', function(Post $post) {
+                    return $post->user->name;
+                })
+            ->addColumn('btn', 'admin.posts.partials.actions')
+            ->rawColumns(['file','status','btn'])
+            ->toJson();
     }
 }

@@ -155,17 +155,6 @@ class ResourceController extends Controller
      */
     public function data()
     {
-        // 'user_id',
-        // 'resource_category_id',
-        // 'name',
-        // 'order',
-        // 'slug',
-        // 'description',
-        // 'body',
-        // 'status',
-        // 'file',
-        // 'filename'
-
         $query = Resource::select('id', 'name', 'filename', 'status', 'resource_category_id','created_at');
 
         return datatables()

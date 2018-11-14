@@ -8,6 +8,15 @@ use Caffeinated\Shinobi\Models\Permission;
 
 class RoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:roles.create')->only(['create','store']);
+        $this->middleware('permission:roles.index')->only('index');
+        $this->middleware('permission:roles.edit')->only(['edit','update']);
+        $this->middleware('permission:roles.show')->only('show');
+        $this->middleware('permission:roles.destroy')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +26,7 @@ class RoleController extends Controller
     {
         $roles = Role::paginate();
 
-        return view('roles.index', compact('roles'));
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**
@@ -29,7 +38,7 @@ class RoleController extends Controller
     {
         $permissions = Permission::get();
 
-        return view('roles.create', compact('permissions'));
+        return view('admin.roles.create', compact('permissions'));
     }
 
     /**
@@ -47,6 +56,8 @@ class RoleController extends Controller
 
         $role = Role::create($request->all());
 
+// var_dump($request->get('permissions'));die();
+        // var_dump($request->get('permissions')); die();
         $role->permissions()->sync($request->get('permissions'));
 
         return redirect()->route('roles.edit', $role->id)
@@ -63,7 +74,7 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
 
-        return view('roles.show', compact('role'));
+        return view('admin.roles.show', compact('role'));
     }
 
     /**
@@ -78,7 +89,7 @@ class RoleController extends Controller
 
         $permissions = Permission::get();
 
-        return view('roles.edit', compact('role', 'permissions'));
+        return view('admin.roles.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -92,6 +103,7 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         $role->update($request->all());
+
 
         $role->permissions()->sync($request->get('permissions'));
 

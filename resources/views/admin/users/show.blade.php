@@ -2,13 +2,8 @@
 
 @section('content')
 <div class="container-fluid mt-5">
-
-    <!-- Alerts -->
-    @include('admin.partials.alerts')
-    <!-- /.Alerts -->
-
     <!-- Heading -->
-    @include('admin.products.partials.heading')
+    @include('admin.users.partials.heading')
     <!-- Heading -->
 
     <!--Grid row-->
@@ -19,24 +14,13 @@
 
             <!--Card-->
             <div class="card">
-
                 <div class="card-header">
-                    Crear Rol
+                    Ver Usuario
                 </div>
-
-                <!-- errors -->
-                @if ($errors->any())
-                  @include('admin.partials.errors')
-                @endif
-                <!-- /.errors -->
-
                 <!--Card content-->
                 <div class="card-body">
-                    {{ Form::open(['route' => 'roles.store']) }}
-
-                        @include('roles.partials.form')
-
-                    {{ Form::close() }}
+                    <p><strong>Nombre</strong>     {{ $user->name }}</p>
+                    <p><strong>Email</strong>      {{ $user->email }}</p>
                 </div>
 
             </div>

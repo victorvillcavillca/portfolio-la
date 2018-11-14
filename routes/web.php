@@ -75,6 +75,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     Route::resource('tags', 	   'Admin\TagController');
 	Route::resource('categories',  'Admin\CategoryController');
+
+    Route::get('posts/data', 'Admin\PostController@data');
     Route::resource('posts',       'Admin\PostController');
 
     #Specialty Areas
@@ -119,40 +121,23 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('resources', 'Admin\ResourceController');
 
     //Roles
-    Route::post('roles/store', 'RoleController@store')->name('roles.store')
-        ->middleware('permission:roles.create');
-
-    Route::get('roles', 'RoleController@index')->name('roles.index')
-        ->middleware('permission:roles.index');
-
-    Route::get('roles/create', 'RoleController@create')->name('roles.create')
-        ->middleware('permission:roles.create');
-
-    Route::put('roles/{role}', 'RoleController@update')->name('roles.update')
-        ->middleware('permission:roles.edit');
-
-    Route::get('roles/{role}', 'RoleController@show')->name('roles.show')
-        ->middleware('permission:roles.show');
-
-    Route::delete('roles/{role}', 'RoleController@destroy')->name('roles.destroy')
-        ->middleware('permission:roles.destroy');
-
-    Route::get('roles/{role}/edit', 'RoleController@edit')->name('roles.edit')
-        ->middleware('permission:roles.edit');
+    Route::resource('roles', 'RoleController');
     //Users
-    Route::get('users', 'UserController@index')->name('users.index')
+    // Route::resource('users', 'Admin\UserController');
+
+    Route::get('users', 'Admin\UserController@index')->name('users.index')
         ->middleware('permission:users.index');
 
-    Route::put('users/{user}', 'UserController@update')->name('users.update')
+    Route::put('users/{user}', 'Admin\UserController@update')->name('users.update')
         ->middleware('permission:users.edit');
 
-    Route::get('users/{user}', 'UserController@show')->name('users.show')
+    Route::get('users/{user}', 'Admin\UserController@show')->name('users.show')
         ->middleware('permission:users.show');
 
-    Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy')
+    Route::delete('users/{user}', 'Admin\UserController@destroy')->name('users.destroy')
         ->middleware('permission:users.destroy');
 
-    Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit')
+    Route::get('users/{user}/edit', 'Admin\UserController@edit')->name('users.edit')
         ->middleware('permission:users.edit');
     //Products
     Route::post('products/store', 'ProductController@store')->name('products.store')

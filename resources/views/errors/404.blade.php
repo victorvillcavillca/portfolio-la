@@ -1,5 +1,5 @@
-@extends('errors::layout')
+@extends('layouts.error')
 
-@section('title', '404')
+@section('title', '404 - No existe esta ruta')
 
-@section('message', 'No se encuentra esa URL')
+@section('message', '404 - No existe esta ruta')

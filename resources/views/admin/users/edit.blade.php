@@ -2,8 +2,13 @@
 
 @section('content')
 <div class="container-fluid mt-5">
+
+    <!-- Alerts -->
+    @include('admin.partials.alerts')
+    <!-- /.Alerts -->
+
     <!-- Heading -->
-    @include('admin.categories.partials.heading')
+    @include('admin.users.partials.heading')
     <!-- Heading -->
 
     <!--Grid row-->
@@ -15,12 +20,23 @@
             <!--Card-->
             <div class="card">
                 <div class="card-header">
-                    Ver Usuario
+                    Editar Usuario
                 </div>
+
+                <!-- errors -->
+                @if ($errors->any())
+                  @include('admin.partials.errors')
+                @endif
+                <!-- /.errors -->
+
                 <!--Card content-->
                 <div class="card-body">
-                    <p><strong>Nombre</strong>     {{ $user->name }}</p>
-                    <p><strong>Email</strong>      {{ $user->email }}</p>
+                    {!! Form::model($user, ['route' => ['users.update', $user->id],
+                    'method' => 'PUT']) !!}
+
+                        @include('admin.users.partials.form')
+
+                    {!! Form::close() !!}
                 </div>
 
             </div>

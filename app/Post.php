@@ -3,12 +3,25 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Post extends Model
 {
 	protected $fillable = [
         'user_id', 'category_id', 'name', 'slug', 'excerpt', 'body', 'status', 'file'
     ];
+
+    // {{$post->published_at->diffForHumans()}
+
+    /**
+     * @param date $attr
+     * @return Carbon
+     */
+    public function getCreatedAtAttribute($attr) {
+        // return Carbon::parse($attr)->diffForHumans('d-m-Y');
+        return Carbon::parse($attr)->format('d/m/Y');
+        // return Carbon::parse($attr)->diffForHumans('d-m-Y');
+    }
 
     public function scopeApproved($query)
     {

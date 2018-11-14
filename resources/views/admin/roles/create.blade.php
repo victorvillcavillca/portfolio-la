@@ -19,8 +19,9 @@
 
             <!--Card-->
             <div class="card">
+
                 <div class="card-header">
-                    Editar Usuario
+                    Crear Rol
                 </div>
 
                 <!-- errors -->
@@ -31,12 +32,11 @@
 
                 <!--Card content-->
                 <div class="card-body">
-                    {!! Form::model($user, ['route' => ['users.update', $user->id],
-                    'method' => 'PUT']) !!}
+                    {{ Form::open(['route' => 'roles.store']) }}
 
-                        @include('users.partials.form')
+                        @include('admin.roles.partials.form')
 
-                    {!! Form::close() !!}
+                    {{ Form::close() }}
                 </div>
 
             </div>

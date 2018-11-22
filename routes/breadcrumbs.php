@@ -47,6 +47,18 @@ Breadcrumbs::for('resource-categories', function ($trail) {
     $trail->push('Categoría de recursos', route('resources'));
 });
 
+// Home > Blog > Matters
+Breadcrumbs::for('matters', function ($trail) {
+    $trail->parent('blog');
+    $trail->push('Materias', route('matters'));
+});
+
+// Home > Blog > Matters > Matter
+Breadcrumbs::for('matter-detail', function ($trail) {
+    $trail->parent('matters');
+    $trail->push('Detalle materia', route('matters'));
+});
+
 // Home > Blog > Category
 // Breadcrumbs::for('category', function ($trail) {
 //     $trail->parent('blog');

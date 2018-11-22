@@ -50,6 +50,14 @@ Route::get('/resources', 'Web\PageController@resources')->name('resources');
 Route::get('/resource/{slug}', 'Web\PageController@resource')->name('resource');
 Route::get('/resource-category/{slug}', 'Web\PageController@resourceCategory')->name('resource-category');
 
+#Resource
+Route::get('/matters', 'Web\EvaluationController@index')->name('matters');
+Route::get('/matter/{slug}', 'Web\EvaluationController@matter')->name('matter');
+
+Route::get('/evaluations', 'Web\PageController@evaluations')->name('evaluations');
+// Route::get('/matter/{slug}', 'Web\PageController@matter')->name('matter');
+// Route::get('/resource-category/{slug}', 'Web\PageController@resourceCategory')->name('resource-category');
+
 Route::apiResource('thoughts', 'ThoughtController');
 
 #infinite scroll

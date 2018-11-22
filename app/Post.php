@@ -18,8 +18,8 @@ class Post extends Model
      * @return Carbon
      */
     public function getCreatedAtAttribute($attr) {
-        // return Carbon::parse($attr)->diffForHumans('d-m-Y');
-        return Carbon::parse($attr)->format('d/m/Y');
+        return Carbon::parse($attr)->diffForHumans();
+        // return Carbon::parse($attr)->format('d/m/Y');
         // return Carbon::parse($attr)->diffForHumans('d-m-Y');
     }
 

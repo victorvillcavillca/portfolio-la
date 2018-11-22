@@ -3,18 +3,18 @@
 
 <div class="container">
     <!--Breadcrumbs-->
-    @php $name = 'blog' @endphp
+    @php $name = 'matters' @endphp
     @include('web.partials.breadcrumbs',array('name' =>  $name))
     <!--./Breadcrumbs-->
 
     <!--Section: Cards-->
     <section class="text-center">
-        <h2>Blog de los Conquistadores</h2>
+        <h2>Materias</h2>
         <hr>
         <!--Grid row-->
         <div class="row mb-4 wow fadeIn">
 
-            @foreach($posts as $post)
+            @foreach($matters as $matter)
             <!--Grid column-->
             <div class="col-lg-4 col-md-12 mb-4">
 
@@ -22,26 +22,22 @@
                 <div class="card">
 
                     <div class="text-center">
-                        @if($post->file)
-                        <img src="{{ $post->file }}" class="img-fluid" alt="{{ $post->name }}">
+                        @if($matter->file)
+                        <img src="{{ $matter->file }}" class="img-fluid" alt="{{ $matter->name }}">
                         @endif
                     </div>
 
                     <!--Card content-->
                     <div class="card-body">
-                        <p class="text-left">{{ $post->created_at  }} por <a href="#">{{ $post->user['name'] }}</a></p>
+                        <p class="text-left">{{ $matter->created_at }} by <a href="#">{{ $matter->user['name']}}</a></p>
                         <!--Title-->
-                        <h5 class="card-title">{{ $post->name }}</h5>
+                        <h5 class="card-title">{{ $matter->name }}</h5>
                         <!--Text-->
-                        <p class="card-text">{!! $post->excerpt !!}</p>
+                        {{-- <p class="card-text">{!! $matter->excerpt !!}</p> --}}
                         <p class="card-text">
-                            <a href="{{ route('post', $post->slug) }}" target="_blank" class="btn btn-default btn-rounded btn-md waves-effect waves-light">Leer más<i class="fa fa-photo ml-2"></i></a>
+                            <a href="{{ route('matter', $matter->slug) }}" {{-- target="_blank" --}} class="btn btn-default btn-rounded btn-md waves-effect waves-light">Leer más<i class="fa fa-photo ml-2"></i></a>
                         </p>
                     </div>
-
-                    {{-- <div class="card-footer">
-                        <button>helo</button>
-                    </div> --}}
 
                 </div>
                 <!--/.Card-->
@@ -57,7 +53,7 @@
 
         <!--Pagination-->
         <nav class="d-flex justify-content-center wow fadeIn">
-            {{ $posts->links() }}
+            {{ $matters->links() }}
         </nav>
         <!--Pagination-->
 

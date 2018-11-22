@@ -15,12 +15,12 @@
             <h5 class="card-title">{{ $specialty->name }}</h5>
             <!--Text-->
             <p class="card-text">{{ $specialty->description }}</p>
-            @guest
+         {{--    @guest
                 <a href="#" class="btn btn-primary" target="_blank"><i class="fa fa-download"></i> Descargar</a>
                 <p>Para descargar. Necesitas iniciar sesión primero.<a class="btn btn-default btn-sm" href="{{ route('login') }}">Login</a></p>
-            @else
-                <a href="{{ $specialty->filename }}" class="btn btn-primary" target="_blank"><i class="fa fa-download"></i> Descargar</a>
-            @endguest
+            @else --}}
+                <a href="{{ $specialty->filename }}" class="btn btn-primary btn-sm" target="_blank"><i class="fa fa-download"></i> Descargar</a>
+            {{-- @endguest --}}
         </div>
 
     </div>

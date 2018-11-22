@@ -15,7 +15,7 @@
             <h5 class="card-title">{{ $resource->name }}</h5>
             <!--Text-->
             <p class="card-text">{{ $resource->description }}</p>
-            <a href="{{ $resource->filename }}" class="btn btn-primary" target="_blank"><i class="fa fa-file"></i> Descargar</a>
+            <a href="{{ $resource->filename }}" class="btn btn-primary btn-sm" target="_blank"><i class="fa fa-file"></i> Descargar</a>
         </div>
 
     </div>

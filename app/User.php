@@ -66,4 +66,13 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Evaluation::class);
     }
+
+    /**
+     * Returns the matters models
+     * @return \Illuminate\Support\Collection
+     */
+    public function matters()
+    {
+        return $this->hasMany(Matter::class);
+    }
 }

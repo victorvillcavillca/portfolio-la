@@ -26,14 +26,14 @@ class Evaluation extends Model
         return $this->belongsTo(Matter::class);
     }
 
-    // /**
-    //  * Returns specialty model
-    //  * @return App\Specialty
-    //  */
-    // public function specialty()
-    // {
-    //     return $this->belongsTo(Specialty::class);
-    // }
+    /**
+     * Returns the questions models
+     * @return \Illuminate\Support\Collection
+     */
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 
     /**
      * Returns the user model
@@ -42,5 +42,14 @@ class Evaluation extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Returns the users models
+     * @return \Illuminate\Support\Collection
+     */
+    public function participants()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

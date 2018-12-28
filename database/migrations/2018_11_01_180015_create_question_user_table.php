@@ -17,6 +17,7 @@ class CreateQuestionUserTable extends Migration
             // $table->increments('id');
             $table->integer('question_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->string('answer',128)->nullable();
             $table->tinyInteger('score')->default(0);
 
             //relation

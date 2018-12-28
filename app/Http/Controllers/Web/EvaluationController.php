@@ -3,92 +3,50 @@
 namespace App\Http\Controllers\Web;
 
 use App\Evaluation;
+use App\Question;
 use App\Http\Controllers\Controller;
-use App\Matter;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class EvaluationController extends Controller
 {
-	public function __construct()
-	{
-		$this->middleware('auth');
-	}
-
-    public function index()
+    function __construct()
     {
-        $matters = Matter::orderBy('id', 'DESC')->where('status', false)->paginate(6);
-        return view('web.matters.index', compact('matters'));
+        $this->middleware('auth');
     }
 
     /**
-     * Display a listing of the resources paginated.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function evaluations(){
-        $evaluations = Evaluation::orderBy('id', 'DESC')->where('status', true)->paginate(6);
+    public function index(Request $request)
+    {
+        // var_dump($request->all);die();
+        $evaluation = Evaluation::find(150);
+        $questions = $evaluation->questions;
 
-        $matters = Matter::orderBy('id', 'DESC')->get();
-
-        $name_bread = 'evaluations';
-        return view('web.evaluations', compact('evaluations','matters','name_bread'));
-    }
-
-	/**
-     * Display a listing of the resources paginated.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function evaluation($slug){
-    	$evaluation = Evaluation::where('slug', $slug)->first();
-
-    	return view('web.evaluation', compact('evaluation'));
+        return view('web.evaluations.index', compact('questions'));
     }
 
     /**
-     * Display a listing of the resources paginated.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function matters(){
-        $matters = Matter::orderBy('id', 'DESC')->where('status', true)->paginate(6);
-
-        $matters = Matter::orderBy('id', 'DESC')->get();
-
-        $name_bread = 'matters';
-        return view('web.matters', compact('matters','matters','name_bread'));
+    public function welcome()
+    {
+        return view('web.evaluations.welcome');
     }
 
     /**
-     * Display the specified matters by Category.
+     * Show the form for creating a new resource.
      *
-     * @param  String  $slug
      * @return \Illuminate\Http\Response
      */
-    // public function matter($slug){
-    //     $matter = Matter::where('slug', $slug)->pluck('id')->first();
-    //     $matter_name = Matter::where('slug', $slug)->first()->name;
-
-    //     $evaluations = Evaluation::where('matter_id', $matter)->orderBy('id', 'DESC')->where('status', false)->paginate(6);
-
-    //     $matters = Matter::orderBy('id', 'DESC')->get();
-
-    //     $name_bread = 'matters';
-    //     return view('web.matters.matter', compact('evaluations','matters','matter_name','name_bread'));
-    // }
-
-    public function matter($slug){
-
-        $matter = Matter::where('slug', $slug)->first();
-        $matter_name = Matter::where('slug', $slug)->first()->name;
-
-        $evaluations = Evaluation::where('matter_id', $matter->id)->orderBy('id', 'DESC')->where('status', false)->paginate(6);
-
-        $name_bread = 'specialties';
-        return view('web.matters.matter', compact('matter','evaluations','matter_name','name_bread'));
+    public function create()
+    {
+        //
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -98,17 +56,55 @@ class EvaluationController extends Controller
      */
     public function store(Request $request)
     {
-        $matter = $request->get();
-        // $evaluation = new Evaluation($request->all());
-        // $evaluation->user_id = Auth::id();
-        // $evaluation->save();
-
-        // return redirect()->route('evaluations.edit', $evaluation->id)->with('info', 'Evaluación creada con éxito');
-
-        // $matters = Matter::orderBy('id', 'DESC')->where('status', false)->paginate(6);
-        // return view('web.matters.index', compact('matters'));
-
+        var_dump($request->all());
+        die();
+        // var_dump($request->all);
+        // die('someoemo');
+        // var_dump($request->all()); die();
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }

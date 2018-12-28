@@ -43,9 +43,9 @@
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>Descripción</th>
-                            <th>Intro</th>
+                            <th style="width: 82px;"></th>
+                            <th>Categoría</th>
                             <th>Estado</th>
-                            <th>Creado</th>
                             <th style="width: 82px;">Acciones</th>
                           </tr>
                           </thead>
@@ -96,9 +96,9 @@
           { "data": "id" },
           { "data": "name" },
           { "data": "description" },
-          { "data": "intro" },
+          { "data": "btn_participants" },
+          { "data": "matter_id" },
           { "data": "status" },
-          { "data": "created_at" },
           { "data": 'btn'},
         ],
         "columnDefs": [

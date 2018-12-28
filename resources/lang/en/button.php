@@ -24,5 +24,7 @@ return [
     'register' => 'Register',
     'download' => 'Download',
     'yes' => 'Yes',
-    'no' => 'Not',
+    'add_participants' => 'Add participants',
+    'view_participants' => 'View Participants',
+    'result_participants' => 'Result Participants',
 ];

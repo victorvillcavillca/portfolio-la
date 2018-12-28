@@ -51,10 +51,18 @@ Route::get('/resource/{slug}', 'Web\PageController@resource')->name('resource');
 Route::get('/resource-category/{slug}', 'Web\PageController@resourceCategory')->name('resource-category');
 
 #Resource
-Route::get('/matters', 'Web\EvaluationController@index')->name('matters');
-Route::get('/matter/{slug}', 'Web\EvaluationController@matter')->name('matter');
+Route::get('/matters', 'Web\MatterController@index')->name('matters');
+Route::get('/matter/{slug}', 'Web\MatterController@matter')->name('matter');
 
-Route::get('/evaluations', 'Web\PageController@evaluations')->name('evaluations');
+// Route::get('evaluations', 'Web\EvaluationController@index')->name('evaluations.index');
+// Route::post('evaluations', 'Web\EvaluationController@store')->name('evaluations.store');
+Route::get('welcome', 'Web\EvaluationController@welcome')->name('evaluation.welcome');
+Route::get('evaluation', 'Web\EvaluationController@index')->name('evaluation');
+
+Route::resource('evaluation', 'Web\EvaluationController');
+
+// Route::get('/evaluations', 'Web\EvaluationController');
+// Route::post('/evaluations', 'Web\PageController@store')->name('store');
 // Route::get('/matter/{slug}', 'Web\PageController@matter')->name('matter');
 // Route::get('/resource-category/{slug}', 'Web\PageController@resourceCategory')->name('resource-category');
 
@@ -95,6 +103,30 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('specialties/data', 'Admin\SpecialtyController@data');
     Route::resource('specialties', 'Admin\SpecialtyController');
 
+    #Scores
+    Route::get('scores/data', 'Admin\ScoreController@data');
+    Route::resource('scores', 'Admin\ScoreController');
+
+    #Requirements
+    Route::get('requirements/data', 'Admin\RequerimentController@data');
+    Route::resource('requirements', 'Admin\RequerimentController');
+
+    #Requirement Area
+    Route::get('requirementareas/data', 'Admin\RequerimentAreaController@data');
+    Route::resource('requirementareas', 'Admin\RequerimentAreaController');
+
+    #Requirement Area
+    Route::get('requirementareas/data', 'Admin\RequerimentAreaController@data');
+    Route::resource('requirementareas', 'Admin\RequerimentAreaController');
+
+    #Campori Club
+    Route::get('camporiclubs/data', 'Admin\CamporiClubController@data');
+    Route::resource('camporiclubs', 'Admin\CamporiClubController');
+
+    #Campori Club
+    Route::get('qualifications/data', 'Admin\QualificationController@data');
+    Route::resource('qualifications', 'Admin\QualificationController');
+
     #Evaluation Categories
     Route::get('evaluation-categories/data', 'Admin\EvaluationCategoryController@data');
     Route::resource('evaluation-categories', 'Admin\EvaluationCategoryController');
@@ -105,6 +137,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     #Evaluations
     Route::get('evaluations/data', 'Admin\EvaluationController@data');
+    // Route::get('evaluations/dataevaluation', 'Admin\UserController@dataevaluation');
+    // Route::get('evaluations/{evaluation}/view', 'Admin\EvaluationController@view')->name('evaluations.view')->middleware('permission:evaluations.view');
+    // Route::get('evaluations/{evaluation}/result', 'Admin\EvaluationController@result')->name('evaluations.result')->middleware('permission:evaluations.result');
+    // Route::get('evaluations/{evaluation}/add', 'Admin\EvaluationController@add')->name('evaluations.add')->middleware('permission:evaluations.add');
+
+    Route::get('evaluations/{evaluation}/view', 'Admin\EvaluationController@view')->name('evaluations.view');
+    Route::get('evaluations/{evaluation}/result', 'Admin\EvaluationController@result')->name('evaluations.result');
+    Route::get('evaluations/{evaluation}/add', 'Admin\EvaluationController@add')->name('evaluations.add');
+
     Route::resource('evaluations', 'Admin\EvaluationController');
 
     #Questions
@@ -133,8 +174,40 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('roles', 'Admin\RoleController');
     //Users
     Route::get('users/data', 'Admin\UserController@data');
+    Route::get('users/dataevaluation', 'Admin\UserController@dataevaluation');
     Route::resource('users', 'Admin\UserController');
 
+    # Requirement Areas
+    Route::get('requirementareas/data', 'Admin\RequirementAreaController@data');
+    Route::get('requirementareas/{requirementarea}/delete', 'Admin\RequirementAreaController@delete');
+    Route::get('requirementareas/{id}/remove', 'Admin\RequirementAreaController@remove');
+    Route::resource('requirementareas', 'Admin\RequirementAreaController');
+
+    # Requirement
+    Route::get('requirements/data', 'Admin\RequirementController@data');
+    Route::get('requirements/{requirement}/delete', 'Admin\RequirementController@delete');
+    Route::get('requirements/{id}/remove', 'Admin\RequirementController@remove');
+    Route::resource('requirements', 'Admin\RequirementController');
+
+    # Campori Club
+    Route::get('camporiclubs/data', 'Admin\CamporiClubController@data');
+    Route::get('camporiclubs/{camporiclub}/delete', 'Admin\CamporiClubController@delete');
+    Route::get('camporiclubs/{id}/remove', 'Admin\CamporiClubController@remove');
+    Route::resource('camporiclubs', 'Admin\CamporiClubController');
+
+    # Qualification
+    Route::get('qualifications/data', 'Admin\QualificationController@data');
+    Route::get('qualifications/{qualification}/delete', 'Admin\QualificationController@delete');
+    Route::get('qualifications/{id}/remove', 'Admin\QualificationController@remove');
+    Route::resource('qualifications', 'Admin\QualificationController');
+
+    # Scores
+    Route::get('scores/data', 'Admin\ScoreController@data');
+    Route::get('scores/{score}/delete', 'Admin\ScoreController@delete');
+    Route::get('scores/{id}/remove', 'Admin\ScoreController@remove');
+    Route::get('scores/save', 'Admin\ScoreController@save');
+    Route::get('scores/saveclose', 'Admin\ScoreController@saveclose');
+    Route::resource('scores', 'Admin\ScoreController');
 
     //Products
     Route::post('products/store', 'ProductController@store')->name('products.store')

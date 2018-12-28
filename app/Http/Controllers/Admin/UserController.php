@@ -108,4 +108,27 @@ class UserController extends Controller
             ->rawColumns(['btn'])
             ->toJson();
     }
+
+    /**
+     * Show a list of all the questions of one Evaluation formatted for Datatables.
+     *
+     * @return Datatables JSON
+     */
+    public function dataevaluation()
+    {
+        $evaluation_id = $_GET['evaluation_id'];
+
+        $query = User::join('evaluation_user', 'users.id', '=', 'evaluation_user.user_id')->select('id', 'name', 'email', 'users.created_at')->where('evaluation_user.evaluation_id', $evaluation_id);
+
+        return datatables()
+            ->eloquent($query)
+            // ->editColumn('status', 'admin.users.datatables.status')
+            // ->editColumn('filename', 'admin.users.datatables.filename')
+            // ->editColumn('resource_category_id', function(User $resource) {
+            //         return $resource->resourceCategory->name;
+            //     })
+            ->addColumn('btn', 'admin.users.partials.actions')
+            ->rawColumns(['btn'])
+            ->toJson();
+    }
 }

@@ -193,6 +193,156 @@ class ResourcesTableSeeder extends Seeder
             'status'        => 'PUBLISHED'
         ]);
 
+        #-------------------- Evaluations book year 2018 Pathfinders --------------------
+        #1
+        App\Resource::create([
+            'user_id'       => 30,
+            'resource_category_id' => 4,
+            'name'          => 'Capítulo I; Evaluación Libro del Año',
+            'order'         => 13,
+            'slug'          => str_slug('Capítulo I; Evaluación Libro del Año'),
+            'description'   => 'Evaluación del Capítulo I del Libro de año 2018 “Vaso de Barro” del Club de Conquistadores.',
+            'body'          => '',
+            'file'          => '/image/upload/resources/capitulo-I-evaluation-2018.png',
+            'filename'      => '/doc/upload/resources/capitulo-I-libro-del-año-2018-all.pdf',
+            'imagename'     => '/image/upload/resources/capitulo-I-evaluation-2018.png',
+            'status'        => 'PUBLISHED'
+        ]);
+
+        #2
+        App\Resource::create([
+            'user_id'       => 30,
+            'resource_category_id' => 4,
+            'name'          => 'Capítulo II; Evaluación Libro del Año',
+            'order'         => 12,
+            'slug'          => str_slug('Capítulo II; Evaluación Libro del Año'),
+            'description'   => 'Evaluación del Capítulo II del Libro de año 2018 “Vaso de Barro” del Club de Conquistadores.',
+            'body'          => '',
+            'file'          => '/image/upload/resources/capitulo-II-evaluation-2018.png',
+            'filename'      => '/doc/upload/resources/capitulo-II-libro-del-año-2018-all.pdf',
+            'imagename'     => '/image/upload/resources/capitulo-II-evaluation-2018.png',
+            'status'        => 'PUBLISHED'
+        ]);
+
+        #3
+        App\Resource::create([
+            'user_id'       => 30,
+            'resource_category_id' => 4,
+            'name'          => 'Capítulo III; Evaluación Libro del Año',
+            'order'         => 12,
+            'slug'          => str_slug('Capítulo III; Evaluación Libro del Año'),
+            'description'   => 'Evaluación del Capítulo III del Libro de año 2018 “Vaso de Barro” del Club de Conquistadores.',
+            'body'          => '',
+            'file'          => '/image/upload/resources/capitulo-III-evaluation-2018.png',
+            'filename'      => '/doc/upload/resources/capitulo-III-libro-del-año-2018-all.pdf',
+            'imagename'     => '/image/upload/resources/capitulo-III-evaluation-2018.png',
+            'status'        => 'PUBLISHED'
+        ]);
+
+        #4
+        App\Resource::create([
+            'user_id'       => 30,
+            'resource_category_id' => 4,
+            'name'          => 'Capítulo IV; Evaluación Libro del Año',
+            'order'         => 12,
+            'slug'          => str_slug('Capítulo IV; Evaluación Libro del Año'),
+            'description'   => 'Evaluación del Capítulo IV del Libro de año 2018 “Vaso de Barro” del Club de Conquistadores.',
+            'body'          => '',
+            'file'          => '/image/upload/resources/capitulo-IV-evaluation-2018.png',
+            'filename'      => '/doc/upload/resources/capitulo-IV-libro-del-año-2018-all.pdf',
+            'imagename'     => '/image/upload/resources/capitulo-IV-evaluation-2018.png',
+            'status'        => 'PUBLISHED'
+        ]);
+
+        #5
+        App\Resource::create([
+            'user_id'       => 30,
+            'resource_category_id' => 4,
+            'name'          => 'Capítulo V; Evaluación Libro del Año',
+            'order'         => 12,
+            'slug'          => str_slug('Capítulo V; Evaluación Libro del Año'),
+            'description'   => 'Evaluación del Capítulo V del Libro de año 2018 “Vaso de Barro” del Club de Conquistadores.',
+            'body'          => '',
+            'file'          => '/image/upload/resources/capitulo-V-evaluation-2018.png',
+            'filename'      => '/doc/upload/resources/capitulo-V-libro-del-año-2018-all.pdf',
+            'imagename'     => '/image/upload/resources/capitulo-V-evaluation-2018.png',
+            'status'        => 'PUBLISHED'
+        ]);
+
+        #6
+        App\Resource::create([
+            'user_id'       => 30,
+            'resource_category_id' => 4,
+            'name'          => 'Capítulo VI; Evaluación Libro del Año',
+            'order'         => 12,
+            'slug'          => str_slug('Capítulo VI; Evaluación Libro del Año'),
+            'description'   => 'Evaluación del Capítulo VI del Libro de año 2018 “Vaso de Barro” del Club de Conquistadores.',
+            'body'          => '',
+            'file'          => '/image/upload/resources/capitulo-VI-evaluation-2018.png',
+            'filename'      => '/doc/upload/resources/capitulo-VI-libro-del-año-2018-all.pdf',
+            'imagename'     => '/image/upload/resources/capitulo-VI-evaluation-2018.png',
+            'status'        => 'PUBLISHED'
+        ]);
+
+        #7
+        App\Resource::create([
+            'user_id'       => 30,
+            'resource_category_id' => 4,
+            'name'          => 'Capítulo VII; Evaluación Libro del Año',
+            'order'         => 12,
+            'slug'          => str_slug('Capítulo VII; Evaluación Libro del Año'),
+            'description'   => 'Evaluación del Capítulo VII del Libro de año 2018 “Vaso de Barro” del Club de Conquistadores.',
+            'body'          => '',
+            'file'          => '/image/upload/resources/capitulo-VII-evaluation-2018.png',
+            'filename'      => '/doc/upload/resources/capitulo-VII-libro-del-año-2018-all.pdf',
+            'imagename'     => '/image/upload/resources/capitulo-VII-evaluation-2018.png',
+            'status'        => 'PUBLISHED'
+        ]);
+
+        #8
+        App\Resource::create([
+            'user_id'       => 30,
+            'resource_category_id' => 4,
+            'name'          => 'Capítulo VIII; Evaluación Libro del Año',
+            'order'         => 12,
+            'slug'          => str_slug('Capítulo VIII; Evaluación Libro del Año'),
+            'description'   => 'Evaluación del Capítulo VIII del Libro de año 2018 “Vaso de Barro” del Club de Conquistadores.',
+            'body'          => '',
+            'file'          => '/image/upload/resources/capitulo-VIII-evaluation-2018.png',
+            'filename'      => '/doc/upload/resources/capitulo-VIII-libro-del-año-2018-all.pdf',
+            'imagename'     => '/image/upload/resources/capitulo-VIII-evaluation-2018.png',
+            'status'        => 'PUBLISHED'
+        ]);
+
+        #9
+        App\Resource::create([
+            'user_id'       => 30,
+            'resource_category_id' => 4,
+            'name'          => 'Capítulo IX; Evaluación Libro del Año',
+            'order'         => 12,
+            'slug'          => str_slug('Capítulo IX; Evaluación Libro del Año'),
+            'description'   => 'Evaluación del Capítulo IX del Libro de año 2018 “Vaso de Barro” del Club de Conquistadores.',
+            'body'          => '',
+            'file'          => '/image/upload/resources/capitulo-IX-evaluation-2018.png',
+            'filename'      => '/doc/upload/resources/capitulo-IX-libro-del-año-2018-all.pdf',
+            'imagename'     => '/image/upload/resources/capitulo-IX-evaluation-2018.png',
+            'status'        => 'PUBLISHED'
+        ]);
+
+        #10
+        App\Resource::create([
+            'user_id'       => 30,
+            'resource_category_id' => 4,
+            'name'          => 'Capítulo X; Evaluación Libro del Año',
+            'order'         => 12,
+            'slug'          => str_slug('Capítulo X; Evaluación Libro del Año'),
+            'description'   => 'Evaluación del Capítulo X del Libro de año 2018 “Vaso de Barro” del Club de Conquistadores.',
+            'body'          => '',
+            'file'          => '/image/upload/resources/capitulo-X-evaluation-2018.png',
+            'filename'      => '/doc/upload/resources/capitulo-X-libro-del-año-2018-all.pdf',
+            'imagename'     => '/image/upload/resources/capitulo-X-evaluation-2018.png',
+            'status'        => 'PUBLISHED'
+        ]);
         // factory(App\Resource::class, 100)->create()->each(function(App\Resource $resource) {
         // 	$resource->tags()->attach([
         // 		rand(1,2),

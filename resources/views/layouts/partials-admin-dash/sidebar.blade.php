@@ -20,6 +20,45 @@
         <li class="{{ request()->is('admin/home') || request()->is('admin/home/*')? 'active' : ''}}"><a href="{{ route('admin') }}">
             <i class="icon-interface-windows"></i>Inicio</a></li>
 
+        {{-- <li id="menu_scores" class="treeview">
+          <a href="#">
+            <i class="fa fa-edit"></i> <span>VIII CAMPORI MOB (Puntajes)</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li id="submenu_scores"><a href="{{ URL::to('admin/scores') }}"><i class="fa fa-circle-o"></i>{!! trans('admin/camporiclub.scores') !!}</a></li>
+            <li id="submenu_requirement"><a href="{{ URL::to('admin/requirements') }}"><i class="fa fa-circle-o"></i>{!! trans('admin/requirement.requirements') !!}</a></li>
+            <li id="submenu_requirementarea"><a href="{{ URL::to('admin/requirementareas') }}"><i class="fa fa-circle-o"></i>{!! trans('admin/requirementarea.requirementareas') !!}</a></li>
+            <li id="submenu_camporiclub"><a href="{{ URL::to('admin/camporiclubs') }}"><i class="fa fa-circle-o"></i>{!! trans('admin/club.clubs') !!}</a></li>
+            <li id="submenu_qualification"><a href="{{ URL::to('admin/qualifications') }}"><i class="fa fa-circle-o"></i>{!! trans('admin/qualification.qualifications') !!}</a></li>
+          </ul>
+        </li> --}}
+
+        <li><a href="#dropdownDropdown_campori" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Campori Regional</a>
+          <ul id="dropdownDropdown_campori" class="collapse list-unstyled
+            {{ request()->is('admin/scores') || request()->is('admin/scores/*') || request()->is('admin/requirements') || request()->is('admin/requirements/*') || request()->is('admin/requirementareas') || request()->is('admin/requirementareas/*') || request()->is('admin/camporiclubs') || request()->is('admin/camporiclubs/*') || request()->is('admin/qualifications') || request()->is('admin/qualifications/*')? 'show' : ''}}
+            ">
+
+            <li class="{{ request()->is('admin/scores') || request()->is('admin/scores/*')? 'active' : ''}}"><a href="{{ route('scores.index') }}">
+            <i class="icon-interface-windows"></i>Puntos</a></li>
+
+            <li class="{{ request()->is('admin/requirements') || request()->is('admin/requirements/*')? 'active' : ''}}"><a href="{{ route('requirements.index') }}">
+            <i class="icon-interface-windows"></i>Requerimientos</a></li>
+
+            <li class="{{ request()->is('admin/requirementareas') || request()->is('admin/requirementareas/*')? 'active' : ''}}"><a href="{{ route('requirementareas.index') }}">
+            <i class="icon-interface-windows"></i>Requerimientos Áreas</a></li>
+
+            <li class="{{ request()->is('admin/camporiclubs') || request()->is('admin/camporiclubs/*')? 'active' : ''}}"><a href="{{ route('camporiclubs.index') }}">
+            <i class="icon-interface-windows"></i>Campori Club</a></li>
+
+            <li class="{{ request()->is('admin/qualifications') || request()->is('admin/qualifications/*')? 'active' : ''}}"><a href="{{ route('qualifications.index') }}">
+            <i class="icon-interface-windows"></i>Calificaciones</a></li>
+          </ul>
+        </li>
+
+
         <li><a href="#dropdownDropdown_post" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Publicaciones</a>
           <ul id="dropdownDropdown_post" class="collapse list-unstyled
             {{ request()->is('admin/posts') || request()->is('admin/posts/*') || request()->is('admin/categories') || request()->is('admin/categories/*') || request()->is('admin/tags') || request()->is('admin/tags/*')? 'show' : ''}}

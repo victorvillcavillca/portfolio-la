@@ -51,6 +51,9 @@
                                 <strong><a href="{{ route('category', $matter->category->slug) }}" class="card-link">{{ $matter->category->name }}</a></strong> --}}
                             </div>
 
+                            <div class="card-footer">
+                                <a href="{{ route('evaluation.welcome') }}" class="btn btn-info btn-sm">Comenzar</a>
+                            </div>
 
                         </div>
                         <!--/.Card-->
@@ -73,10 +76,6 @@
                                 {{-- <form> --}}
 
                                 {!! Form::open(['route' => 'evaluations.store']) !!}
-
-
-
-
 
                                     <!-- Default input email -->
                                     <label for="defaultFormEmailEx" class="grey-text">{{ __('E-Mail Address') }}</label>

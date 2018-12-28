@@ -13,7 +13,7 @@
     {{ Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug']) }}
 </div>
 <div class="form-group">
-    {{ Form::label('time', 'Tiempo', ['class' => 'font-weight-bold']) }}
+    {{ Form::label('time', 'Tiempo por minuto', ['class' => 'font-weight-bold']) }}
     {{ Form::number('time', null, ['class' => 'form-control', 'id' => 'time']) }}
 </div>
 <div class="form-group">
@@ -33,6 +33,13 @@
 		{{ Form::radio('status', 0) }} Borrador
 	</label>
 </div>
+
+@if(isset($evaluation))
+<div class="form-group">
+    {{ Form::label('total_question', 'Total preguntas al AZAR', ['class' => 'font-weight-bold']) }}
+    {{ Form::number('total_question', null, ['class' => 'form-control', 'id' => 'total_question']) }}
+</div>
+@endif
 
 <div class="form-group">
     <button type="submit"  class="btn btn-sm btn-primary"><i class="fa fa-save"></i> @lang('button.save')</button>

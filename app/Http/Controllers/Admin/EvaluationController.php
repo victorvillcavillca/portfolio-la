@@ -116,23 +116,85 @@ class EvaluationController extends Controller
     }
 
     /**
+     * View the specified resource.
+     *
+     * @param  App\Evaluation  $evaluation
+     * @return \Illuminate\Http\Response
+     */
+    public function view(Evaluation $evaluation)
+    {
+        // $participants = $evaluation->participants;
+        // foreach ($participants as $participant) {
+        //     echo $participant->name;
+
+        // }
+        // // die();
+        return view('admin.evaluations.view', compact('evaluation'));
+    }
+
+    /**
+     * Result the specified resource.
+     *
+     * @param  App\Evaluation  $evaluation
+     * @return \Illuminate\Http\Response
+     */
+    public function result(Evaluation $evaluation)
+    {
+        return view('admin.evaluations.result', compact('evaluation'));
+    }
+
+    /**
+     * Add the specified resource.
+     *
+     * @param  App\Evaluation  $evaluation
+     * @return \Illuminate\Http\Response
+     */
+    public function add(Evaluation $evaluation)
+    {
+        return view('admin.evaluations.add', compact('evaluation'));
+    }
+
+    /**
      * Show a list of all the evaluations formatted for Datatables.
      *
      * @return Datatables JSON
      */
     public function data()
     {
-        $query = Evaluation::select('id', 'name', 'description', 'status','created_at');
+        $query = Evaluation::select('id', 'name', 'description', 'status', 'matter_id');
 
         return datatables()
             ->eloquent($query)
             // ->setRowClass('{{ $id % 2 == 0 ? "alert-success":"alert-warning" }}')
             ->editColumn('status', 'admin.evaluations.datatables.status')
-            ->addColumn('intro', function(Evaluation $evaluation) {
-                    return $evaluation->name;
-                })
+            ->editColumn('matter_id', function(Evaluation $evaluation) {
+                return $evaluation->matter->name;
+            })
+            ->addColumn('btn_participants', 'admin.evaluations.partials.actions_participants')
             ->addColumn('btn', 'admin.evaluations.partials.actions')
-            ->rawColumns(['intro','status','btn'])
+            ->rawColumns(['btn_participants','status','btn'])
+            ->toJson();
+    }
+
+    /**
+     * Show a list of all the evaluations formatted for Datatables.
+     *
+     * @return Datatables JSON
+     */
+    public function datauser()
+    {
+        $query = User::select('id', 'name', 'description', 'status', 'matter_id');
+
+        return datatables()
+            ->eloquent($query)
+            // ->setRowClass('{{ $id % 2 == 0 ? "alert-success":"alert-warning" }}')
+            ->editColumn('status', 'admin.evaluations.datatables.status')
+            ->editColumn('matter_id', function(Evaluation $evaluation) {
+                return $evaluation->matter->name;
+            })
+            ->addColumn('btn_participants', 'admin.evaluations.partials.actions_participants')
+            ->addColumn('btn', 'admin.evaluations.partials.actions')
+            ->rawColumns(['btn_participants','status','btn'])
             ->toJson();
     }
 }

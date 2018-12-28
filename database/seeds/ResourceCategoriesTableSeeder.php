@@ -35,6 +35,14 @@ class ResourceCategoriesTableSeeder extends Seeder
             'user_id' => 1
         ]);
 
+        #4
+        App\ResourceCategory::create([
+            'name' => 'Libro del Año 2018 Club de Conquistadores',
+            'slug' => str_slug('Libro del Año 2018 Club de Conquistadores'),
+            'description' => 'Materiales y Evaluaciones didácticas del Libro del Año 2018 del Club de Conquistadores.',
+            'user_id' => 1
+        ]);
+
 		factory(App\ResourceCategory::class, 5)->create();
     }
 }

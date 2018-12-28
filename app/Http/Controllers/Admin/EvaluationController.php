@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Evaluation;
-use App\Matter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EvaluationRequest;
 use App\Http\Requests\Admin\EvaluationUpdateRequest;
+use App\Matter;
 use App\Question;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -151,7 +152,32 @@ class EvaluationController extends Controller
      */
     public function add(Evaluation $evaluation)
     {
-        return view('admin.evaluations.add', compact('evaluation'));
+        $users = User::orderBy('name', 'ASC')->pluck('name', 'id');
+        return view('admin.evaluations.add', compact('evaluation', 'users'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function addsave(Request $request)
+    {
+        $evaluation_id = (int)$request->input('evaluation_id');
+        $student_id = (int)$request->input('student_id');
+
+        $evaluation = Evaluation::find($evaluation_id);
+
+        if (!$evaluation->participants->contains($student_id)) {
+            $student = User::find($student_id);
+
+            $evaluation->participants()->save($student, ['answer' => '']);
+
+            return redirect()->route('evaluations.add', $evaluation->id)->with('info', 'Participante adicionado con éxito');
+        } else {
+            return redirect()->route('evaluations.add', $evaluation->id)->with('warning', 'Participante ya esta adicionado');
+        }
     }
 
     /**

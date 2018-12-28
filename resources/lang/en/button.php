@@ -27,4 +27,5 @@ return [
     'add_participants' => 'Add participants',
     'view_participants' => 'View Participants',
     'result_participants' => 'Result Participants',
+    'add' => 'Add',
 ];

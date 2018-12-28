@@ -146,6 +146,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('evaluations/{evaluation}/result', 'Admin\EvaluationController@result')->name('evaluations.result');
     Route::get('evaluations/{evaluation}/add', 'Admin\EvaluationController@add')->name('evaluations.add');
 
+    Route::post('evaluations/addsave', 'Admin\EvaluationController@addsave')->name('evaluations.addsave');
+
     Route::resource('evaluations', 'Admin\EvaluationController');
 
     #Questions

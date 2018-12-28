@@ -28,4 +28,5 @@ return [
     'add_participants' => 'Adicionar participantes',
     'view_participants' => 'Ver participantes',
     'result_participants' => 'Resultado',
+    'add' => 'Adicionar',
 ];

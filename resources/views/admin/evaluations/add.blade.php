@@ -29,14 +29,23 @@
             <div class="card">
                 <div class="card-header">
                   Adicionar Participantes
-                  {{-- <h3 class="card-title">Servicios</h3> --}}
-                  <div class="btn-group pull-right">
-                    <a href="{{ route('users.create') }}" class="pull-right btn btn-sm btn-primary"><i class="fa fa-plus"></i> @lang('button.create')</a>
-                  </div>
-
                 </div>
                 <!--Card content-->
                 <div class="card-body">
+                    {!! Form::open(['route' => 'evaluations.addsave', 'files' => true, 'id' =>'formId']) !!}
+                        {{ Form::hidden('evaluation_id', $evaluation->id) }}
+                        {{ Form::hidden('user_id', auth()->user()->id) }}
+
+                        <div class="form-group">
+                            {{ Form::label('student_id', 'Usuarios', ['class' => 'font-weight-bold']) }}
+                            {{ Form::select('student_id', $users, null, ['class' => 'form-control']) }}
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit"  class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> @lang('button.add')</button>
+                        </div>
+
+                    {!! Form::close() !!}
                     <!-- Table  -->
                     {{-- <table id="myTable" class="table table-hover" style="width: 100%"> --}}
                    <div class="table-responsive">

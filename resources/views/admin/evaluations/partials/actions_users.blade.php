@@ -1,0 +1,2 @@
+<a href="{{ route('users.show', $id) }}" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="@lang('button.view')"><i class="fa fa-eye"></i></a>
+<a href="javascript:void(0)" data-id="{{ $id }}" data-name="{{ $name }}" class="delete_resource btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="@lang('button.delete')"><i class="fa fa-trash"></i></a>

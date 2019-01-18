@@ -117,6 +117,36 @@ class EvaluationController extends Controller
     }
 
     /**
+     * Remove the specified user from evaluation.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function remove($id)
+    {
+        $evaluation = Evaluation::find($id);
+        $user_id = User::find($user_id);
+
+
+        $message = 'Eliminado la Evaluación';
+        // $evaluation->delete();
+
+        // $evaluation = Evaluation::find($evaluation_id);
+
+        // if (!$evaluation->participants->contains($student_id)) {
+        //     $student = User::find($student_id);
+
+        //     $evaluation->participants()->save($student, ['answer' => '']);
+
+        //     return redirect()->route('evaluations.add', $evaluation->id)->with('info', 'Participante adicionado con éxito');
+        // } else {
+        //     return redirect()->route('evaluations.add', $evaluation->id)->with('warning', 'Participante ya esta adicionado');
+        // }
+
+        return array('message' => $message);
+    }
+
+    /**
      * View the specified resource.
      *
      * @param  App\Evaluation  $evaluation

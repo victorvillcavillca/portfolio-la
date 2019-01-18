@@ -28,7 +28,10 @@
             <!--Card-->
             <div class="card">
                 <div class="card-header">
-                  Adicionar Participantes
+                  <h2>Adicionar Participantes</h2>
+                  <hr>
+                  <h1>Evaluación:</h1>
+                  <h6>{{ $evaluation->name }}</h6>
                 </div>
                 <!--Card content-->
                 <div class="card-body">
@@ -91,6 +94,7 @@
   <script>
   $(document).ready(function() {
      let user_id = 0;
+     let evaluation_id = {{$evaluation->id}};
      let table = $('#myTable').DataTable({
       "responsive": true,
       "order": [[ 0, "desc" ]],
@@ -99,7 +103,7 @@
         "ajax": {
           "url": "/admin/users/dataevaluation",
           "data": {
-            "evaluation_id": {{$evaluation->id}},
+            "evaluation_id": evaluation_id,
           }
         },
         "columns": [
@@ -130,7 +134,8 @@
       });
 
       $('#delete').click(function() {
-        let url = 'users/' + user_id;
+        let url = 'evaluations/' + user_id+'/remove';
+        // alert(url);
         axios.delete(url).then(response => { //deleting
           $('#modalDelete').modal('hide');
           table.ajax.reload();

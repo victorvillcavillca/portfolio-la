@@ -146,6 +146,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('evaluations/{evaluation}/result', 'Admin\EvaluationController@result')->name('evaluations.result');
     Route::get('evaluations/{evaluation}/add', 'Admin\EvaluationController@add')->name('evaluations.add');
 
+    Route::delete('evaluations/{evaluation}{user}/remove', 'Admin\EvaluationController@remove')->name('evaluations.remove');
+
+    // Route::delete('evaluations/{product}', 'ProductController@destroy')->name('products.destroy')
+    //     ->middleware('permission:products.destroy');
+
     Route::post('evaluations/addsave', 'Admin\EvaluationController@addsave')->name('evaluations.addsave');
 
     Route::resource('evaluations', 'Admin\EvaluationController');

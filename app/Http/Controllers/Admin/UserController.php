@@ -127,7 +127,7 @@ class UserController extends Controller
             // ->editColumn('resource_category_id', function(User $resource) {
             //         return $resource->resourceCategory->name;
             //     })
-            ->addColumn('btn', 'admin.users.partials.actions')
+            ->addColumn('btn', 'admin.evaluations.partials.actions_users')
             ->rawColumns(['btn'])
             ->toJson();
     }

@@ -14,6 +14,22 @@
 
             <!--Grid column-->
             <div class="col-md-8 mb-4">
+
+               <div class="page-header">
+                    <h2>Buscar
+                        {{ Form::open(['route' => 'specialties', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
+                            <div class="form-group">
+                                {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre']) }}
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </div>
+                        {{ Form::close() }}
+                    </h2>
+                </div>
+
               <!--Section: Cards-->
               <section class="text-center">
                   @if(isset($area_name))
@@ -21,6 +37,7 @@
                   @endif
                   <h2>Especialidades del Club Conquistadores</h2>
                   <hr>
+                  <h2>buscador</h2>
                   <!--Grid row-->
                   <div class="row mb-4 wow fadeIn">
                     @foreach($specialties as $specialty)

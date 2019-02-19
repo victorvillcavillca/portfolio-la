@@ -81,6 +81,7 @@ class EvaluationController extends Controller
     public function edit(Evaluation $evaluation)
     {
         $evaluation->end_date = Carbon::parse($evaluation->end_date)->format('Y-m-d');
+
         $matters = Matter::orderBy('name', 'ASC')->pluck('name', 'id');
 
         return view('admin.evaluations.edit', compact('matters','evaluation'));

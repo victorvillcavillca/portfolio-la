@@ -29,9 +29,18 @@
                     <a class="nav-link waves-effect" href="{{ route('home') }}">Inicio</a>
                 </li> --}}
 
+                @guest
+
+                @else
+                <li class="nav-item {{ (request()->is('home') || request()->is('home/*')) }}">
+                    <a class="nav-link waves-effect" href="{{ route('home') }}">Inicio</a>
+                </li>
+                @endguest
+
                  <li class="nav-item {{ (request()->is('blog') || request()->is('blog/*')) || (request()->is('post') || request()->is('post/*'))? 'active' : ''  }}">
                     <a class="nav-link waves-effect" href="{{ route('blog') }}">Blog</a>
                 </li>
+
                 {{-- <li class="nav-item {{ (request()->is('read') || request()->is('read/*')) || (request()->is('post') || request()->is('post/*'))? 'active' : ''  }}">
                     <a class="nav-link waves-effect" href="{{ route('read') }}">{{ Auth::user()->name }}</a>
                 </li> --}}
@@ -42,9 +51,9 @@
                     <a class="nav-link waves-effect" href="{{ route('resources') }}">Recursos</a>
                 </li>
 
-                <li class="nav-item {{ request()->is('matters') || request()->is('resource-category/*')? 'active' : ''  }}">
+{{--                 <li class="nav-item {{ request()->is('matters') || request()->is('resource-category/*')? 'active' : ''  }}">
                     <a class="nav-link waves-effect" href="{{ route('matters') }}">Evaluaciones </a>
-                </li>
+                </li> --}}
 
                {{--  <li class="nav-item">
                     <a class="nav-link waves-effect" href="https://mdbootstrap.com/getting-started/">Free download</a>

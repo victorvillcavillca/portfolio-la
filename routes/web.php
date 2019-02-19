@@ -41,7 +41,8 @@ Route::get('/category/{slug}', 'Web\PageController@category')->name('category');
 Route::get('/tag/{slug}', 'Web\PageController@tag')->name('tag');
 
 #Specialty
-Route::get('/specialties', 'Web\PageController@specialties')->name('specialties');
+#Route::get('/', 'UserController@index')->name('users');
+Route::get('/specialties', 'Web\SpecialtyController@index')->name('specialties');
 Route::get('/specialty/{slug}', 'Web\PageController@specialty')->name('specialty');
 Route::get('/specialty-area/{slug}', 'Web\PageController@specialtyArea')->name('specialty-area');
 

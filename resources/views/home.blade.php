@@ -85,9 +85,9 @@
                         </p>
                     </div>
 
-                    <div class="card-footer">
+                    {{-- <div class="card-footer">
                         <button>helo</button>
-                    </div>
+                    </div> --}}
 
                 </div>
                 <!--/.Card-->

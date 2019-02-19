@@ -22,6 +22,13 @@ class Specialty extends Model
         'filename'
     ];
 
+    //Query Scope
+    public function scopeName($query, $name)
+    {
+        if($name)
+            return $query->where('name', 'LIKE', "%$name%");
+    }
+
     /**
      * Returns the specialty area model
      * @return App\SpecialtyArea

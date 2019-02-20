@@ -43,6 +43,6 @@ class ResourceCategoriesTableSeeder extends Seeder
             'user_id' => 1
         ]);
 
-		factory(App\ResourceCategory::class, 5)->create();
+		// factory(App\ResourceCategory::class, 5)->create();
     }
 }

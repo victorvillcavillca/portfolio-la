@@ -19,7 +19,12 @@ class UsersTableSeeder extends Seeder
         	'email'=> 'victor.villca.v@gmail.com',
             'password' => bcrypt('123456'),
             'photo' => '/image/profile.png',
-        	'bio' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        	'bio' => 'Capellán, Instructor y Consejero Club Orión, SCZ, 2003- 2013
+Director Club Orión SCZ, 2014-2015
+Coord. Regional, Cuarta Región MOB/UB 2016-2017
+Director Club Polaris, 2018
+Consejero Club Caleb Campeche, 2019
+'
         ]);
 
         App\User::create([

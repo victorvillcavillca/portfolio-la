@@ -81,6 +81,6 @@ class SpecialtyAreasTableSeeder extends Seeder
             'slug' => str_slug('Maestrías'),
             'description' => 'ME - Especialidades del Club de Conquistadores en el Área de Maestrías'
         ]);
-        factory(SpecialtyArea::class, 5)->create();
+        // factory(SpecialtyArea::class, 5)->create();
     }
 }

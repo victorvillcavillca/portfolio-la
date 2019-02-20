@@ -38,7 +38,7 @@
                   @if(isset($area_name))
                   <h1>{{ $area_name }}</h1>
                   @endif
-                  <h2>Especialidades del Club Conquistadores my</h2>
+                  <h2>Especialidades del Club Conquistadores</h2>
                   <hr>
                   <!--Grid row-->
                   <div class="row mb-4 wow fadeIn">

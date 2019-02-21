@@ -14,7 +14,7 @@ class ResourceCategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.resource-categories.index');
     }
 
     /**

@@ -64,7 +64,7 @@
 </div>
 
 <!--Modal: Delete Confirmation-->
-@include('admin.partials.modal-delete', ['title' => trans('specialty_area.specialty_area'), 'description' => 'La '.trans('specialty_area.specialty_area')])
+@include('admin.partials.modal-delete', ['title' => trans('admin/specialty_area.specialty_area'), 'description' => 'La '.trans('admin/specialty_area.specialty_area')])
 <!--Modal: Delete Confirmation-->
 
 @endsection

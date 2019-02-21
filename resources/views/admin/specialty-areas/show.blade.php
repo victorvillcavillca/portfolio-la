@@ -4,7 +4,7 @@
 
 <div class="container-fluid mt-5">
     <!-- Heading -->
-    @include('admin.categories.partials.heading')
+    @include('admin.specialty-areas.partials.heading')
     <!-- Heading -->
 
     <!--Grid row-->
@@ -23,6 +23,9 @@
                     <p><strong>Nombre</strong> {{ $specialty_area->name }}</p>
                     <p><strong>Slug</strong> {{ $specialty_area->slug }}</p>
                     <p><strong>Descripción</strong> {{ $specialty_area->description }}</p>
+                    <p><strong>Creado</strong> {{ $specialty_area->created_at }}</p>
+                    <hr>
+                    <a href="{{ route('specialty-areas.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-sign-out"></i> @lang('button.exit')</a>
                 </div>
 
             </div>

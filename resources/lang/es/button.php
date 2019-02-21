@@ -29,4 +29,6 @@ return [
     'view_participants' => 'Ver participantes',
     'result_participants' => 'Resultado',
     'add' => 'Adicionar',
+    'no' => 'No',
+    'exit' => 'Salir',
 ];

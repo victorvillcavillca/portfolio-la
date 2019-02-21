@@ -28,4 +28,6 @@ return [
     'view_participants' => 'View Participants',
     'result_participants' => 'Result Participants',
     'add' => 'Add',
+    'no' => 'Not',
+    'exit' => 'Exit',
 ];

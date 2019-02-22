@@ -12,8 +12,9 @@
                 <p>¿Está seguro de eliminar? {{ isset($description)?$description:'El Item' }} <strong id="item-name"></strong></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('button.cancel')</button>
-                <button type="button" class="btn btn-primary" id="delete">@lang('button.yes')</button>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i> @lang('button.cancel')</button>
+
+                <button type="button" class="btn btn-sm btn-primary" id="delete"><i class="fa fa-check"></i> @lang('button.yes')</button>
             </div>
         </div>
     </div>

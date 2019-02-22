@@ -2,12 +2,16 @@
 
 namespace App;
 
+use App\DateFormat;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ResourceCategory extends Model
 {
+    use DateFormat, SoftDeletes;
+
 	protected $fillable = [
-        'name', 'slug', 'description'
+        'user_id', 'name', 'slug', 'description'
     ];
 
     /**

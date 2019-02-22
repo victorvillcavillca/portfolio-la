@@ -171,6 +171,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     #Resource Categories
     // Route::get('managements/data', 'Admin\ManagementController@data');
+    Route::get('resource-categories/data', 'Admin\ResourceCategoryController@data');
     Route::resource('resource-categories', 'Admin\ResourceCategoryController');
 
     #Resources

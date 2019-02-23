@@ -17,6 +17,7 @@ class ResourceController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -130,7 +131,7 @@ class ResourceController extends Controller
         //TAGS
         // $resource->tags()->sync($request->get('tags'));
 
-        return redirect()->route('resources.index')->with('info', 'Especialidad actualizada con éxito');
+        return redirect()->route('resources.index')->with('info', 'Recurso actualizado con éxito');
     }
 
     /**

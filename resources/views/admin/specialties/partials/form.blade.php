@@ -51,8 +51,11 @@
     {{ Form::label('body', 'Descripción') }}
     {{ Form::textarea('body', null, ['class' => 'form-control']) }}
 </div> --}}
+
 <div class="form-group">
-    {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
+    <a href="{{ route('specialties.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-times"></i> @lang('button.cancel')</a>
+
+    <button type="submit"  class="pull-right btn btn-sm btn-primary"><i class="fa fa-save"></i> @lang('button.save')</button>
 </div>
 
 @section('scripts')

@@ -91,8 +91,9 @@
 </div>
 
 <div class="form-group">
-    {{-- {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }} --}}
-    <button type="submit"  class="btn btn-sm btn-primary"><i class="fa fa-save"></i> @lang('button.save')</button>
+    <a href="{{ route('resources.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-times"></i> @lang('button.cancel')</a>
+
+    <button type="submit"  class="pull-right btn btn-sm btn-primary"><i class="fa fa-save"></i> @lang('button.save')</button>
 </div>
 
 @section('scripts')

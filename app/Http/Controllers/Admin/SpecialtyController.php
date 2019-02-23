@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Storage;
 
 class SpecialtyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -156,12 +161,17 @@ class SpecialtyController extends Controller
      */
     public function data()
     {
-        $query = Specialty::select('id', 'name', 'description', 'created_at');
+        $query = Specialty::select('id', 'name', 'filename', 'status', 'specialty_area_id','created_at');
 
         return datatables()
             ->eloquent($query)
+            ->editColumn('status', 'admin.specialties.datatables.status')
+            ->editColumn('filename', 'admin.specialties.datatables.filename')
+            ->editColumn('specialty_area_id', function(Specialty $specialty) {
+                    return $specialty->specialtyArea->name;
+                })
             ->addColumn('btn', 'admin.specialties.partials.actions')
-            ->rawColumns(['btn'])
+            ->rawColumns(['filename','status','btn'])
             ->toJson();
     }
 }

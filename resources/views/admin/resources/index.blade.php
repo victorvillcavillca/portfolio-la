@@ -45,7 +45,7 @@
                         <tr>
                           <th>Id</th>
                           <th>Nombre</th>
-                          <th>Descripción</th>
+                          <th>Documento</th>
                           <th>Estado</th>
                           <th>Categoría</th>
                           <th>Creado</th>

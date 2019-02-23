@@ -39,13 +39,13 @@
                    <div class="table-responsive">
                       <table id="myTable" class="table table-hover dt-responsive" cellspacing="`0" width="100%">
                         <thead class="thead-dark">
-                        <tr>
                           <th>Id</th>
                           <th>Nombre</th>
-                          <th>Descripción</th>
+                          <th>Documento</th>
+                          <th>Estado</th>
+                          <th>Categoría</th>
                           <th>Creado</th>
                           <th style="width: 82px;">Acciones</th>
-                        </tr>
                         </thead>
                       </table>
                    </div>
@@ -92,7 +92,9 @@
         "columns": [
           { "data": "id" },
           { "data": "name" },
-          { "data": "description" },
+          { "data": "filename" },
+          { "data": "status" },
+          { "data": "specialty_area_id" },
           { "data": "created_at" },
           { "data": 'btn'},
         ],

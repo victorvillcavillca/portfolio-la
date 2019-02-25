@@ -3,8 +3,8 @@
     <!-- Sidebar Header    -->
     <div class="sidenav-header d-flex align-items-center justify-content-center">
       <!-- User Info-->
-      <div class="sidenav-header-inner text-center"><img src="{{ asset('vendor/admin-dash/img/avatar-7.jpg') }}" alt="person" class="img-fluid rounded-circle">
-        <h2 class="h5">Nathan Andrews</h2><span>Web Developer</span>
+      <div class="sidenav-header-inner text-center"><img src="{{ asset(auth()->user()->photo) }}" alt="person" class="img-fluid rounded-circle">
+        <h2 class="h5">{{ auth()->user()->name }}</h2><span>Web Developer</span>
       </div>
       <!-- Small Brand information, appears on minimized sidebar-->
       <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
@@ -17,6 +17,8 @@
         <li><a href="forms.html"> <i class="icon-form"></i>Forms                             </a></li>
         <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts                             </a></li>
         <li><a href="tables.html"> <i class="icon-grid"></i>Tables                             </a></li> --}}
+        <li class="{{ request()->is('admin/profiles') || request()->is('admin/profiles/*')? 'active' : ''}}"><a href="{{ route('profiles.index') }}">
+            <i class="icon-interface-windows"></i>Profile</a></li>
         <li class="{{ request()->is('admin/home') || request()->is('admin/home/*')? 'active' : ''}}"><a href="{{ route('admin') }}">
             <i class="icon-interface-windows"></i>Inicio</a></li>
 

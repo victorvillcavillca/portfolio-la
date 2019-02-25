@@ -23,19 +23,19 @@ class PermissionsTableSeeder extends Seeder
         Permission::create([
             'name'          => 'Ver detalle de usuario',
             'slug'          => 'users.show',
-            'description'   => 'Ve en detalle cada usuario del sistema',            
+            'description'   => 'Ve en detalle cada usuario del sistema',
         ]);
-        
+
         Permission::create([
             'name'          => 'Edición de usuarios',
             'slug'          => 'users.edit',
             'description'   => 'Podría editar cualquier dato de un usuario del sistema',
         ]);
-        
+
         Permission::create([
             'name'          => 'Eliminar usuario',
             'slug'          => 'users.destroy',
-            'description'   => 'Podría eliminar cualquier usuario del sistema',      
+            'description'   => 'Podría eliminar cualquier usuario del sistema',
         ]);
 
         //Roles
@@ -48,25 +48,25 @@ class PermissionsTableSeeder extends Seeder
         Permission::create([
             'name'          => 'Ver detalle de un rol',
             'slug'          => 'roles.show',
-            'description'   => 'Ve en detalle cada rol del sistema',            
+            'description'   => 'Ve en detalle cada rol del sistema',
         ]);
-        
+
         Permission::create([
             'name'          => 'Creación de roles',
             'slug'          => 'roles.create',
             'description'   => 'Podría crear nuevos roles en el sistema',
         ]);
-        
+
         Permission::create([
             'name'          => 'Edición de roles',
             'slug'          => 'roles.edit',
             'description'   => 'Podría editar cualquier dato de un rol del sistema',
         ]);
-        
+
         Permission::create([
             'name'          => 'Eliminar roles',
             'slug'          => 'roles.destroy',
-            'description'   => 'Podría eliminar cualquier rol del sistema',      
+            'description'   => 'Podría eliminar cualquier rol del sistema',
         ]);
 
         //Roles
@@ -79,27 +79,25 @@ class PermissionsTableSeeder extends Seeder
         Permission::create([
             'name'          => 'Ver detalle de un producto',
             'slug'          => 'products.show',
-            'description'   => 'Ve en detalle cada producto del sistema',            
+            'description'   => 'Ve en detalle cada producto del sistema',
         ]);
-        
+
         Permission::create([
             'name'          => 'Creación de productos',
             'slug'          => 'products.create',
             'description'   => 'Podría crear nuevos productos en el sistema',
         ]);
-        
+
         Permission::create([
             'name'          => 'Edición de productos',
             'slug'          => 'products.edit',
             'description'   => 'Podría editar cualquier dato de un producto del sistema',
         ]);
-        
+
         Permission::create([
             'name'          => 'Eliminar productos',
             'slug'          => 'products.destroy',
-            'description'   => 'Podría eliminar cualquier producto del sistema',      
+            'description'   => 'Podría eliminar cualquier producto del sistema',
         ]);
-
-
     }
 }

@@ -3,6 +3,7 @@
 namespace App;
 
 use App\DateFormat;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Specialty extends Model
@@ -21,6 +22,14 @@ class Specialty extends Model
         'file',
         'filename'
     ];
+
+    /**
+     * @param date $attr
+     * @return Carbon
+     */
+    public function getCreatedAtAttribute($attr) {
+        return Carbon::parse($attr)->diffForHumans();
+    }
 
     //Query Scope
     public function scopeName($query, $name)

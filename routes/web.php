@@ -90,6 +90,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::view('/', 'admin.home');
     Route::view('home', 'admin.home')->name('admin');
 
+    Route::resource('profiles',  'Admin\ProfileController');
+
     Route::resource('tags', 	   'Admin\TagController');
 	Route::resource('categories',  'Admin\CategoryController');
 

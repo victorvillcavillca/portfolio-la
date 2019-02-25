@@ -1,6 +1,9 @@
 <div class="col-lg-4 col-md-12 mb-4">
     <!--Card-->
     <div class="card">
+        <div class="card-header">
+            <i class="fa fa-clock-o"></i> {{ $resource->created_at  }} por <a href="#"><i class="fa fa-user"></i> {{ $resource->user['name'] }}</a>
+        </div>
 
         <!--Card image-->
         <div class="text-center">

@@ -53,12 +53,13 @@ class ResourceController extends Controller
         // $this->authorize('pass', $resource);
 
         //IMAGE
-        if($request->file('image')){
+        if($request->file('image')) {
+            die('pepe');
             $path = Storage::disk('public')->put('image/upload/resources',  $request->file('image'));
             $resource->fill(['file' => asset($path), 'imagename' => asset($path)]);
         }
 
-        if($request->file('filename')){
+        if($request->file('filename')) {
             $file = Input::file('filename');
 
             $file_name = $file->getClientOriginalName();

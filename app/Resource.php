@@ -23,6 +23,14 @@ class Resource extends Model
         'filename'
     ];
 
+    /**
+     * @param date $attr
+     * @return Carbon
+     */
+    public function getCreatedAtAttribute($attr) {
+        return Carbon::parse($attr)->diffForHumans();
+    }
+
     //Query Scope
     public function scopeName($query, $name)
     {

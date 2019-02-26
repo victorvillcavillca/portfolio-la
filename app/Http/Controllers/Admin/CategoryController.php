@@ -21,7 +21,7 @@ class CategoryController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -110,5 +110,21 @@ class CategoryController extends Controller
         $category = Category::find($id)->delete();
 
         return back()->with('info', 'Eliminado correctamente');
+    }
+
+    /**
+     * Show a list of all the Expenses posts formatted for Datatables.
+     *
+     * @return Datatables JSON
+     */
+    public function data()
+    {
+        $query = Category::select('id', 'name', 'body', 'created_at');
+
+        return datatables()
+            ->eloquent($query)
+            ->addColumn('btn', 'admin.categories.partials.actions')
+            ->rawColumns(['btn'])
+            ->toJson();
     }
 }

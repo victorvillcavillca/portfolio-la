@@ -29,11 +29,12 @@ class PostStoreRequest extends FormRequest
             'user_id'       => 'required|integer',
             'category_id'   => 'required|integer',
             'tags'          => 'required|array',
+            'excerpt'       => 'required',
             'body'          => 'required',
-            'status'        => 'required|in:DRAFT,PUBLISHED',            
+            'status'        => 'required|in:DRAFT,PUBLISHED',
         ];
 
-        if($this->get('image'))        
+        if($this->get('image'))
             $rules = array_merge($rules, ['image'         => 'mimes:jpg,jpeg,png']);
 
         return $rules;

@@ -23,10 +23,10 @@
                     Editar categoría
                 </div>
 
-                <!-- errors -->
+              {{--   <!-- errors -->
                 @if ($errors->any())
                   @include('admin.partials.errors')
-                @endif
+                @endif --}}
                 <!-- /.errors -->
 
                 <!--Card content-->

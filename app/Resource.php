@@ -2,13 +2,13 @@
 
 namespace App;
 
-use App\DateFormat;
+// use App\DateFormat;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Resource extends Model
 {
-    use DateFormat;
+    // use DateFormat;
 
     protected $fillable = [
         'user_id',
@@ -20,7 +20,7 @@ class Resource extends Model
         'body',
         'status',
         'file',
-        'filename'
+        'filename',
     ];
 
     /**

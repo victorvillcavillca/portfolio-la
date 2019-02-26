@@ -20,7 +20,7 @@
             <!--Card-->
             <div class="card">
                 <div class="card-header">
-                    Editar entrada
+                    Editar Publicación
                 </div>
 
                 <!-- errors -->

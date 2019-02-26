@@ -45,11 +45,11 @@
                         <tr>
                           <th>Id</th>
                           <th>Nombre</th>
-                          <th>Imagen</th>
+                          <th>Imagen___</th>
                           <th>Estado</th>
                           <th>Categoría</th>
                           <th>Usuario</th>
-                          <th>Creado</th>
+                          {{-- <th>Creado</th> --}}
                           <th style="width: 82px;">Acciones</th>
                         </tr>
                         </thead>
@@ -100,7 +100,7 @@
           { "data": "status" },
           { "data": "category_id" },
           { "data": "user_id" },
-          { "data": "created_at" },
+          // { "data": "created_at" },
           { "data": 'btn'},
         ],
         "columnDefs": [

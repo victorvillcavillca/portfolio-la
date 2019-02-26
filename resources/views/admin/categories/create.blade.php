@@ -25,9 +25,9 @@
                 </div>
 
                 <!-- errors -->
-                @if ($errors->any())
+               {{--  @if ($errors->any())
                   @include('admin.partials.errors')
-                @endif
+                @endif --}}
                 <!-- /.errors -->
 
                 <!--Card content-->

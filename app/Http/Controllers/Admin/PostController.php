@@ -160,12 +160,6 @@ class PostController extends Controller
      */
     public function data()
     {
-        // 'user_id', 'category_id', 'name', 'slug', 'excerpt', 'body', 'status', 'file'
-
-// $posts = Post::orderBy('id', 'DESC')
-//             ->where('user_id', auth()->user()->id)
-//             ->paginate();
-
         $query = Post::select('id', 'name', 'file', 'status', 'category_id', 'user_id', 'created_at')->where('user_id', auth()->user()->id);
 
         return datatables()

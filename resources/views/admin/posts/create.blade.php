@@ -22,13 +22,13 @@
             <div class="card">
 
                 <div class="card-header">
-                    Crear Entrada
+                    Crear Publicación
                 </div>
 
                 <!-- errors -->
-                @if ($errors->any())
-                  @include('admin.partials.errors')
-                @endif
+                {{-- @if ($errors->any()) --}}
+                  {{-- @include('admin.partials.errors') --}}
+                {{-- @endif --}}
                 <!-- /.errors -->
 
                 <!--Card content-->

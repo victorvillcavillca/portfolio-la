@@ -35,6 +35,8 @@
                     </p>
                     <p><strong>Descripción: </strong></p>{!! $post->body !!}
                     <p><strong>Creado: </strong> {{ $post->created_at }}</p>
+                    <hr>
+                    <a href="{{ route('posts.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-sign-out"></i> @lang('button.exit')</a>
                 </div>
 
             </div>

@@ -23,6 +23,9 @@
                     <p><strong>Nombre</strong> {{ $category->name }}</p>
                     <p><strong>Slug</strong> {{ $category->slug }}</p>
                     <p><strong>Descripción</strong> {{ $category->body }}</p>
+                    <p><strong>Creado: </strong> {{ $category->created_at }}</p>
+                    <hr>
+                    <a href="{{ route('categories.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-sign-out"></i> @lang('button.exit')</a>
                 </div>
 
             </div>

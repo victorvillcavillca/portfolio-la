@@ -48,7 +48,6 @@ class ResourceCategoryController extends Controller
      */
     public function store(ResourceCategoryRequest $request)
     {
-        // var_dump($request->all()); die();
         ResourceCategory::create($request->all());
 
         return redirect()->route('resource-categories.index')

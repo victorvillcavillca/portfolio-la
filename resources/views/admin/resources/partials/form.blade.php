@@ -89,7 +89,7 @@
   	</div>
 	@endif
 </div>
-
+<hr>
 <div class="form-group">
     <a href="{{ route('resources.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-times"></i> @lang('button.cancel')</a>
 

@@ -24,12 +24,6 @@
                     Crear Etiqueta
                 </div>
 
-                <!-- errors -->
-                @if ($errors->any())
-                  @include('admin.partials.errors')
-                @endif
-                <!-- /.errors -->
-
                 <!--Card content-->
                 <div class="card-body">
                     {!! Form::open(['route' => 'tags.store']) !!}

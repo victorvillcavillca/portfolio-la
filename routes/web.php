@@ -92,7 +92,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     Route::resource('profiles',  'Admin\ProfileController');
 
-    Route::resource('tags', 	   'Admin\TagController');
+    Route::get('tags/data', 'Admin\TagController@data');
+    Route::resource('tags', 'Admin\TagController');
 
     Route::get('categories/data', 'Admin\CategoryController@data');
 	Route::resource('categories',  'Admin\CategoryController');

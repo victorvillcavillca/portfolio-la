@@ -68,7 +68,7 @@
 </div>
 
 <!--Modal: Delete Confirmation-->
-@include('admin.partials.modal-delete', ['title' => trans('button.view'), 'description' => 'El '.trans('button.view')])
+@include('admin.partials.modal-delete', ['title' => trans('admin/post.post'), 'description' => 'La '.trans('admin/post.post')])
 <!--Modal: Delete Confirmation-->
 
 @endsection

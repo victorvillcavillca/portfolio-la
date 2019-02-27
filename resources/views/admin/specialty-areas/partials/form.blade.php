@@ -22,7 +22,7 @@
     {{ Form::label('description', 'Descripción') }}
     {{ Form::textarea('description', null, ['class' => 'form-control']) }}
 </div>
-
+<hr>
 <div class="form-group">
     <a href="{{ route('specialty-areas.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-times"></i> @lang('button.cancel')</a>
 

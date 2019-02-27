@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\TagStoreRequest;
 use App\Http\Requests\TagUpdateRequest;
-
-use App\Http\Controllers\Controller;
-
 use App\Tag;
+use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
@@ -21,7 +19,7 @@ class TagController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -29,9 +27,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::orderBy('id', 'DESC')->paginate();
-
-        return view('admin.tags.index', compact('tags'));
+        return view('admin.tags.index');
     }
 
     /**
@@ -107,8 +103,26 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        $tag = Tag::find($id)->delete();
+        $tag = Tag::find($id);
+        $message = 'Eliminado la Etiqueta; '.$tag->name;
+        $tag->delete();
 
-        return back()->with('info', 'Eliminado correctamente');
+        return array('message' => $message);
+    }
+
+    /**
+     * Show a list of all the Expenses posts formatted for Datatables.
+     *
+     * @return Datatables JSON
+     */
+    public function data()
+    {
+        $query = Tag::select('id', 'name', 'created_at');
+
+        return datatables()
+            ->eloquent($query)
+            ->addColumn('btn', 'admin.tags.partials.actions')
+            ->rawColumns(['btn'])
+            ->toJson();
     }
 }

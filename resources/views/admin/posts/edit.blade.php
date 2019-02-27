@@ -23,12 +23,6 @@
                     Editar Publicación
                 </div>
 
-                <!-- errors -->
-                @if ($errors->any())
-                  @include('admin.partials.errors')
-                @endif
-                <!-- /.errors -->
-
                 <!--Card content-->
                 <div class="card-body">
                     {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT', 'files' => true]) !!}

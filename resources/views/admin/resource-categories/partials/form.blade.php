@@ -24,9 +24,9 @@
     {{ Form::label('description', 'Descripción') }}
     {{ Form::textarea('description', null, ['class' => 'form-control']) }}
 </div>
-
+<hr>
 <div class="form-group">
-    <a href="{{ route('specialty-areas.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-times"></i> @lang('button.cancel')</a>
+    <a href="{{ route('resource-categories.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-times"></i> @lang('button.cancel')</a>
 
     <button type="submit"  class="pull-right btn btn-sm btn-primary"><i class="fa fa-save"></i> @lang('button.save')</button>
 </div>

@@ -23,12 +23,6 @@
                     Editar Etiqueta
                 </div>
 
-                <!-- errors -->
-                @if ($errors->any())
-                  @include('admin.partials.errors')
-                @endif
-                <!-- /.errors -->
-
                 <!--Card content-->
                 <div class="card-body">
                     {!! Form::model($tag, ['route' => ['tags.update', $tag->id], 'method' => 'PUT']) !!}

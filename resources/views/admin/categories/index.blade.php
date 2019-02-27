@@ -64,7 +64,7 @@
 </div>
 
 <!--Modal: Delete Confirmation-->
-@include('admin.partials.modal-delete', ['title' => trans('admin/specialty_area.specialty_area'), 'description' => 'La '.trans('admin/specialty_area.specialty_area')])
+@include('admin.partials.modal-delete', ['title' => trans('admin/category.category'), 'description' => 'La '.trans('admin/category.category')])
 <!--Modal: Delete Confirmation-->
 
 @endsection
@@ -83,7 +83,7 @@
   <!-- page script -->
   <script>
   $(document).ready(function() {
-     let area_specialty_id = 0;
+     let category_id = 0;
 
      let table = $('#myTable').DataTable({
       "responsive": true,
@@ -110,8 +110,8 @@
         }
       });
 
-      $('#myTable tbody').on( 'click', 'a.delete_area_specialty', function (e) {
-        area_specialty_id = $(this).attr('data-id');
+      $('#myTable tbody').on( 'click', 'a.delete_category', function (e) {
+        category_id = $(this).attr('data-id');
         let name = $(this).attr('data-name');
 
         $('#item-name').text(name);
@@ -119,7 +119,7 @@
       });
 
       $('#delete').click(function() {
-        let url = 'categories/' + area_specialty_id;
+        let url = 'categories/' + category_id;
         axios.delete(url).then(response => { //deleting
           $('#modalDelete').modal('hide');
           table.ajax.reload();

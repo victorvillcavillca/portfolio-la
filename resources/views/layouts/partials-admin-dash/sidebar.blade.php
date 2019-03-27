@@ -38,7 +38,7 @@
           </ul>
         </li> --}}
 
-        <li><a href="#dropdownDropdown_campori" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Campori Regional</a>
+       {{--  <li><a href="#dropdownDropdown_campori" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Campori Regional</a>
           <ul id="dropdownDropdown_campori" class="collapse list-unstyled
             {{ request()->is('admin/scores') || request()->is('admin/scores/*') || request()->is('admin/requirements') || request()->is('admin/requirements/*') || request()->is('admin/requirementareas') || request()->is('admin/requirementareas/*') || request()->is('admin/camporiclubs') || request()->is('admin/camporiclubs/*') || request()->is('admin/qualifications') || request()->is('admin/qualifications/*')? 'show' : ''}}
             ">
@@ -58,7 +58,7 @@
             <li class="{{ request()->is('admin/qualifications') || request()->is('admin/qualifications/*')? 'active' : ''}}"><a href="{{ route('qualifications.index') }}">
             <i class="icon-interface-windows"></i>Calificaciones</a></li>
           </ul>
-        </li>
+        </li> --}}
 
 
         <li><a href="#dropdownDropdown_post" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Publicaciones</a>
@@ -100,7 +100,7 @@
         </li>
 
         <li><a href="#dropdownDropdown_specialty" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Conquistadores</a>
-          <ul id="dropdownDropdown_specialty" class="collapse list-unstyled {{ request()->is('admin/specialties') || request()->is('admin/specialties/*') || request()->is('admin/specialty-areas') || request()->is('admin/specialty-areas/*') || request()->is('admin/resources') || request()->is('admin/resources/*') || request()->is('admin/resource-categories') || request()->is('admin/resource-categories/*') ? 'show' : ''}}
+          <ul id="dropdownDropdown_specialty" class="collapse list-unstyled {{ request()->is('admin/specialties') || request()->is('admin/specialties/*') || request()->is('admin/specialty-areas') || request()->is('admin/specialty-areas/*') || request()->is('admin/resources') || request()->is('admin/resources/*') || request()->is('admin/resource-categories') || request()->is('admin/resource-categories/*') || request()->is('admin/videos') || request()->is('admin/videos/*') || request()->is('admin/video-categories') || request()->is('admin/video-categories/*') ? 'show' : ''}}
             ">
 
             <li class="{{ request()->is('admin/specialties') || request()->is('admin/specialties/*')? 'active' : ''}}"><a href="{{ route('specialties.index') }}">
@@ -114,6 +114,12 @@
 
             <li class="{{ request()->is('admin/resource-categories') || request()->is('admin/resource-categories/*')? 'active' : ''}}"><a href="{{ route('resource-categories.index') }}">
             <i class="icon-interface-windows"></i>Categorías recursos</a></li>
+
+            <li class="{{ request()->is('admin/videos') || request()->is('admin/videos/*')? 'active' : ''}}"><a href="{{ route('videos.index') }}">
+            <i class="icon-interface-windows"></i>Videos</a></li>
+
+            <li class="{{ request()->is('admin/video-categories') || request()->is('admin/video-categories/*')? 'active' : ''}}"><a href="{{ route('video-categories.index') }}">
+            <i class="icon-interface-windows"></i>Categorías Videos</a></li>
           </ul>
         </li>
 

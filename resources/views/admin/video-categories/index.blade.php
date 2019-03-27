@@ -3,7 +3,7 @@
 @section('styles')
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+  {{-- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css"> --}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 @endsection
 
@@ -15,7 +15,7 @@
     <!-- /.Alerts -->
 
     <!-- Heading -->
-    @include('admin.specialties.partials.heading')
+    @include('admin.video-categories.partials.heading')
     <!-- Heading -->
 
     <!--Grid row-->
@@ -29,26 +29,26 @@
                 <div class="card-header">
                   {{-- <h3 class="card-title">Servicios</h3> --}}
                   <div class="btn-group pull-right">
-                    <a href="{{ route('specialties.create') }}" class="pull-right btn btn-sm btn-primary"><i class="fa fa-plus"></i> @lang('button.create')</a>
+                    <a href="{{ route('video-categories.create') }}" class="pull-right btn btn-sm btn-primary"><i class="fa fa-plus"></i> @lang('button.create')</a>
                   </div>
 
                 </div>
                 <!--Card content-->
                 <div class="card-body">
-                    <!-- Table  -->
-                   <div class="table-responsive">
-                      <table id="myTable" class="table table-hover dt-responsive" cellspacing="`0" width="100%">
-                        <thead class="thead-dark">
-                          <th>Id</th>
-                          <th>Nombre</th>
-                          <th>Documento</th>
-                          <th>Estado</th>
-                          <th>Categoría</th>
-                          <th>Creado</th>
-                          <th style="width: 82px;">Acciones</th>
-                        </thead>
+
+                    <div class="table-responsive">
+                      <table id="myTable" class="table table-hover" cellspacing="`0" width="100%">
+                          <thead class="thead-dark">
+                          <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Creado</th>
+                            <th style="width: 81px;">Acciones</th>
+                          </tr>
+                          </thead>
                       </table>
-                   </div>
+                    </div>
 
                 </div>
 
@@ -64,7 +64,7 @@
 </div>
 
 <!--Modal: Delete Confirmation-->
-@include('admin.partials.modal-delete', ['title' => trans('admin/specialty.specialty'), 'description' => 'La '.trans('admin/specialty.specialty')])
+@include('admin.partials.modal-delete', ['title' => trans('admin/video_category.video_category'), 'description' => 'La '.trans('admin/video_category.video_category')])
 <!--Modal: Delete Confirmation-->
 
 @endsection
@@ -72,29 +72,29 @@
 @section('scripts')
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
-  <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" ></script>
-  <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js" ></script>
+
+  {{-- <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" ></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js" ></script> --}}
 
   <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   {{-- <script src="{{ asset('js/toastr.min.js') }}"></script> --}}
+
   <!-- page script -->
   <script>
   $(document).ready(function() {
-     let specialty_id = 0;
+     let video_category_id = 0;
 
      let table = $('#myTable').DataTable({
       "responsive": true,
       "order": [[ 0, "desc" ]],
         "processing": true,
         "serverSide": true,
-        "ajax": "specialties/data",
+        "ajax": "video-categories/data",
         "columns": [
           { "data": "id" },
           { "data": "name" },
-          { "data": "filename" },
-          { "data": "status" },
-          { "data": "specialty_area_id" },
+          { "data": "description" },
           { "data": "created_at" },
           { "data": 'btn'},
         ],
@@ -110,8 +110,8 @@
         }
       });
 
-      $('#myTable tbody').on( 'click', 'a.delete_specialty', function (e) {
-        specialty_id = $(this).attr('data-id');
+      $('#myTable tbody').on( 'click', 'a.delete_video_category', function (e) {
+        video_category_id = $(this).attr('data-id');
         let name = $(this).attr('data-name');
 
         $('#item-name').text(name);
@@ -119,7 +119,7 @@
       });
 
       $('#delete').click(function() {
-        let url = 'specialties/' + specialty_id;
+        let url = 'video-categories/' + video_category_id;
         axios.delete(url).then(response => { //deleting
           $('#modalDelete').modal('hide');
           table.ajax.reload();

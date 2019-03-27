@@ -38,8 +38,9 @@ class SpecialtyController extends Controller
     {
         $specialty_areas = SpecialtyArea::orderBy('name', 'ASC')->pluck('name', 'id');
         $tags = Tag::orderBy('name', 'ASC')->get();
+        $order = Specialty::max('order') + 1;
 
-        return view('admin.specialties.create', compact('specialty_areas', 'tags'));
+        return view('admin.specialties.create', compact('specialty_areas', 'tags', 'order'));
     }
 
     /**
@@ -61,8 +62,17 @@ class SpecialtyController extends Controller
 
         // var_dump($request->file('filename')); die();
         if($request->file('filename')){
-            $path_doc = Storage::disk('public')->put('doc/upload/specialties',  $request->file('filename'));
-            $specialty->fill(['filename' => asset($path_doc)]);
+            $file = Input::file('filename');
+
+            $file_name = $file->getClientOriginalName();
+            $file_path = 'doc/upload/specialties/';
+            $file->move($file_path, $file_name);
+
+            $specialty->filename = asset($file_path . $file_name);
+
+
+            // $path_doc = Storage::disk('public')->put('doc/upload/specialties',  $request->file('filename'));
+            // $specialty->fill(['filename' => asset($path_doc)]);
 
             // $file = Input::file('filename');
             // $filename = $file->getClientOriginalName();

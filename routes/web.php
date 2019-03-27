@@ -175,13 +175,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('managements', 'Admin\ManagementController');
 
     #Resource Categories
-    // Route::get('managements/data', 'Admin\ManagementController@data');
     Route::get('resource-categories/data', 'Admin\ResourceCategoryController@data');
     Route::resource('resource-categories', 'Admin\ResourceCategoryController');
 
     #Resources
     Route::get('resources/data', 'Admin\ResourceController@data');
     Route::resource('resources', 'Admin\ResourceController');
+
+    #Video Categories
+    Route::get('video-categories/data', 'Admin\VideoCategoryController@data');
+    Route::resource('video-categories', 'Admin\VideoCategoryController');
+
+    #Videos
+    Route::get('videos/data', 'Admin\VideoController@data');
+    Route::resource('videos', 'Admin\VideoController');
 
     //Roles
     Route::get('roles/data', 'Admin\RoleController@data');

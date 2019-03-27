@@ -13,7 +13,7 @@ class ResourcesTableSeeder extends Seeder
     {
         #Part 1
         App\Resource::create([
-            'user_id'       => 1,
+            'user_id'       => 30,
             'resource_category_id' => 1,
             'name'          => 'Parte I: Generales',
             'order'         => 1,
@@ -28,7 +28,7 @@ class ResourcesTableSeeder extends Seeder
 
         #Part 2
         App\Resource::create([
-            'user_id'       => 1,
+            'user_id'       => 30,
             'resource_category_id' => 1,
             'name'          => 'Parte II: Descubrimiento Espiritual',
             'order'         => 2,
@@ -43,7 +43,7 @@ class ResourcesTableSeeder extends Seeder
 
         #Part 3
         App\Resource::create([
-            'user_id'       => 1,
+            'user_id'       => 30,
             'resource_category_id' => 1,
             'name'          => 'Parte III: Sirviendo a los demas',
             'order'         => 3,
@@ -58,7 +58,7 @@ class ResourcesTableSeeder extends Seeder
 
         #Part 4
         App\Resource::create([
-            'user_id'       => 1,
+            'user_id'       => 30,
             'resource_category_id' => 1,
             'name'          => 'Parte IV: Desarrollo de la amistad',
             'order'         => 4,
@@ -73,7 +73,7 @@ class ResourcesTableSeeder extends Seeder
 
         #Part 5
         App\Resource::create([
-            'user_id'       => 1,
+            'user_id'       => 30,
             'resource_category_id' => 1,
             'name'          => 'Parte V: Salud y actitud Física',
             'order'         => 5,
@@ -88,7 +88,7 @@ class ResourcesTableSeeder extends Seeder
 
         #Part 6
         App\Resource::create([
-            'user_id'       => 1,
+            'user_id'       => 30,
             'resource_category_id' => 1,
             'name'          => 'Parte VI: Organización y Liderazgo',
             'order'         => 6,
@@ -103,7 +103,7 @@ class ResourcesTableSeeder extends Seeder
 
         #Part 7
         App\Resource::create([
-            'user_id'       => 1,
+            'user_id'       => 30,
             'resource_category_id' => 1,
             'name'          => 'Parte VII: Estudio de la Naturaleza',
             'order'         => 7,
@@ -118,7 +118,7 @@ class ResourcesTableSeeder extends Seeder
 
         #Part 8
         App\Resource::create([
-            'user_id'       => 1,
+            'user_id'       => 30,
             'resource_category_id' => 1,
             'name'          => 'Parte VIII: Arte de Acampar',
             'order'         => 8,
@@ -134,7 +134,7 @@ class ResourcesTableSeeder extends Seeder
         #-------------------- Secretarial forms --------------------
         #1
         App\Resource::create([
-            'user_id'       => 1,
+            'user_id'       => 30,
             'resource_category_id' => 2,
             'name'          => 'C01 Ficha de Registro del Club',
             'order'         => 9,
@@ -149,7 +149,7 @@ class ResourcesTableSeeder extends Seeder
 
         #2
         App\Resource::create([
-            'user_id'       => 1,
+            'user_id'       => 30,
             'resource_category_id' => 2,
             'name'          => 'C02 Solicitud de Cobertura de Seguro',
             'order'         => 10,
@@ -165,7 +165,7 @@ class ResourcesTableSeeder extends Seeder
         #-------------------- Specialties Pathfinders --------------------
         #1
         App\Resource::create([
-            'user_id'       => 1,
+            'user_id'       => 30,
             'resource_category_id' => 3,
             'name'          => 'Números, letras y posiciones básicas, Especialidad de Código Semáforo',
             'order'         => 11,
@@ -180,7 +180,7 @@ class ResourcesTableSeeder extends Seeder
 
         #2
         App\Resource::create([
-            'user_id'       => 1,
+            'user_id'       => 30,
             'resource_category_id' => 3,
             'name'          => 'Evaluación básica para conquistadores, Especialidad de Código Semáforo',
             'order'         => 12,

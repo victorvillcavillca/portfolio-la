@@ -23,6 +23,9 @@
                     <p><strong>Slug</strong> {{ $specialty->slug }}</p>
                     <p><strong>Descripción</strong> {{ $specialty->description }}</p>
                     <p><strong>body</strong> {{ $specialty->body }}</p>
+                    <p><strong>Creado</strong> {{ $specialty->created_at }}</p>
+                    <hr>
+                    <a href="{{ route('specialties.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-sign-out"></i> @lang('button.exit')</a>
                 </div>
 
             </div>

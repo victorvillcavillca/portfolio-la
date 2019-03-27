@@ -14,7 +14,7 @@ class SpecialtiesTableSeeder extends Seeder
     {
     	#1
     	Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 5,
 	        'name' 			=> 'Código Semáforo',
 	        'description'   => 'AP 046 - Especialidad de Código Semáforo, perteneciente al Área de Actividades Profesionales.',
@@ -28,7 +28,7 @@ class SpecialtiesTableSeeder extends Seeder
 
 		#2
         Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Perros',
 	        'description' 	=> 'EN 034 - Especialidad de Perros, perteneciente al Área de Estudio de la Naturaleza.',
@@ -42,7 +42,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #3
         Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Campamento I',
 	        'description' 	=> 'AR 050 - Especialidad de Campamento I, perteneciente al Área de Estudio de la Naturaleza.',
@@ -56,7 +56,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #4
         Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Campamento II',
 	        'description' 	=> 'AR 051 - Especialidad de Campamento II, perteneciente al Área de Estudio de la Naturaleza.',
@@ -70,7 +70,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #5
         Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Campamento III',
 	        'description' 	=> 'AR 052 - Especialidad de Campamento III, perteneciente al Área de Estudio de la Naturaleza.',
@@ -84,7 +84,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #6
         Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 4,
 	        'name' 			=> 'Escatología',
 	        'description' 	=> 'AM 038 - Especialidad de Escatología, perteneciente al Área de Actividades misioneras y comunitarias.',
@@ -98,7 +98,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #7
         Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Cometas',
 	        'description' 	=> 'AR 059 - Especialidad de Cometas, perteneciente al Área de Actividades recreativas.',
@@ -112,7 +112,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #8
         Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Nudos y amarras',
 	        'description' 	=> 'AR 040 - Especialidad de Nudos y amarras, perteneciente al Área de Actividades recreativas.',
@@ -126,7 +126,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #9
         Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 3,
 	        'name' 			=> 'Ganadería',
 	        'description' 	=> 'AA 014 - Especialidad de Ganadería, perteneciente al Área de Actividades agrícolas.',
@@ -140,7 +140,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #10
         Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 4,
 	        'name' 			=> 'Civismo cristiano',
 	        'description' 	=> 'AM 006 - Especialidad de Civismo cristiano, perteneciente al Área de Actividades misioneras y comunitarias.',
@@ -154,7 +154,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #11
         Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 4,
 	        'name' 			=> 'Testificación menores',
 	        'description' 	=> 'AM 010 - Especialidad de Testificación menores, perteneciente al Área de Actividades misioneras y comunitarias.',
@@ -168,7 +168,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #12
         Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 4,
 	        'name' 			=> 'Modales cristianos',
 	        'description' 	=> 'AM 011 - Especialidad de Modales cristianos, perteneciente al Área de Actividades misioneras y comunitarias.',
@@ -182,7 +182,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #13
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 4,
 	        'name' 			=> 'Vida familiar',
 	        'description' 	=> 'AM 012 - Especialidad de Vida familiar, perteneciente al Área de Actividades misioneras y comunitarias.',
@@ -196,7 +196,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #14
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 4,
 	        'name' 			=> 'Temperancia',
 	        'description' 	=> 'AM 013 - Especialidad de Temperancia, perteneciente al Área de Actividades misioneras y comunitarias.',
@@ -210,7 +210,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #15
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 4,
 	        'name' 			=> 'Mayordomía',
 	        'description' 	=> 'AM 015 - Especialidad de Mayordomía, perteneciente al Área de Actividades misioneras y comunitarias.',
@@ -224,7 +224,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #16
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 4,
 	        'name' 			=> 'Aventurero para cristo',
 	        'description' 	=> 'AM 016 - Especialidad de Aventurero para cristo, perteneciente al Área de Actividades misioneras y comunitarias.',
@@ -238,7 +238,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #17
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 4,
 	        'name' 			=> 'Aventurero para cristo avanzado',
 	        'description' 	=> 'AM 017 - Especialidad de Aventurero para cristo avanzado, perteneciente al Área de Actividades misioneras y comunitarias.',
@@ -252,7 +252,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #18
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 4,
 	        'name' 			=> 'Marcado de Biblia',
 	        'description' 	=> 'AM 019 - Especialidad de Marcado de Biblia, perteneciente al Área de Actividades misioneras y comunitarias.',
@@ -266,7 +266,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #19
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 4,
 	        'name' 			=> 'Pacificador',
 	        'description' 	=> 'AM 027 - Especialidad de Pacificador, perteneciente al Área de Actividades misioneras y comunitarias.',
@@ -280,7 +280,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #20
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 4,
 	        'name' 			=> 'Patriotismo',
 	        'description' 	=> 'AM 044 - Especialidad de Patriotismo, perteneciente al Área de Actividades misioneras y comunitarias.',
@@ -294,7 +294,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #21
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 5,
 	        'name' 			=> 'Computación I-Básico',
 	        'description' 	=> 'AP 041 - Especialidad de Computación I-Básico, perteneciente al Área de Actividades profesionales.',
@@ -308,7 +308,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #22
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Educación Física',
 	        'description' 	=> 'AR 002 - Especialidad de Educación Física, perteneciente al Área de Actividades recreativas.',
@@ -322,7 +322,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #23
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Natación principiante I',
 	        'description' 	=> 'AR 003 - Especialidad de Natación principiante I, perteneciente al Área de Actividades recreativas.',
@@ -336,7 +336,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #24
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Natación principiante II',
 	        'description' 	=> 'AR 004 - Especialidad de Natación principiante II, perteneciente al Área de Actividades recreativas.',
@@ -350,7 +350,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #25
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Fogatas y cocina al aire libre',
 	        'description' 	=> 'AR 020 - Especialidad de Fogatas y cocina al aire libre, perteneciente al Área de Actividades recreativas.',
@@ -364,7 +364,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #26
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Orientación',
 	        'description' 	=> 'AR 021 - Especialidad de Orientación, perteneciente al Área de Actividades recreativas.',
@@ -378,7 +378,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #27
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Pionerismo',
 	        'description' 	=> 'AR 022 - Especialidad de Pionerismo, perteneciente al Área de Actividades recreativas.',
@@ -392,7 +392,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #28
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Vida Silvestre',
 	        'description' 	=> 'AR 024 - Especialidad de Vida Silvestre, perteneciente al Área de Actividades recreativas.',
@@ -406,7 +406,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #29
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Orden Cerrado',
 	        'description' 	=> 'AR 047 - Especialidad de Orden Cerrado, perteneciente al Área de Actividades recreativas.',
@@ -420,7 +420,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #30
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Orden Cerrado Avanzado',
 	        'description' 	=> 'AR 048 - Especialidad de Orden Cerrado Avanzado, perteneciente al Área de Actividades recreativas.',
@@ -434,7 +434,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #31
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Atletismo',
 	        'description' 	=> 'AR 049 - Especialidad de Atletismo, perteneciente al Área de Actividades recreativas.',
@@ -448,7 +448,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #32
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Caminata con mochila',
 	        'description' 	=> 'AR 056 - Especialidad de Caminata con mochila, perteneciente al Área de Actividades recreativas.',
@@ -462,7 +462,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #33
 		Specialty::create([
-        	'user_id' 		=> 1,
+        	'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Liderazgo al aire libre',
 	        'description' 	=> 'AR 057 - Especialidad de Liderazgo al aire libre, perteneciente al Área de Actividades recreativas.',
@@ -476,7 +476,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #34
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Futbol',
 	        'description' 	=> 'AR 065 - Especialidad de Futbol, perteneciente al Área de Actividades recreativas.',
@@ -490,7 +490,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #35
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Seguridad Básica en el agua',
 	        'description' 	=> 'AR 090 - Especialidad de Seguridad Básica en el agua, perteneciente al Área de Actividades recreativas.',
@@ -504,7 +504,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #36
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 6,
 	        'name' 			=> 'Construcciones Rusticas',
 	        'description' 	=> 'AR 101 - Especialidad de Construcciones Rusticas, perteneciente al Área de Actividades recreativas.',
@@ -518,7 +518,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #37
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 7,
 	        'name' 			=> 'Primeros Auxilios Básico',
 	        'description' 	=> 'CS 003 - Especialidad de Primeros Auxilios Básico, perteneciente al Área de Actividades recreativas.',
@@ -532,7 +532,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #38
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 7,
 	        'name' 			=> 'Nutrición',
 	        'description' 	=> 'CS 008 - Especialidad de Nutrición, perteneciente al Área de Actividades recreativas.',
@@ -546,7 +546,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #39
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 7,
 	        'name' 			=> 'Rescate básico',
 	        'description' 	=> 'CS 012 - Especialidad de Rescate básico, perteneciente al Área de Actividades recreativas.',
@@ -560,7 +560,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #40
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 7,
 	        'name' 			=> 'Higiene Oral',
 	        'description' 	=> 'CS 023 - Especialidad de Higiene Oral, perteneciente al Área de Actividades recreativas.',
@@ -574,7 +574,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #41
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Astronomía',
 	        'description' 	=> 'EN 002 - Especialidad de Astronomía, perteneciente al Área de Estudio de la Naturaleza.',
@@ -588,7 +588,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #42
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Aves',
 	        'description' 	=> 'EN 003 - Especialidad de Aves, perteneciente al Área de Estudio de la Naturaleza.',
@@ -602,7 +602,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #43
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Aves Domesticas',
 	        'description' 	=> 'EN 004 - Especialidad de Aves Domesticas, perteneciente al Área de Estudio de la Naturaleza.',
@@ -616,7 +616,7 @@ class SpecialtiesTableSeeder extends Seeder
 
        	#44
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Flores',
 	        'description' 	=> 'EN 005 - Especialidad de Flores, perteneciente al Área de Estudio de la Naturaleza.',
@@ -630,7 +630,7 @@ class SpecialtiesTableSeeder extends Seeder
 
        	#45
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Arboles',
 	        'description' 	=> 'EN 006 - Especialidad de Arboles, perteneciente al Área de Estudio de la Naturaleza.',
@@ -644,7 +644,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #46
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Mamíferos',
 	        'description' 	=> 'EN 010 - Especialidad de Mamíferos, perteneciente al Área de Estudio de la Naturaleza.',
@@ -658,7 +658,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #47
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Reptiles',
 	        'description' 	=> 'EN 011 - Especialidad de Reptiles, perteneciente al Área de Estudio de la Naturaleza.',
@@ -672,7 +672,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #48
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Moluscos',
 	        'description' 	=> 'EN 014 - Especialidad de Moluscos, perteneciente al Área de Estudio de la Naturaleza.',
@@ -686,7 +686,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #49
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Cactus',
 	        'description' 	=> 'EN 015 - Especialidad de Cactus, perteneciente al Área de Estudio de la Naturaleza.',
@@ -700,7 +700,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #50
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Climatología',
 	        'description' 	=> 'EN 016 - Especialidad de Climatología, perteneciente al Área de Estudio de la Naturaleza.',
@@ -714,7 +714,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #51
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Arbustos',
 	        'description' 	=> 'EN 019 - Especialidad de Arbustos, perteneciente al Área de Estudio de la Naturaleza.',
@@ -728,7 +728,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #52
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Anfibios',
 	        'description' 	=> 'EN 023 - Especialidad de Anfibios, perteneciente al Área de Estudio de la Naturaleza.',
@@ -742,7 +742,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #53
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Felinos',
 	        'description' 	=> 'EN 024 - Especialidad de Felinos, perteneciente al Área de Estudio de la Naturaleza.',
@@ -756,7 +756,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #54
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Semillas',
 	        'description' 	=> 'EN 040 - Especialidad de Semillas, perteneciente al Área de Estudio de la Naturaleza.',
@@ -770,7 +770,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #55
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Ecología',
 	        'description' 	=> 'EN 044 - Especialidad de Ecología, perteneciente al Área de Estudio de la Naturaleza.',
@@ -784,7 +784,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #56
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Conservación Ambiental',
 	        'description' 	=> 'EN 046 - Especialidad de Conservación Ambiental, perteneciente al Área de Estudio de la Naturaleza.',
@@ -798,7 +798,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #57
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Rastreo de animales',
 	        'description' 	=> 'EN 050 - Especialidad de Rastreo de animales, perteneciente al Área de Estudio de la Naturaleza.',
@@ -812,7 +812,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #58
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 8,
 	        'name' 			=> 'Animales en peligro de extinción',
 	        'description' 	=> 'EN 058 - Especialidad de Animales en peligro de extinción, perteneciente al Área de Estudio de la Naturaleza.',
@@ -826,7 +826,7 @@ class SpecialtiesTableSeeder extends Seeder
 
         #59
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 9,
 	        'name' 			=> 'Costura Básica',
 	        'description' 	=> 'HD 009 - Especialidad de Costura Básica, perteneciente al Área de Habilidades Domesticas.',
@@ -840,7 +840,7 @@ class SpecialtiesTableSeeder extends Seeder
 
 		#60
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 9,
 	        'name' 			=> 'Dibujo y pintura',
 	        'description' 	=> 'HD 003 - Especialidad de Dibujo y pintura, perteneciente al Área de Habilidades Domesticas.',
@@ -854,7 +854,7 @@ class SpecialtiesTableSeeder extends Seeder
 
 		#61
 		Specialty::create([
-			'user_id' 		=> 1,
+			'user_id' 		=> 30,
 	        'specialty_area_id' => 9,
 	        'name' 			=> 'Fabricación de velas',
 	        'description' 	=> 'HD 046 - Especialidad de Fabricación de velas, perteneciente al Área de Habilidades Domesticas.',

@@ -4,17 +4,29 @@
 	{{ Form::label('specialty_area_id', 'Áreas de Especialidades', ['class' => 'font-weight-bold']) }}
 	{{ Form::select('specialty_area_id', $specialty_areas, null, ['class' => 'form-control']) }}
 </div>
+
 <div class="form-group">
     {{ Form::label('name', 'Nombre', ['class' => 'font-weight-bold']) }}
-    {{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
+    @if ($errors->has('name'))
+    {{ Form::text('name', null, ['class' => "form-control is-invalid",'id' => 'name']) }}
+    @else
+    {{ Form::text('name', null, ['class' => "form-control",'id' => 'name']) }}
+    @endif
+
+    @if ($errors->has('name'))
+    <span class="invalid-feedback">
+        {{ $errors->first('name') }}
+    </span>
+    @endif
 </div>
+
 <div class="form-group">
     {{ Form::label('slug', 'URL amigable', ['class' => 'font-weight-bold']) }}
-    {{ Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug']) }}
+    {{ Form::text('slug', null, ['class' => 'form-control-plaintext', 'id' => 'slug', 'readonly']) }}
 </div>
 <div class="form-group">
     {{ Form::label('order', 'Orden', ['class' => 'font-weight-bold']) }}
-    {{ Form::number('order', null, ['class' => 'form-control', 'id' => 'order']) }}
+    {{ Form::text('order', $order, ['class' => 'form-control-plaintext', 'id' => 'order', 'readonly']) }}
 </div>
 <div class="form-group">
     {{ Form::label('description', 'Descripción', ['class' => 'font-weight-bold']) }}
@@ -24,33 +36,36 @@
     {{ Form::label('image', 'Imagen', ['class' => 'font-weight-bold']) }}
     {{ Form::file('image') }}
 </div>
+
 <div class="form-group">
-	{{ Form::label('slug', 'Estado', ['class' => 'font-weight-bold']) }}
+	{{ Form::label('status', 'Estado', ['class' => 'font-weight-bold']) }}
 	<label>
 		{{ Form::radio('status', 'PUBLISHED') }} Publicado
 	</label>
 	<label>
 		{{ Form::radio('status', 'DRAFT') }} Borrador
 	</label>
+
+	@if ($errors->has('status'))
+    <div class="help-blok text-danger" style="font-size: 80%;">
+    	{{ $errors->first('status') }}
+  	</div>
+	@endif
 </div>
-{{-- <div class="form-group">
-	{{ Form::label('tags', 'Etiquetas') }}
-	<div>
-	@foreach($tags as $tag)
-		<label>
-			{{ Form::checkbox('tags[]', $tag->id) }} {{ $tag->name }}
-		</label>
-	@endforeach
-	</div>
-</div> --}}
+
 <div class="form-group">
     {{ Form::label('filename', 'Documento', ['class' => 'font-weight-bold']) }}
     {{ Form::file('filename') }}
+{{-- doc,pdf,docx,zip --}}
+    <div class="help-blok text-danger" style="font-size: 80%;"><strong>Sólo se aceptarán formatos doc, docx, xls, xlsx, pdf, ppt, pptx, jpg, jpeg e zip</strong> (Seleccione un archivo de hasta 2 MB ..)
+    </div>
+
+    @if ($errors->has('filename'))
+    <div class="help-blok text-danger" style="font-size: 80%;">
+    	{{ $errors->first('filename') }}
+  	</div>
+	@endif
 </div>
-{{-- <div class="form-group">
-    {{ Form::label('body', 'Descripción') }}
-    {{ Form::textarea('body', null, ['class' => 'form-control']) }}
-</div> --}}
 <hr>
 <div class="form-group">
     <a href="{{ route('specialties.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-times"></i> @lang('button.cancel')</a>

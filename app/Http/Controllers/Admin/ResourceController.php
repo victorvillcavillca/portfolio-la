@@ -55,7 +55,6 @@ class ResourceController extends Controller
 
         //IMAGE
         if($request->file('image')) {
-            die('pepe');
             $path = Storage::disk('public')->put('image/upload/resources',  $request->file('image'));
             $resource->fill(['file' => asset($path), 'imagename' => asset($path)]);
         }

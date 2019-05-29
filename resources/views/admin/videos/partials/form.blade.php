@@ -1,8 +1,8 @@
 {{ Form::hidden('user_id', auth()->user()->id) }}
 
 <div class="form-group">
-	{{ Form::label('resource_category_id', 'Recursos Categorías', ['class' => 'font-weight-bold']) }}
-	{{ Form::select('resource_category_id', $resource_categories, NULL, ['class' => 'form-control']) }}
+	{{ Form::label('video_category_id', 'Videos Categorías', ['class' => 'font-weight-bold']) }}
+	{{ Form::select('video_category_id', $video_categories, NULL, ['class' => 'form-control']) }}
 </div>
 <div class="form-group">
     {{ Form::label('name', 'Nombre', ['class' => 'font-weight-bold']) }}
@@ -18,6 +18,7 @@
   	</span>
 	@endif
 </div>
+
 <div class="form-group">
     {{ Form::label('slug', 'URL amigable', ['class' => 'font-weight-bold']) }}
     @if ($errors->has('slug'))
@@ -32,6 +33,22 @@
   	</span>
 	@endif
 </div>
+
+<div class="form-group">
+    {{ Form::label('url', 'URL', ['class' => 'font-weight-bold']) }}
+    @if ($errors->has('url'))
+    {{ Form::text('url', NULL, ['class' => "form-control is-invalid",'id' => 'url']) }}
+    @else
+    {{ Form::text('url', NULL, ['class' => "form-control",'id' => 'url']) }}
+    @endif
+
+	@if ($errors->has('url'))
+    <span class="invalid-feedback">
+    	{{ $errors->first('url') }}
+  	</span>
+	@endif
+</div>
+
 <div class="form-group">
     {{ Form::label('order', 'Orden', ['class' => 'font-weight-bold']) }}
     @if ($errors->has('order'))
@@ -51,16 +68,6 @@
     {{ Form::textarea('description', NULL, ['class' => 'form-control', 'rows' => '2']) }}
 </div>
 <div class="form-group">
-    {{ Form::label('image', 'Imagen', ['class' => 'font-weight-bold']) }}
-    {{ Form::file('image') }}
-
-    {{-- @if ($errors->has('image'))
-    <div class="help-blok text-danger" style="font-size: 80%;">
-    	{{ $errors->first('image') }}
-  	</div>
-	@endif --}}
-</div>
-<div class="form-group">
 	{{ Form::label('slug', 'Estado', ['class' => 'font-weight-bold']) }}
 	<label>
 		{{ Form::radio('status', 'PUBLISHED') }} Publicado
@@ -76,22 +83,9 @@
 	@endif
 </div>
 
-<div class="form-group">
-    {{ Form::label('filename', 'Documento', ['class' => 'font-weight-bold']) }}
-    {{ Form::file('filename') }}
-{{-- doc,pdf,docx,zip --}}
-    <div class="help-blok text-danger" style="font-size: 80%;"><strong>Sólo se aceptarán formatos doc, docx, xls, xlsx, pdf, ppt, pptx, jpg, jpeg e zip</strong> (Seleccione un archivo de hasta 2 MB ..)
-    </div>
-
-    @if ($errors->has('filename'))
-    <div class="help-blok text-danger" style="font-size: 80%;">
-    	{{ $errors->first('filename') }}
-  	</div>
-	@endif
-</div>
 <hr>
 <div class="form-group">
-    <a href="{{ route('resources.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-times"></i> @lang('button.cancel')</a>
+    <a href="{{ route('videos.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-times"></i> @lang('button.cancel')</a>
 
     <button type="submit"  class="pull-right btn btn-sm btn-primary"><i class="fa fa-save"></i> @lang('button.save')</button>
 </div>

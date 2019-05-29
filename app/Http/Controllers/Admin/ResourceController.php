@@ -36,7 +36,8 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        $order = Resource::max('order');
+        $order = Resource::max('order') + 1;
+
         $resource_categories = ResourceCategory::orderBy('name', 'ASC')->pluck('name', 'id');
 
         return view('admin.resources.create', compact('resource_categories','order'));
@@ -70,10 +71,7 @@ class ResourceController extends Controller
         }
 
         $resource->save();
-        //TAGS
-        // $resource->tags()->attach($request->get('tags'));
 
-        // return redirect()->route('resources.edit', $resource->id)->with('info', 'Especialidad creada con éxito');
         return redirect()->route('resources.index')->with('info', 'Recurso creada con éxito');
     }
 
@@ -97,7 +95,6 @@ class ResourceController extends Controller
     public function edit(Resource $resource)
     {
         $resource_categories = ResourceCategory::orderBy('name', 'ASC')->pluck('name', 'id');
-        // $tags = Tag::orderBy('name', 'ASC')->get();
 
         return view('admin.resources.edit', compact('resource_categories','resource'));
     }
@@ -129,8 +126,6 @@ class ResourceController extends Controller
         }
 
         $resource->save();
-        //TAGS
-        // $resource->tags()->sync($request->get('tags'));
 
         return redirect()->route('resources.index')->with('info', 'Recurso actualizado con éxito');
     }
@@ -151,7 +146,7 @@ class ResourceController extends Controller
     }
 
     /**
-     * Show a list of all the Expenses resources formatted for Datatables.
+     * Show a list of all the resources formatted for Datatables.
      *
      * @return Datatables JSON
      */

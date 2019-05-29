@@ -51,6 +51,11 @@ Route::get('/resources', 'Web\PageController@resources')->name('resources');
 Route::get('/resource/{slug}', 'Web\PageController@resource')->name('resource');
 Route::get('/resource-category/{slug}', 'Web\PageController@resourceCategory')->name('resource-category');
 
+#Video
+Route::get('/videos', 'Web\PageController@videos')->name('videos');
+Route::get('/video/{slug}', 'Web\PageController@video')->name('video');
+Route::get('/video-category/{slug}', 'Web\PageController@videoCategory')->name('video-category');
+
 #Resource
 Route::get('/matters', 'Web\MatterController@index')->name('matters');
 Route::get('/matter/{slug}', 'Web\MatterController@matter')->name('matter');

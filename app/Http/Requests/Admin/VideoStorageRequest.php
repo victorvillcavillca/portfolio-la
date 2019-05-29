@@ -13,7 +13,7 @@ class VideoStorageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,20 @@ class VideoStorageRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        $rules = [
+            'name'          => 'required',
+            'slug'          => 'required|unique:resources,slug',
+            'order'         => 'required',
+            'url'         => 'required',
+            'user_id'       => 'required|integer',
+            'video_category_id' => 'required|integer',
+            'status'        => 'required|in:DRAFT,PUBLISHED',
+            // 'file'      => 'required',
         ];
+
+        // if($this->get('file'))
+        //     $rules = array_merge($rules, ['file' => 'required|file|size:20480|mimes:zip']);
+
+        return $rules;
     }
 }

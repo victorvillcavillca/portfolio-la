@@ -13,7 +13,7 @@ class VideoUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,20 @@ class VideoUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        $rules = [
+            'name'          => 'required',
+            // 'slug'          => 'required|unique:resources,slug,' . $this->resource,
+            'order'          => 'required',
+            'url'          => 'required',
+            'user_id'       => 'required|integer',
+            'video_category_id'   => 'required|integer',
+            'status'        => 'required|in:DRAFT,PUBLISHED',
         ];
+
+
+        if($this->get('filename'))
+            $rules = array_merge($rules, ['filename' => 'mimes:zip']);
+
+        return $rules;
     }
 }

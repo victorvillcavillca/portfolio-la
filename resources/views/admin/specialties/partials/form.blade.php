@@ -2,15 +2,15 @@
 
 <div class="form-group">
 	{{ Form::label('specialty_area_id', 'Áreas de Especialidades', ['class' => 'font-weight-bold']) }}
-	{{ Form::select('specialty_area_id', $specialty_areas, null, ['class' => 'form-control']) }}
+	{{ Form::select('specialty_area_id', $specialty_areas, NULL, ['class' => 'form-control']) }}
 </div>
 
 <div class="form-group">
     {{ Form::label('name', 'Nombre', ['class' => 'font-weight-bold']) }}
     @if ($errors->has('name'))
-    {{ Form::text('name', null, ['class' => "form-control is-invalid",'id' => 'name']) }}
+    {{ Form::text('name', NULL, ['class' => "form-control is-invalid",'id' => 'name']) }}
     @else
-    {{ Form::text('name', null, ['class' => "form-control",'id' => 'name']) }}
+    {{ Form::text('name', NULL, ['class' => "form-control",'id' => 'name']) }}
     @endif
 
     @if ($errors->has('name'))
@@ -22,15 +22,15 @@
 
 <div class="form-group">
     {{ Form::label('slug', 'URL amigable', ['class' => 'font-weight-bold']) }}
-    {{ Form::text('slug', null, ['class' => 'form-control-plaintext', 'id' => 'slug', 'readonly']) }}
+    {{ Form::text('slug', NULL, ['class' => 'form-control-plaintext', 'id' => 'slug', 'readonly']) }}
 </div>
 <div class="form-group">
     {{ Form::label('order', 'Orden', ['class' => 'font-weight-bold']) }}
-    {{ Form::text('order', $order, ['class' => 'form-control-plaintext', 'id' => 'order', 'readonly']) }}
+    {{ Form::text('order', isset($order)? $order: NULL, ['class' => 'form-control-plaintext', 'id' => 'order', 'readonly']) }}
 </div>
 <div class="form-group">
     {{ Form::label('description', 'Descripción', ['class' => 'font-weight-bold']) }}
-    {{ Form::textarea('description', null, ['class' => 'form-control', 'rows' => '2']) }}
+    {{ Form::textarea('description', NULL, ['class' => 'form-control', 'rows' => '2']) }}
 </div>
 <div class="form-group">
     {{ Form::label('image', 'Imagen', ['class' => 'font-weight-bold']) }}

@@ -25,7 +25,6 @@ class SpecialtyController extends Controller
      */
     public function index()
     {
-        // $specialties = Specialty::paginate();
         return view('admin.specialties.index');
     }
 
@@ -37,10 +36,9 @@ class SpecialtyController extends Controller
     public function create()
     {
         $specialty_areas = SpecialtyArea::orderBy('name', 'ASC')->pluck('name', 'id');
-        $tags = Tag::orderBy('name', 'ASC')->get();
         $order = Specialty::max('order') + 1;
 
-        return view('admin.specialties.create', compact('specialty_areas', 'tags', 'order'));
+        return view('admin.specialties.create', compact('specialty_areas', 'order'));
     }
 
     /**
@@ -60,7 +58,7 @@ class SpecialtyController extends Controller
             $specialty->fill(['file' => asset($path)]);
         }
 
-        // var_dump($request->file('filename')); die();
+        //DOC
         if($request->file('filename')){
             $file = Input::file('filename');
 
@@ -69,7 +67,6 @@ class SpecialtyController extends Controller
             $file->move($file_path, $file_name);
 
             $specialty->filename = asset($file_path . $file_name);
-
 
             // $path_doc = Storage::disk('public')->put('doc/upload/specialties',  $request->file('filename'));
             // $specialty->fill(['filename' => asset($path_doc)]);
@@ -81,10 +78,7 @@ class SpecialtyController extends Controller
         }
 
         $specialty->save();
-        //TAGS
-        // $specialty->tags()->attach($request->get('tags'));
 
-        // return redirect()->route('specialties.edit', $specialty->id)->with('info', 'Especialidad creada con éxito');
         return redirect()->route('specialties.index')->with('info', 'Especialidad creada con éxito');
     }
 
@@ -143,8 +137,6 @@ class SpecialtyController extends Controller
         }
 
         $specialty->save();
-        //TAGS
-        // $specialty->tags()->sync($request->get('tags'));
 
         return redirect()->route('specialties.index')->with('info', 'Especialidad actualizada con éxito');
     }

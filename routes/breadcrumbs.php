@@ -47,6 +47,18 @@ Breadcrumbs::for('resource-categories', function ($trail) {
     $trail->push('Categoría de recursos', route('resources'));
 });
 
+// Home > Blog > Videos
+Breadcrumbs::for('videos', function ($trail) {
+    $trail->parent('blog');
+    $trail->push('Videos', route('videos'));
+});
+
+// Home > Blog > videos > Category videos
+Breadcrumbs::for('video-categories', function ($trail) {
+    $trail->parent('videos');
+    $trail->push('Categoría de videos', route('videos'));
+});
+
 // Home > Blog > Matters
 Breadcrumbs::for('matters', function ($trail) {
     $trail->parent('blog');

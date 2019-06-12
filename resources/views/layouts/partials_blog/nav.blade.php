@@ -50,8 +50,11 @@
                 <li class="nav-item {{ request()->is('resources') || request()->is('resource-category/*')? 'active' : ''  }}">
                     <a class="nav-link waves-effect" href="{{ route('resources') }}">Recursos</a>
                 </li>
+                <li class="nav-item {{ request()->is('videos') || request()->is('video-category/*')? 'active' : ''  }}">
+                    <a class="nav-link waves-effect" href="{{ route('videos') }}">Videos</a>
+                </li>
 
-{{--                 <li class="nav-item {{ request()->is('matters') || request()->is('resource-category/*')? 'active' : ''  }}">
+{{--                 <li class="nav-item {{ request()->is('matters') || request()->is('video-category/*')? 'active' : ''  }}">
                     <a class="nav-link waves-effect" href="{{ route('matters') }}">Evaluaciones </a>
                 </li> --}}
 

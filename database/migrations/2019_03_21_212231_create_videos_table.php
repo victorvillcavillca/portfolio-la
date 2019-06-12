@@ -19,7 +19,8 @@ class CreateVideosTable extends Migration
             $table->string('name', 128);
             $table->string('slug', 128)->unique();
             $table->integer('order');
-            $table->string('url', 255)->nullable();
+            $table->string('url', 128)->nullable();;
+            $table->string('embed_code', 255)->nullable();
             $table->string('file', 128)->nullable();
             $table->mediumText('description')->nullable();
             $table->text('body')->nullable();

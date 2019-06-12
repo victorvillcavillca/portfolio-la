@@ -11,24 +11,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(PermissionsTableSeeder::class);
-		    $this->call(UsersTableSeeder::class);
-        $this->call(CategoriesTableSeeder::class);
-        $this->call(TagsTableSeeder::class);
-        $this->call(PostsTableSeeder::class);
-		    $this->call(SpecialtyAreasTableSeeder::class);
-        $this->call(SpecialtiesTableSeeder::class);
-        $this->call(ResourceCategoriesTableSeeder::class);
-        $this->call(ResourcesTableSeeder::class);
-        $this->call(ProductsTableSeeder::class);
-        $this->call(CommentsTableSeeder::class);
-        $this->call(ThoughtsTableSeeder::class);
-        $this->call(ManagementsTableSeeder::class);
-        // $this->call(EvaluationCategoriesTableSeeder::class);
-        $this->call(MattersTableSeeder::class);
-        $this->call(EvaluationsTableSeeder::class);
-        $this->call(QuestionsTableSeeder::class);
-        $this->call(VideoCategoriesTableSeeder::class);
-        $this->call(VideosTableSeeder::class);
+  //       $this->call(PermissionsTableSeeder::class);
+		// $this->call(UsersTableSeeder::class);
+  //       $this->call(CategoriesTableSeeder::class);
+  //       $this->call(TagsTableSeeder::class);
+  //       $this->call(PostsTableSeeder::class);
+		// $this->call(SpecialtyAreasTableSeeder::class);
+  //       $this->call(SpecialtiesTableSeeder::class);
+  //       $this->call(ResourceCategoriesTableSeeder::class);
+  //       $this->call(ResourcesTableSeeder::class);
+  //       $this->call(ProductsTableSeeder::class);
+  //       $this->call(CommentsTableSeeder::class);
+  //       $this->call(ThoughtsTableSeeder::class);
+  //       $this->call(ManagementsTableSeeder::class);
+  //       // $this->call(EvaluationCategoriesTableSeeder::class);
+  //       $this->call(MattersTableSeeder::class);
+  //       $this->call(EvaluationsTableSeeder::class);
+  //       $this->call(QuestionsTableSeeder::class);
+  //       $this->call(VideoCategoriesTableSeeder::class);
+  //       $this->call(VideosTableSeeder::class);
+        $this->call(SpecialtySolvedsTableSeeder::class);
     }
 }

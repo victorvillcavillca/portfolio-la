@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Web;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Video;
+use App\VideoCategory;
 use App\Resource;
 use App\ResourceCategory;
 use App\Specialty;
@@ -132,5 +134,39 @@ class PageController extends Controller
 
         $name_bread = 'resource-categories';
         return view('web.resources', compact('resources','resource_categories','category_name','name_bread'));
+    }
+
+    /**
+     * Display a listing of the videos paginated.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function videos(Request $request) {
+        $name  = $request->get('name');
+
+        $videos = Video::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->name($name)->paginate(6);
+
+        $video_categories = VideoCategory::orderBy('id', 'DESC')->get();
+
+        $name_bread = 'videos';
+        return view('web.videos', compact('videos','video_categories','name_bread'));
+    }
+
+    /**
+     * Display the specified videos by Category.
+     *
+     * @param  String  $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function videoCategory($slug){
+        $videoCategory = VideoCategory::where('slug', $slug)->pluck('id')->first();
+        $category_name = VideoCategory::where('slug', $slug)->first()->name;
+
+        $videos = Video::where('video_category_id', $videoCategory)->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(6);
+
+        $video_categories = VideoCategory::orderBy('id', 'DESC')->get();
+
+        $name_bread = 'video-categories';
+        return view('web.videos', compact('videos','video_categories','category_name','name_bread'));
     }
 }

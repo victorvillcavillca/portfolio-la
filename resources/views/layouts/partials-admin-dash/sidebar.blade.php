@@ -100,11 +100,14 @@
         </li>
 
         <li><a href="#dropdownDropdown_specialty" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Conquistadores</a>
-          <ul id="dropdownDropdown_specialty" class="collapse list-unstyled {{ request()->is('admin/specialties') || request()->is('admin/specialties/*') || request()->is('admin/specialty-areas') || request()->is('admin/specialty-areas/*') || request()->is('admin/resources') || request()->is('admin/resources/*') || request()->is('admin/resource-categories') || request()->is('admin/resource-categories/*') || request()->is('admin/videos') || request()->is('admin/videos/*') || request()->is('admin/video-categories') || request()->is('admin/video-categories/*') ? 'show' : ''}}
+          <ul id="dropdownDropdown_specialty" class="collapse list-unstyled {{ request()->is('admin/specialties') || request()->is('admin/specialties/*') || request()->is('admin/specialty-solveds') || request()->is('admin/specialty-solveds/*') || request()->is('admin/specialty-areas') || request()->is('admin/specialty-areas/*') || request()->is('admin/resources') || request()->is('admin/resources/*') || request()->is('admin/resource-categories') || request()->is('admin/resource-categories/*') || request()->is('admin/videos') || request()->is('admin/videos/*') || request()->is('admin/video-categories') || request()->is('admin/video-categories/*') ? 'show' : ''}}
             ">
 
             <li class="{{ request()->is('admin/specialties') || request()->is('admin/specialties/*')? 'active' : ''}}"><a href="{{ route('specialties.index') }}">
             <i class="icon-interface-windows"></i>Especialidades</a></li>
+
+            <li class="{{ request()->is('admin/specialty-solveds') || request()->is('admin/specialty-solveds/*')? 'active' : ''}}"><a href="{{ route('specialty-solveds.index') }}">
+            <i class="icon-interface-windows"></i>Esp. Resueltas</a></li>
 
             <li class="{{ request()->is('admin/specialty-areas') || request()->is('admin/specialty-areas/*')? 'active' : ''}}"><a href="{{ route('specialty-areas.index') }}">
             <i class="icon-interface-windows"></i>Áreas Especialidades</a></li>

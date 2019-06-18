@@ -19,9 +19,11 @@
     <!-- Material Design Bootstrap -->
     {{-- <link href="{{ asset('vendor/mdb/css/mdb.min.css') }}" rel="stylesheet"> --}}
     <!-- Your custom styles (optional) -->
-    <link href="{{ asset('vendor/blog/css/style.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('vendor/blog/css/style.css') }}" rel="stylesheet"> --}}
 
-    <link rel="icon" href="{{ asset('image/logos/triangle.png') }}" type="image/x-icon">
+    {{-- <link rel="icon" href="{{ asset('image/logos/triangle.png') }}" type="image/x-icon"> --}}
+    <link rel="shortcut icon" href="{{ asset('image/logos/conquis-like/conquislike-logo.ico') }}">
+
     @yield('styles')
 </head>
 <body class="grey lighten-4">

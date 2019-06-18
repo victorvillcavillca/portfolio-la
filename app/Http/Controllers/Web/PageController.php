@@ -10,6 +10,7 @@ use App\VideoCategory;
 use App\Resource;
 use App\ResourceCategory;
 use App\Specialty;
+use App\SpecialtySolved;
 use App\SpecialtyArea;
 use App\Tag;
 use Illuminate\Http\Request;
@@ -71,6 +72,22 @@ class PageController extends Controller
     }
 
     /**
+     * Display a listing of the specialties solved paginated.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    // public function specialtiesSolved(Request $request) {
+    //     $name  = $request->get('name');
+
+    //     $specialties = SpecialtySolved::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->name($name)->paginate(6);
+
+    //     $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
+
+    //     $name_bread = 'specialties';
+    //     return view('web.specialties', compact('specialties','specialty_areas','name_bread'));
+    // }
+
+    /**
      * Display the specified specialties by Area.
      *
      * @param  String  $slug
@@ -88,6 +105,25 @@ class PageController extends Controller
         // return view('web.specialties', compact('specialties','specialty_areas','area_name','name_bread'));
 
         return view('web.specialties.index', compact('specialties','specialty_areas','area_name', 'name_bread'));
+    }
+
+    /**
+     * Display the specified specialties by Area.
+     *
+     * @param  String  $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function specialtySolvedArea($slug) {
+        $specialtyArea = SpecialtyArea::where('slug', $slug)->pluck('id')->first();
+        $area_name = SpecialtyArea::where('slug', $slug)->first()->name;
+
+        $specialties = SpecialtySolved::where('specialty_area_id', $specialtyArea)->orderBy('id', 'DESC')->where('status', 'PUBLISHED')->paginate(6);
+
+        $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
+
+        $name_bread = 'area-specialties';
+
+        return view('web.specialties-solved.index', compact('specialties','specialty_areas','area_name', 'name_bread'));
     }
 
     /**

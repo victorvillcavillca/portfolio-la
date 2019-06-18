@@ -46,6 +46,11 @@ Route::get('/specialties', 'Web\SpecialtyController@index')->name('specialties')
 Route::get('/specialty/{slug}', 'Web\PageController@specialty')->name('specialty');
 Route::get('/specialty-area/{slug}', 'Web\PageController@specialtyArea')->name('specialty-area');
 
+Route::get('/specialties-solved', 'Web\SpecialtySolvedController@index')->name('specialties-solved');
+Route::get('/specialtysolved-area/{slug}', 'Web\PageController@specialtySolvedArea')->name('specialtysolved-area');
+// Route::get('/specialty/{slug}', 'Web\PageController@specialty')->name('specialty');
+// Route::get('/specialty-area/{slug}', 'Web\PageController@specialtyArea')->name('specialty-area');
+
 #Resource
 Route::get('/resources', 'Web\PageController@resources')->name('resources');
 Route::get('/resource/{slug}', 'Web\PageController@resource')->name('resource');
@@ -113,6 +118,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     #Specialties
     Route::get('specialties/data', 'Admin\SpecialtyController@data');
     Route::resource('specialties', 'Admin\SpecialtyController');
+
+    #Specialty solves
+    Route::get('specialty-solveds/data', 'Admin\SpecialtySolvedController@data');
+    Route::resource('specialty-solveds', 'Admin\SpecialtySolvedController');
 
     #Scores
     Route::get('scores/data', 'Admin\ScoreController@data');

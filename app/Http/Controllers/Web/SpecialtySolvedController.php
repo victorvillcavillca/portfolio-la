@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Http\Controllers\Controller;
-use App\Specialty;
-use App\SpecialtyArea;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\SpecialtySolved;
+use App\SpecialtyArea;
 
-class SpecialtyController extends Controller
+class SpecialtySolvedController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +18,12 @@ class SpecialtyController extends Controller
     {
         $name  = $request->get('name');
 
-    	$specialties = Specialty::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->name($name)->paginate(6);
+        $specialties = SpecialtySolved::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->name($name)->paginate(6);
 
         $specialty_areas = SpecialtyArea::orderBy('id', 'DESC')->get();
 
         $name_bread = 'specialties';
-    	return view('web.specialties.index', compact('specialties','specialty_areas','name_bread'));
+        return view('web.specialties-solved.index', compact('specialties','specialty_areas','name_bread'));
     }
 
     /**

@@ -14,7 +14,7 @@
         <div class="card-body text-white text-center py-5 px-5 my-5">
             {{-- <img class="d-block w-100" src="https://filadelfiaiasd.interamerica.org/uploaded_assets/163479-conquistadores.gif?thumbnail=original&1448399922" alt="First slide"> --}}
 
-            <img src="{{ asset('image/logos/triangulo-conquis-24.png')}}" class="img-fluid" alt="Conquistadores" style="width: 150px;">
+            <img src="{{ asset('image/logos/conquis-like/conquislike-logo-2019-transp.png')}}" class="img-fluid" alt="Conquistadores" style="width: 170px;">
             <h1 class="mb-4">
                 <strong>Conquis Like</strong>
             </h1>

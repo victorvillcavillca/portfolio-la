@@ -1,4 +1,4 @@
-<footer class="page-footer text-center font-small blue wow fadeIn">
+<footer class="page-footer text-center font-small teal wow fadeIn">
 
 {{-- <footer class="page-footer font-small blue pt-4"> --}}
         <!--Call to action-->

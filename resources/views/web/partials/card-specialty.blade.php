@@ -23,7 +23,11 @@
                 <a href="#" class="btn btn-primary" target="_blank"><i class="fa fa-download"></i> Descargar</a>
                 <p>Para descargar. Necesitas iniciar sesión primero.<a class="btn btn-default btn-sm" href="{{ route('login') }}">Login</a></p>
             @else --}}
-                <a href="{{ $specialty->filename }}" class="btn btn-primary btn-sm" target="_blank"><i class="fa fa-download"></i> Descargar</a>
+                <a href="{{ $specialty->filename }}" class="btn btn-default btn-sm" target="_blank"><i class="fa fa-download"></i> Descargar</a>
+
+
+
+               {{--  <a href="{{ route('specialty', $specialty->slug) }}" target="_blank" class="btn btn-default btn-rounded btn-md waves-effect waves-light">Leer más<i class="fa fa-photo ml-2"></i></a> --}}
             {{-- @endguest --}}
         </div>
 

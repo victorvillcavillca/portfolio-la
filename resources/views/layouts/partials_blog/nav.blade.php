@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark blue scrolling-navbar">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark teal scrolling-navbar">
     {{-- navbar navbar-expand-lg navbar-dark default-color ie-nav --}}
     <div class="container">
 
@@ -34,6 +34,9 @@
                 @else
                 <li class="nav-item {{ (request()->is('home') || request()->is('home/*')) }}">
                     <a class="nav-link waves-effect" href="{{ route('home') }}">Inicio</a>
+                </li>
+                <li class="nav-item {{ request()->is('specialties-solved') || request()->is('specialty-area/*')? 'active' : ''  }}">
+                    <a class="nav-link waves-effect" href="{{ route('specialties-solved') }}">Esp. Resueltas</a>
                 </li>
                 @endguest
 

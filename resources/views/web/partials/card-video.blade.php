@@ -18,7 +18,7 @@
             <h5 class="card-title">{{ $video->name }}</h5>
             <!--Text-->
             <p class="card-text">{{ $video->description }}</p>
-            <a href="{{ $video->url }}" class="btn btn-primary btn-sm" target="_blank"><i class="fa fa-file"></i> ver en Youtube</a>
+            <a href="{{ $video->url }}" class="btn btn-default btn-sm" target="_blank"><i class="fa fa-file"></i> ver en Youtube</a>
         </div>
 
     </div>

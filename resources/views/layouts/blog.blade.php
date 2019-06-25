@@ -22,7 +22,7 @@
     {{-- <link href="{{ asset('vendor/blog/css/style.css') }}" rel="stylesheet"> --}}
 
     {{-- <link rel="icon" href="{{ asset('image/logos/triangle.png') }}" type="image/x-icon"> --}}
-    <link rel="shortcut icon" href="{{ asset('image/logos/conquis-like/conquislike-logo.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('image/logos/conquis-like/conquislike-logo-icon.ico') }}">
 
     @yield('styles')
 </head>

@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark teal scrolling-navbar">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark mdb-color darken-3 scrolling-navbar">
     {{-- navbar navbar-expand-lg navbar-dark default-color ie-nav --}}
     <div class="container">
 

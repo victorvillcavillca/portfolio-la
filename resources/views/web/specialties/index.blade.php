@@ -68,8 +68,8 @@
 
                 <!--Card-->
                 <div class="card mb-4 wow fadeIn">
-
-                    <div class="card-header teal lighten-0 white-text text-uppercase font-weight-bold text-center py-2">Especialidades por Áreas</div>
+                      {{-- darken-3 --}}
+                    <div class="card-header teal white-text text-uppercase font-weight-bold text-center py-2">Especialidades por Áreas</div>
                     <!--Card content-->
 
                     <div id="card-body">
